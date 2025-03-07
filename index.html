@@ -175,7 +175,7 @@
                                 <li><a href="roadmap.html">Roadmap</a></li>
                                 <li><a href="Team.html">Meet the team</a></li>
                                 <li><a href="blog.html">Blog</a></li>
-                                <li><a href="contact,html.html">Contact Us</a></li>
+                                <li><a href="contact.html">Contact Us</a></li>
                             </ul>
 
 
@@ -536,19 +536,100 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-12">
                         <div class="inner text-center mt--140">
+                            <!-- Animation Edited  -->
                             <h1 class="title display-one">Hire your co-team eg:
-                                <br> <span class="header-caption">
+                                <br> 
+                                <span class="header-caption">
                                     <span class="cd-headline rotate-1">
-                                        <span class="cd-words-wrapper" style="width: 221px;">
-                                            <b class="theme-gradient is-visible">Data Engineer </b>
-                                            <b class="theme-gradient is-hidden">Data Analyst</b>
+                                        <span class="cd-words-wrapper">
+                                            <b class="theme-gradient is-visible">Data Engineer</b>
+                                            <b class="theme-gradient data-align-right">Data Analyst</b>
                                         </span>
-                                </span>
+                                    </span>
                                 </span> within 72 hours!!!
                             </h1>
+                            
+                            <style>
+                                /* Main wrapper adjustments */
+                                .cd-words-wrapper {
+                                    display: inline-block;
+                                    position: relative;
+                                    min-width: 220px;
+                                    transform: none !important; /* Override any external transformation */
+                                }
+                            
+                                /* Ensure words are properly positioned */
+                                .cd-words-wrapper b {
+                                    position: absolute;
+                                    opacity: 0;
+                                    white-space: nowrap;
+                                    transition: opacity 0.1s ease-in-out, transform 0.1s ease-in-out;
+                                    transform-origin: center;
+                                }
+                            
+                                /* Active word appears with animation */
+                                .cd-words-wrapper b.is-visible {
+                                    opacity: 1;
+                                    position: relative;
+                                    transform: translateY(0);
+                                }
+                            
+                                /* Exiting word moves up */
+                                .cd-words-wrapper b.is-hidden {
+                                    opacity: 0;
+                                    transform: translateY(20px);
+                                }
+                            
+                                /* Ensure "Data Analyst" aligns properly */
+                                .data-align-right {
+                                    text-align: right;
+                                    display: inline-block;
+                                    position: absolute;
+                                    right: 0;
+                                    width: 100%;
+                                }
+                            
+                                /* Preventing unwanted flipping */
+                                h1, .header-caption, .cd-headline {
+                                    transform: none !important; /* Forcefully disable any rotation flips */
+                                    backface-visibility: hidden !important;
+                                }
+                            </style>
+                            
+                            <script>
+                                document.addEventListener("DOMContentLoaded", function () {
+                                    let wordsWrapper = document.querySelector(".cd-words-wrapper");
+                                    let words = wordsWrapper.querySelectorAll("b");
+                            
+                                    // Find max width dynamically based on text size
+                                    let maxWidth = Math.max(...Array.from(words).map(word => word.offsetWidth));
+                                    wordsWrapper.style.width = `${maxWidth}px`;
+                            
+                                    // Ensure "Data Analyst" aligns properly
+                                    let dataAnalyst = document.querySelector(".data-align-right");
+                                    dataAnalyst.style.width = `${maxWidth}px`;
+                            
+                                    // Rotating text animation (restoring normal rotation effect)
+                                    let index = 0;
+                                    setInterval(() => {
+                                        let current = words[index];
+                                        let next = words[(index + 1) % words.length];
+                            
+                                        current.classList.remove("is-visible");
+                                        current.classList.add("is-hidden");
+                            
+                                        next.classList.remove("is-hidden");
+                                        next.classList.add("is-visible");
+                            
+                                        index = (index + 1) % words.length;
+                                    }, 2000); // Switch every 2 seconds
+                                });
+                            </script>
+                            
+                            <!-- Animation Edited  -->                                                        
                             <p class="description">niogod is the new god for companies,<br> to hire the right co-team within 72 hours.</p>
                             <div class="form-group">
-                                <textarea name="text" id="slider-text-area" cols="30" rows="2" placeholder="Tell us your feedback,suggestion anonymously"></textarea>
+                                <textarea name="text" id="slider-text-area" cols="30" rows="2" placeholder="Tell us your feedback and suggestions anonymously"></textarea>
                                 <a class="btn-default @@btnClass" href="text-generator.html">Send Message</a>
                             </div>
                             <div class="inner-shape">
@@ -560,9 +641,7 @@
                         </div>
                     </div>
                     <div class="col-lg-11 col-xl-11 justify-content-center">
-                        <div class="slider-frame">
-                            <img class="slider-image-effect" src="images/bg-slider-main-image.png" alt="Banner Images">
-                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -579,7 +658,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="section-title rating-title text-center sal-animate" data-sal="slide-up" data-sal-duration="700" data-sal-delay="100">
-                            <p class="b1 mb--0 small-title">truest 800,000+ HIGHLY PRODUCTIVE Company</p>
+                            <p class="b1 mb--0 small-title">Trusted by 50+ companies...</p>
                         </div>
                     </div>
                 </div>
