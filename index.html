@@ -272,88 +272,13 @@
                                     <span class="cd-headline rotate-1">
                                         <span class="cd-words-wrapper">
                                             <b class="theme-gradient is-visible">Data Engineer</b>
-                                            <b class="theme-gradient data-align-right">Data Analyst</b>
+                                            <b class="theme-gradient data-align-right">Cloud Analyst</b>
                                         </span>
                                     </span>
                                 </span> within 72 hours!!!
                             </h1>
                             
-                            <style>
-                                /* Main wrapper adjustments */
-                                .cd-words-wrapper {
-                                    display: inline-block;
-                                    position: relative;
-                                    min-width: 220px;
-                                    transform: none !important; /* Override any external transformation */
-                                }
                             
-                                /* Ensure words are properly positioned */
-                                .cd-words-wrapper b {
-                                    position: absolute;
-                                    opacity: 0;
-                                    white-space: nowrap;
-                                    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
-                                    transform-origin: center;
-                                }
-                            
-                                /* Active word appears with animation */
-                                .cd-words-wrapper b.is-visible {
-                                    opacity: 1;
-                                    position: relative;
-                                    transform: translateY(0);
-                                }
-                            
-                                /* Exiting word moves up */
-                                .cd-words-wrapper b.is-hidden {
-                                    opacity: 0;
-                                    transform: translateY(20px);
-                                }
-                            
-                                /* Ensure "Data Analyst" aligns properly */
-                                .data-align-right {
-                                    text-align: right;
-                                    display: inline-block;
-                                    position: absolute;
-                                    right: 0;
-                                    width: 100%;
-                                }
-                            
-                                /* Preventing unwanted flipping */
-                                h1, .header-caption, .cd-headline {
-                                    transform: none !important; /* Forcefully disable any rotation flips */
-                                    backface-visibility: hidden !important;
-                                }
-                            </style>
-                            
-                            <script>
-                                document.addEventListener("DOMContentLoaded", function () {
-                                    let wordsWrapper = document.querySelector(".cd-words-wrapper");
-                                    let words = wordsWrapper.querySelectorAll("b");
-                            
-                                    // Find max width dynamically based on text size
-                                    let maxWidth = Math.max(...Array.from(words).map(word => word.offsetWidth));
-                                    wordsWrapper.style.width = `${maxWidth}px`;
-                            
-                                    // Ensure "Data Analyst" aligns properly
-                                    let dataAnalyst = document.querySelector(".data-align-right");
-                                    dataAnalyst.style.width = `${maxWidth}px`;
-                            
-                                    // Rotating text animation (restoring normal rotation effect)
-                                    let index = 0;
-                                    setInterval(() => {
-                                        let current = words[index];
-                                        let next = words[(index + 1) % words.length];
-                            
-                                        current.classList.remove("is-visible");
-                                        current.classList.add("is-hidden");
-                            
-                                        next.classList.remove("is-hidden");
-                                        next.classList.add("is-visible");
-                            
-                                        index = (index + 1) % words.length;
-                                    }, 2000); // Switch every 2 seconds
-                                });
-                            </script>
                             
                             <!-- Animation Edited  -->                                                        
                             
