@@ -275,15 +275,12 @@
 
         <!-- Start Contact Area  -->
         <div class="main-content">
-
-            <div class="rainbow-contact-area rainbow-section-gapTop-big">
-                
+            <div class="rainbow-contact-area rainbow-section-gapTop-big"> 
                 <div class="container">
                     <div class="row mt--40 row--15">
                         <div class="col-lg-8">
                             <div class="contact-details-box">
-                                <h3 class="title">Get Started with a free quotation</h3>
-
+                                <h3 class="title">Send your questions here</h3>
                                 <div class="profile-details-tab">
                                     <div class="advance-tab-button">
                                         <ul class="nav nav-tabs tab-button-style-2 justify-content-start" id="settinsTab-4" role="tablist"></ul>                                                                                    
@@ -291,170 +288,44 @@
                                     <div class="tab-content">
                                         <div class="tab-pane fade active show" id="image-genarator" role="tabpanel" aria-labelledby="image-genarator-tab">
                                             <!-- Start image-genarator Row  -->
-                                            <form id="gform" method="POST" form action="https://script.google.com/macros/s/AKfycbzcDo7XfZqP71UeJ_w6erzUNzSIz44InXDhsOIccgticjNfS4gIDF84bZByQMcgl50JmQ/exec" class="rbt-profile-row rbt-default-form row row--15">
+                                            <form id="gform" method="POST" action="https://script.google.com/macros/s/AKfycbzcDo7XfZqP71UeJ_w6erzUNzSIz44InXDhsOIccgticjNfS4gIDF84bZByQMcgl50JmQ/exec" class="rbt-profile-row rbt-default-form row row--15">
                                                 <div class="col-lg-6 col-md-6 col-sm-6 col-12">
                                                     <div class="form-group">
                                                         <label for="firstname1">First Name</label>
-                                                        <input id="firstname1" type="text" placeholder="John">
+                                                        <input id="firstname1" name="firstname" type="text" placeholder="John" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6 col-md-6 col-sm-6 col-12">
                                                     <div class="form-group">
                                                         <label for="lastname1">Last Name</label>
-                                                        <input id="lastname1" type="text" placeholder="Jonson">
+                                                        <input id="lastname1" name="lastname" type="text" placeholder="Jonson" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6 col-md-6 col-sm-6 col-12">
                                                     <div class="form-group">
-                                                        <label for="username1">Country</label>
-                                                        <input id="username1" type="text" placeholder="Jonson Milner">
+                                                        <label for="country1">Country</label>
+                                                        <input id="country1" name="country" type="text" placeholder="United States" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6 col-md-6 col-sm-6 col-12">
                                                     <div class="form-group">
                                                         <label for="phonenumber1">Phone Number</label>
-                                                        <input id="phonenumber1" type="tel" placeholder="+1-202-555-0174">
+                                                        <input id="phonenumber1" name="phone" type="tel" placeholder="+1-202-555-0174" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="form-group">
-                                                        <label for="bio1">Message</label>
-                                                        <textarea id="bio1" cols="20" rows="5" placeholder="Type your message here."></textarea>
+                                                        <label for="message1">Message</label>
+                                                        <textarea id="message1" name="message" cols="20" rows="5" placeholder="Type your message here." required></textarea>
                                                     </div>
                                                 </div>
                                                 <div class="col-12 mt--20">
                                                     <div class="form-group mb--0">
-                                                        <a class="btn-default" href="#">Send</a>
+                                                        <button type="submit" class="btn-default">Send</button>
                                                     </div>
                                                 </div>
                                             </form>
-                                            <!-- End Profile Row  -->
-                                        </div>
-
-                                        <div class="tab-pane fade" id="photo-editor" role="tabpanel" aria-labelledby="photo-editor-tab">
-                                            <!-- Start photo-editor Row  -->
-                                            <form id="gform" method="POST" form action="https://script.google.com/macros/s/AKfycbzcDo7XfZqP71UeJ_w6erzUNzSIz44InXDhsOIccgticjNfS4gIDF84bZByQMcgl50JmQ/exec" class="rbt-profile-row rbt-default-form row row--15">
-                                                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-                                                    <div class="form-group">
-                                                        <label for="firstname2">First Name</label>
-                                                        <input id="firstname2" type="text" placeholder="John">
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-                                                    <div class="form-group">
-                                                        <label for="lastname2">Last Name</label>
-                                                        <input id="lastname2" type="text" placeholder="Jonson">
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-                                                    <div class="form-group">
-                                                        <label for="username2">Country</label>
-                                                        <input id="username2" type="text" placeholder="Jonson Milner">
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-                                                    <div class="form-group">
-                                                        <label for="phonenumber2">Phone Number</label>
-                                                        <input id="phonenumber2" type="tel" placeholder="+1-202-555-0174">
-                                                    </div>
-                                                </div>
-                                                <div class="col-12">
-                                                    <div class="form-group">
-                                                        <label for="bio2">Message</label>
-                                                        <textarea id="bio2" cols="20" rows="5" placeholder="Type your message here."></textarea>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 mt--20">
-                                                    <div class="form-group mb--0">
-                                                        <a class="btn-default" href="#">Send</a>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                            <!-- End Profile Row  -->
-                                        </div>
-
-
-                                        <div class="tab-pane fade" id="email-genarator" role="tabpanel" aria-labelledby="email-genarator-tab">
-                                            <!-- Start email-genarator Row  -->
-                                            <form id="gform" method="POST" form action="https://script.google.com/macros/s/AKfycbzcDo7XfZqP71UeJ_w6erzUNzSIz44InXDhsOIccgticjNfS4gIDF84bZByQMcgl50JmQ/exec" class="rbt-profile-row rbt-default-form row row--15">
-                                                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-                                                    <div class="form-group">
-                                                        <label for="firstname3">First Name</label>
-                                                        <input id="firstname3" type="text" placeholder="John">
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-                                                    <div class="form-group">
-                                                        <label for="lastname3">Last Name</label>
-                                                        <input id="lastname3" type="text" placeholder="Jonson">
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-                                                    <div class="form-group">
-                                                        <label for="username3">Country</label>
-                                                        <input id="username3" type="text" placeholder="Jonson Milner">
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-                                                    <div class="form-group">
-                                                        <label for="phonenumber3">Phone Number</label>
-                                                        <input id="phonenumber3" type="tel" placeholder="+1-202-555-0174">
-                                                    </div>
-                                                </div>
-                                                <div class="col-12">
-                                                    <div class="form-group">
-                                                        <label for="bio3">Message</label>
-                                                        <textarea id="bio3" cols="20" rows="5" placeholder="Type your message here."></textarea>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 mt--20">
-                                                    <div class="form-group mb--0">
-                                                        <a class="btn-default" href="#">Update Info</a>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                            <!-- End Profile Row  -->
-                                        </div>
-
-                                        <div class="tab-pane fade" id="code-genarator" role="tabpanel" aria-labelledby="code-genarator-tab">
-                                            <!-- Start code-genarator Row  -->
-                                            <form id="gform" method="POST" form action="https://script.google.com/macros/s/AKfycbzcDo7XfZqP71UeJ_w6erzUNzSIz44InXDhsOIccgticjNfS4gIDF84bZByQMcgl50JmQ/exec" class="rbt-image-genarator-row rbt-default-form row row--15">
-                                                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-                                                    <div class="form-group">
-                                                        <label for="firstname4">First Name</label>
-                                                        <input id="firstname4" type="text" placeholder="John">
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-                                                    <div class="form-group">
-                                                        <label for="lastname4">Last Name</label>
-                                                        <input id="lastname4" type="text" placeholder="Jonson">
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-                                                    <div class="form-group">
-                                                        <label for="username4">Country</label>
-                                                        <input id="username4" type="text" placeholder="Jonson Milner">
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-                                                    <div class="form-group">
-                                                        <label for="phonenumber4">Phone Number</label>
-                                                        <input id="phonenumber4" type="tel" placeholder="+1-202-555-0174">
-                                                    </div>
-                                                </div>
-                                                <div class="col-12">
-                                                    <div class="form-group">
-                                                        <label for="bio4">Content</label>
-                                                        <textarea id="bio4" cols="20" rows="5" placeholder="Type your message here."></textarea>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 mt--20">
-                                                    <div class="form-group mb--0">
-                                                        <a class="btn-default" href="#">Send</a>
-                                                    </div>
-                                                </div>
-                                            </form>
+                                            
                                             <!-- End Profile Row  -->
                                         </div>
                                     </div>
