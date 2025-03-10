@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-style-mode" content="1"> <!-- 0 == light, 1 == dark -->
 
-    <title>Contact || niogod||hire your best co-team</title>
+    <title>Home || niogod||hire your best co-team</title>
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="favicons/logo-favicon.png">
+    <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- CSS ============================================ -->
     <link rel="stylesheet" href="css/vendor-bootstrap.min.css">
@@ -178,13 +179,6 @@
                                 <li><a href="blog.html">Blog</a></li>
                                 <li><a href="contact.html">Contact Us</a></li>
                             </ul>
-
-
-
-
-
-
-
                         </nav>
                     </div>
 
@@ -255,147 +249,56 @@
                 <div class="circle"></div>
             </div>
         </div>
-
-        <!-- Start Breadcrumb Area  -->
-        <div class="main-content">
-            <!-- Start Breadcarumb area  -->
-            <div class="breadcrumb-area breadcarumb-style-1 pt--180 pb--100">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="breadcrumb-inner text-center">
-                                <h3 class="title h3">Contact us</h3>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Breadcarumb area  -->
-        </div>
-
-        <!-- Start Contact Area  -->
-        <div class="main-content">
-            <div class="rainbow-contact-area rainbow-section-gapTop-big"> 
-                <div class="container">
-                    <div class="row mt--40 row--15">
-                        <div class="col-lg-8">
-                            <div class="contact-details-box">
-                                <h3 class="title">Send your questions here</h3>
-                                <div class="profile-details-tab">
-                                    <div class="advance-tab-button">
-                                        <ul class="nav nav-tabs tab-button-style-2 justify-content-start" id="settinsTab-4" role="tablist"></ul>                                                                                    
-                                    </div>
-                                    <div class="tab-content">
-                                        <div class="tab-pane fade active show" id="image-genarator" role="tabpanel" aria-labelledby="image-genarator-tab">
-                                            <!-- Start image-genarator Row  -->
-                                            <form id="gform" action="" class="rbt-profile-row rbt-default-form row row--15">
-    <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-        <div class="form-group">
-            <label for="firstname1">First Name</label>
-            <input id="firstname1" name="firstname" type="text" placeholder="John" required>
-        </div>
-    </div>
-    <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-        <div class="form-group">
-            <label for="lastname1">Last Name</label>
-            <input id="lastname1" name="lastname" type="text" placeholder="Jonson" required>
-        </div>
-    </div>
-    <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-        <div class="form-group">
-            <label for="country1">Country</label>
-            <input id="country1" name="country" type="text" placeholder="United States" required>
-        </div>
-    </div>
-    <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-        <div class="form-group">
-            <label for="phonenumber1">Phone Number</label>
-            <input id="phonenumber1" name="phone" type="tel" placeholder="+1-202-555-0174" required>
-        </div>
-    </div>
-    <div class="col-12">
-        <div class="form-group">
-            <label for="message1">Message</label>
-            <textarea id="message1" name="message" cols="20" rows="5" placeholder="Type your message here." required></textarea>
-        </div>
-    </div>
-    <div class="col-12 mt--20">
-        <div class="form-group mb--0">
-            <button type="submit" class="btn-default">Send</button>
-        </div>
-    </div>
-</form>
-<script>
-    $("submit-form").submit((e)=>{
-        e.preventDefault()
-        $.ajax({
-            url:"https://script.google.com/macros/s/AKfycbzcDo7XfZqP71UeJ_w6erzUNzSIz44InXDhsOIccgticjNfS4gIDF84bZByQMcgl50JmQ/exec",
-            data:$("#submit-form").serialize(),
-            method:"post",
-            success:function (response){
-                alert("Form submitted successfully")
-                window.location.reload()
-                //window.location.href="https://google.com"
-            },
-            error:function (err){
-                alert("Something Error")
-
-            }
-        })
-    })
-</script>
-                                            <!-- End Profile Row  -->
-                                        </div>
+        <!-- End Header Top Area  -->
+        <!-- Contact Form Section -->
+        <div class="rainbow-contact-area rainbow-section-gapTop-big"> 
+            <div class="container">
+                <div class="row mt--40 row--15">
+                    <div class="col-lg-8">
+                        <div class="contact-details-box">
+                            <h3 class="title">Send your questions here</h3>
+                            <form id="submit-form" class="rbt-profile-row rbt-default-form row row--15">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="firstname">First Name</label>
+                                        <input id="firstname" name="firstname" type="text" placeholder="John" required>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 mt_md--30 mt_sm--30">
-                            <div class="rainbow-address">
-                                <div class="icon">
-                                    <i class="fa-sharp fa-regular fa-location-dot"></i>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="lastname">Last Name</label>
+                                        <input id="lastname" name="lastname" type="text" placeholder="Doe" required>
+                                    </div>
                                 </div>
-                                <div class="inner">
-                                    <h4 class="title">Location</h4>
-                                    <p class="b2">Eayalil ,P.O Chevayur,<br> Calicut,673017</p>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="country">Country</label>
+                                        <input id="country" name="country" type="text" placeholder="United States" required>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="rainbow-address">
-                                <div class="icon">
-                                    <i class="fa-sharp fa-solid fa-headphones"></i>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="phone">Phone Number</label>
+                                        <input id="phone" name="phone" type="tel" placeholder="+1-202-555-0174" required>
+                                    </div>
                                 </div>
-                                <div class="inner">
-                                    <h4 class="title">Contact Number</h4>
-                                    <p class="b2"><a href="#">+91 7012 793980</a></p>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="message">Message</label>
+                                        <textarea id="message" name="message" cols="20" rows="5" placeholder="Type your message here." required></textarea>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="rainbow-address">
-                                <div class="icon">
-                                    <i class="fa-sharp fa-regular fa-envelope"></i>
+                                <div class="col-12 mt--20">
+                                    <div class="form-group mb--0">
+                                        <button type="submit" class="btn-default">Send</button>
+                                    </div>
                                 </div>
-                                <div class="inner">
-                                    <h4 class="title">Our Email Address</h4>
-                                    <p class="b2"><a href="mailto:info@niogod.com">info@niogod.com</a></p>
-                                    <p class="b2"><a href="mailto:services@niogod.com">services@niogod.com</a></p>
-                                </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
-                </div>
-            </div>
-
-
-
-
-            <!-- Start CTA Area -->
-
-        <!-- End Contact Area  -->
-
-
-
-
-
+        
+        
+ 
         <!-- Start Footer Area  -->
         <footer class="rainbow-footer footer-style-default footer-style-3 position-relative">
             <div class="footer-top">
@@ -410,7 +313,7 @@
                                 </div>
                                 <p class="b1 desc-text">Unlock Smarter Hiring: Get Weekly Tips on Compliance,  <br> Payroll Hacks, and IT Talent Management. </p>
                                 <h6 class="subtitle">Join our Newsletter</h6>
-                                <form id="submit-form" method="POST" form class="newsletter-form" action="#">
+                                <form class="newsletter-form" action="#">
                                     <div class="form-group">
                                         <input type="email" placeholder="Enter Your Email Here">
                                         <button class="btn-default bg-solid-primary" type="submit"><i class="fa-sharp fa-regular fa-arrow-right"></i></button>
@@ -516,8 +419,24 @@
     <script src="js/vendor-jquery-one-page-nav.js"></script>
     <!-- Main JS -->
     <script src="js/js-main.js"></script>
-
-
-
-
+    <!-- Form Submission Script -->
+    <script>
+        $(document).ready(function () {
+            $("#submit-form").submit(function (e) {
+                e.preventDefault();
+                $.ajax({
+                    url: "https://script.google.com/macros/s/AKfycbzcDo7XfZqP71UeJ_w6erzUNzSIz44InXDhsOIccgticjNfS4gIDF84bZByQMcgl50JmQ/exec",
+                    data: $("#submit-form").serialize(),
+                    method: "POST",
+                    success: function (response) {
+                        alert("Form submitted successfully!");
+                        $("#submit-form")[0].reset();
+                    },
+                    error: function () {
+                        alert("Something went wrong. Please try again.");
+                    }
+                });
+            });
+        });
+    </script>
 </body></html>
