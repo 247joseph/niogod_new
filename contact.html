@@ -327,11 +327,11 @@
     </div>
 </form>
 <script>
-    $("submit-form").submit((e)=>{
+    $("#submit-form").submit((e)=>{
         e.preventDefault()
         $.ajax({
             url:"https://script.google.com/macros/s/AKfycbzcDo7XfZqP71UeJ_w6erzUNzSIz44InXDhsOIccgticjNfS4gIDF84bZByQMcgl50JmQ/exec",
-            data:$("submit-form").serialize(),
+            data:$("#submit-form").serialize(),
             method:"POST",
             success:function (response){
                 alert("Form submitted successfully")
