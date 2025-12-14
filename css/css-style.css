@@ -1298,7 +1298,7 @@ Primary style
 .cd-words-wrapper {
   display: inline-block;
   position: relative;
-  text-align: left;
+  text-align: center;
 }
 
 .cd-words-wrapper b {
@@ -1307,10 +1307,13 @@ Primary style
   white-space: nowrap;
   left: 0;
   top: 0;
+  width: 100%;
+  text-align: center;
 }
 
 .cd-words-wrapper b.is-visible {
   position: relative;
+  width: auto;
 }
 
 .no-js .cd-words-wrapper b {

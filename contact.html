@@ -20,110 +20,15 @@
     <link rel="stylesheet" href="css/plugins-bootstrap-select.min.css">
     <link rel="stylesheet" href="css/plugins-prism.css">
     <link rel="stylesheet" href="css/css-style.css">
-
-    <script>
-        // Function to create and display a custom modal
-        function showModal() {
-          // Create modal overlay
-          const overlay = document.createElement('div');
-          overlay.style.position = 'fixed';
-          overlay.style.top = '0';
-          overlay.style.left = '0';
-          overlay.style.width = '100vw';
-          overlay.style.height = '100vh';
-          overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
-          overlay.style.zIndex = '9999';
-          overlay.style.display = 'flex';
-          overlay.style.justifyContent = 'center';
-          overlay.style.alignItems = 'center';
-    
-          // Create modal container
-          const modal = document.createElement('div');
-          modal.style.width = '400px';
-          modal.style.backgroundColor = '#fff';
-          modal.style.borderRadius = '8px';
-          modal.style.padding = '20px';
-          modal.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)';
-          modal.style.textAlign = 'center';
-    
-          // Create modal message
-          const message = document.createElement('p');
-          message.textContent = 'This page is loaded in an external iframe. For a better experience, please open it in a new tab.';
-          message.style.marginBottom = '20px';
-          message.style.fontSize = '16px';
-          modal.appendChild(message);
-    
-          // Create div container for the buttons (with display: flex)
-          const buttonsContainer = document.createElement('div');
-          buttonsContainer.style.display = 'flex';
-          buttonsContainer.style.justifyContent = 'center';
-          buttonsContainer.style.gap = '10px'; // Space between buttons
-          buttonsContainer.style.marginTop = '20px'; // Add space above buttons
-          buttonsContainer.style.flexWrap = 'wrap'; // Allow wrapping of buttons on smaller screens
-    
-          // Create "OK" button
-          const okButton = document.createElement('button');
-          okButton.textContent = 'Open in New Tab';
-          okButton.style.padding = '10px 20px';
-          okButton.style.backgroundColor = '#4CAF50';
-          okButton.style.color = '#fff';
-          okButton.style.border = 'none';
-          okButton.style.borderRadius = '4px';
-          okButton.style.cursor = 'pointer';
-          okButton.addEventListener('click', () => {
-            // Redirect to the current page URL
-            window.top.location = window.self.location.href;
-          });
-          buttonsContainer.appendChild(okButton)
-            ;
-    
-          // Create "Cancel" button
-          const cancelButton = document.createElement('button');
-          cancelButton.textContent = 'Stay on this Page';
-          cancelButton.style.padding = '10px 20px';
-          cancelButton.style.backgroundColor = '#f44336';
-          cancelButton.style.color = '#fff';
-          cancelButton.style.border = 'none';
-          cancelButton.style.borderRadius = '4px';
-          cancelButton.style.cursor = 'pointer';
-          cancelButton.addEventListener('click', () => {
-            // Close the modal
-            document.body.removeChild(overlay);
-          });
-          buttonsContainer.appendChild(cancelButton);
-    
-          // Add buttons container to modal
-          modal.appendChild(buttonsContainer);
-    
-          // Add modal to overlay
-          overlay.appendChild(modal);
-    
-          // Add overlay to body
-          document.body.appendChild(overlay);
-    
-          // Add media query styles for mobile screens
-          const style = document.createElement('style');
-          style.innerHTML = `
-            @media (max-width: 600px) {
-                .modal-buttons-container {
-                    flex-direction: column;
-                    align-items: center;
-                }
-                .modal-buttons-container button {
-                    width: 100%;
-                    margin-bottom: 10px;
-                }
-            }
-        `;
-          document.head.appendChild(style);
+    <link rel="stylesheet" href="css/css-custom.css">
+    <style>
+        /* FOUC Protection: Set approximate start position before JS calculates exact height */
+        .header-transparent:not(.sticky) {
+            top: 46px;
         }
-        // Check if the page is inside an iframe and show modal
-        document.addEventListener('DOMContentLoaded', () => {
-          if (window.self !== window.top) {
-            showModal();
-          }
-        });
-      </script>
+    </style>
+
+
 
 </head>
 
@@ -137,12 +42,23 @@
                         <div class="col-lg-12">
                             <div class="inner">
                                 <div class="content">
-                                    <span class="rainbow-badge">Dont Wait</span>
-                                    <span class="news-text">Book the meeting today with our team</span>
+                                    <span class="rainbow-badge">
+                                        <span class="lang-en">Dont Wait</span>
+                                        <span class="lang-de">Nicht warten</span>
+                                    </span>
+                                    <span class="news-text">
+                                        <span class="lang-en">Book the meeting today with our team</span>
+                                        <span class="lang-de">Vereinbaren Sie heute einen Termin mit unserem Team</span>
+                                    </span>
                                 </div>
                                 <div class="right-button">
-                                    <a class="btn-read-more" target="_blank" href="https://borcomdynamics.zohobookings.in/#/niogod">
-                                        <span>Book Meeting <i class="fa-sharp fa-regular fa-arrow-right"></i></span>
+                                    <a class="btn-read-more" target="_blank"
+                                        href="https://borcomdynamics.zohobookings.in/#/niogod">
+                                        <span>
+                                            <span class="lang-en">Book Meeting</span>
+                                            <span class="lang-de">Termin buchen</span>
+                                            <i class="fa-sharp fa-regular fa-arrow-right"></i>
+                                        </span>
                                     </a>
                                 </div>
                             </div>
@@ -161,37 +77,54 @@
         <header class="rainbow-header header-default header-transparent header-sticky">
             <div class="container position-relative">
                 <div class="row align-items-center row--0">
-                    <div class="col-lg-2 col-md-6 col-6">
+                    <div class="col-lg-3 col-md-6 col-6">
                         <div class="logo">
-                            <a href="index.html">
-                                <b class="theme-gradient is-visible" style="font-size: 50px; text-transform: lowercase;">niogod</b>
+                            <a href="index.html" style="display: inline-flex; align-items: center;">
+                                <b class="theme-gradient is-visible"
+                                    style="font-size: 50px; text-transform: lowercase; line-height: 1.3; padding-bottom: 5px;">niogod</b>
+                                <sup
+                                    style="font-size: 12px; color: #fff !important; margin-left: 4px; position: relative; top: -15px; font-weight: 500;">TM</sup>
                             </a>
                         </div>
                     </div>
 
-                    <div class="col-lg-8 d-none d-lg-block">
+                    <div class="col-lg-6 d-none d-lg-block">
                         <nav class="mainmenu-nav d-none d-lg-flex justify-content-center">
                             <ul class="mainmenu">
-                                <li><a href="index.html">Home</a></li>
-                                <li><a href="roadmap.html">Roadmap</a></li>
-                                <li><a href="Team.html">Meet the team</a></li>
-                                <li><a href="blog.html">Blog</a></li>
-                                <li><a href="contact.html">Contact Us</a></li>
+                                <li>
+                                    <a href="index.html" class="lang-en">Solutions</a>
+                                    <a href="index.html" class="lang-de">Lösungen</a>
+                                </li>
+                                <li>
+                                    <a href="protocol.html" class="lang-en">The Protocol</a>
+                                    <a href="protocol.html" class="lang-de">Der Prozess</a>
+                                </li>
+                                <li>
+                                    <a href="security-compliance.html" class="lang-en">Security & Compliance</a>
+                                    <a href="security-compliance.html" class="lang-de">Sicherheit & Compliance</a>
+                                </li>
+                                <li>
+                                    <a href="philosophy.html" class="lang-en">Philosophy</a>
+                                    <a href="philosophy.html" class="lang-de">Über Uns</a>
+                                </li>
+                                <li>
+                                    <a href="contact.html" class="lang-en">Contact</a>
+                                    <a href="contact.html" class="lang-de">Kontakt</a>
+                                </li>
                             </ul>
-
-
-
-
-
-
-
                         </nav>
                     </div>
 
-                    <div class="col-lg-2 col-md-6 col-6 position-static">
+                    <div class="col-lg-3 col-md-6 col-6 position-static">
                         <div class="header-right">
 
                             <!-- Start Header Btn  -->
+                            <div class="header-btn">
+                                <a class="btn-default btn-small round" href="#" id="lang-toggle">EN | <span
+                                        style="opacity:0.5">DE</span></a>
+                                <a class="btn-default btn-small round lang-en" href="contact.html">Start Sprint</a>
+                                <a class="btn-default btn-small round lang-de" href="contact.html">Beratungstermin</a>
+                            </div>
                             <!-- End Header Btn  -->
 
                             <!-- Start Mobile-Menu-Bar -->
@@ -213,8 +146,11 @@
             <div class="inner-popup">
                 <div class="header-top">
                     <div class="logo">
-                        <a href="index.html">
-                            <b class="theme-gradient is-visible" style="font-size: 50px; text-transform: lowercase;">niogod</b>
+                        <a href="index.html" style="display: inline-flex; align-items: center;">
+                            <b class="theme-gradient is-visible"
+                                style="font-size: 50px; text-transform: lowercase; line-height: 1.3; padding-bottom: 5px;">niogod</b>
+                            <sup
+                                style="font-size: 12px; color: #fff !important; margin-left: 4px; position: relative; top: -15px; font-weight: 500;">TM</sup>
                         </a>
                     </div>
                     <div class="close-menu">
@@ -226,23 +162,37 @@
 
                 <div class="content">
                     <ul class="mainmenu">
-                        <li><a href="index.html">Home</a></li>
-                        <!-- Tools Removed  -->                       
-                        <li><a href="roadmap.html">Roadmap</a></li>
-                        <li><a href="Team.html">Meet the team</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li>
+                            <a href="index.html" class="lang-en">Solutions</a>
+                            <a href="index.html" class="lang-de">Lösungen</a>
+                        </li>
+                        <li>
+                            <a href="protocol.html" class="lang-en">The Protocol</a>
+                            <a href="protocol.html" class="lang-de">Der Prozess</a>
+                        </li>
+                        <li>
+                            <a href="security-compliance.html" class="lang-en">Security & Compliance</a>
+                            <a href="security-compliance.html" class="lang-de">Sicherheit & Compliance</a>
+                        </li>
+                        <li>
+                            <a href="philosophy.html" class="lang-en">Philosophy</a>
+                            <a href="philosophy.html" class="lang-de">Über Uns</a>
+                        </li>
+                        <li>
+                            <a href="contact.html" class="lang-en">Contact</a>
+                            <a href="contact.html" class="lang-de">Kontakt</a>
+                        </li>
                     </ul>
-                        
-                    </div>
-                </div>
 
-                <!-- Start Header Btn  -->
-                <div class="header-btn d-block d-md-none">
-                    <a class="btn-default @@btnClass" target="_blank" href="text-generator.html">Get Started Free</a>
                 </div>
-                <!-- End Header Btn  -->
             </div>
+
+            <!-- Start Header Btn  -->
+            <div class="header-btn d-block d-md-none">
+                <a class="btn-default @@btnClass" target="_blank" href="text-generator.html">Get Started Free</a>
+            </div>
+            <!-- End Header Btn  -->
+        </div>
         </div>
 
         <!-- Imroz Preloader -->
@@ -264,8 +214,9 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="breadcrumb-inner text-center">
-                                <h3 class="title h3">Contact us</h3>
-                                
+                                <h3 class="title h3 lang-en">Contact us</h3>
+                                <h3 class="title h3 lang-de">Kontaktieren Sie uns</h3>
+
                             </div>
                         </div>
                     </div>
@@ -276,75 +227,142 @@
 
         <!-- Start Contact Area  -->
         <div class="main-content">
-            <div class="rainbow-contact-area rainbow-section-gapTop-big"> 
+            <div class="rainbow-contact-area rainbow-section-gapTop-big">
                 <div class="container">
                     <div class="row mt--40 row--15">
                         <div class="col-lg-8">
                             <div class="contact-details-box">
-                                <h3 class="title">Send your questions here</h3>
+                                <h3 class="title lang-en">Send your questions here</h3>
+                                <h3 class="title lang-de">Senden Sie uns Ihre Fragen</h3>
                                 <div class="profile-details-tab">
                                     <div class="advance-tab-button">
-                                        <ul class="nav nav-tabs tab-button-style-2 justify-content-start" id="settinsTab-4" role="tablist"></ul>                                                                                    
+                                        <ul class="nav nav-tabs tab-button-style-2 justify-content-start"
+                                            id="settinsTab-4" role="tablist"></ul>
                                     </div>
                                     <div class="tab-content">
-                                        <div class="tab-pane fade active show" id="image-genarator" role="tabpanel" aria-labelledby="image-genarator-tab">
+                                        <div class="tab-pane fade active show" id="image-genarator" role="tabpanel"
+                                            aria-labelledby="image-genarator-tab">
                                             <!-- Start image-genarator Row  -->
-                                            <form id="submit-form" action="" class="rbt-profile-row rbt-default-form row row--15">
-    <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-        <div class="form-group">
-            <label for="firstname1">First Name</label>
-            <input id="firstname1" name="firstname" type="text" placeholder="John" required>
-        </div>
-    </div>
-    <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-        <div class="form-group">
-            <label for="lastname1">Last Name</label>
-            <input id="lastname1" name="lastname" type="text" placeholder="Jonson" required>
-        </div>
-    </div>
-    <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-        <div class="form-group">
-            <label for="email1">Email ID</label>
-            <input id="email1" name="email" type="text" placeholder="johnson.john@niogod.com" required>
-        </div>
-    </div>
-    <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-        <div class="form-group">
-            <label for="phonenumber1">Phone Number</label>
-            <input id="phonenumber1" name="phone" type="tel" placeholder="+1-202-555-0174" required>
-        </div>
-    </div>
-    <div class="col-12">
-        <div class="form-group">
-            <label for="message1">Message</label>
-            <textarea id="message1" name="message" cols="20" rows="5" placeholder="Type your message here." required></textarea>
-        </div>
-    </div>
-    <div class="col-12 mt--20">
-        <div class="form-group mb--0">
-            <button type="submit" class="btn-default">Send</button>
-        </div>
-    </div>
-</form>
-<script>
-    $("#submit-form").submit((e)=>{
-        e.preventDefault()
-        $.ajax({
-            url:"https://script.google.com/macros/s/AKfycbzcDo7XfZqP71UeJ_w6erzUNzSIz44InXDhsOIccgticjNfS4gIDF84bZByQMcgl50JmQ/exec",
-            data:$("#submit-form").serialize(),
-            method:"POST",
-            success:function (response){
-                alert("Form submitted successfully")
-                window.location.reload()
-                //window.location.href="https://google.com"
-            },
-            error:function (err){
-                alert("Something Error")
+                                            <!-- Start image-genarator Row  -->
+                                            <form id="submit-form" action=""
+                                                class="rbt-profile-row rbt-default-form row row--15"
+                                                style="background: rgba(255,255,255,0.02); padding: 30px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05);">
+                                                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="firstname1" class="lang-en"
+                                                            style="color: #b0b0b0; font-size: 14px;">First Name</label>
+                                                        <label for="firstname1" class="lang-de"
+                                                            style="color: #b0b0b0; font-size: 14px;">Vorname</label>
+                                                        <input id="firstname1" name="firstname" type="text"
+                                                            placeholder="John" required
+                                                            style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; color: #fff; padding: 12px 20px; height: 50px;">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="lastname1" class="lang-en"
+                                                            style="color: #b0b0b0; font-size: 14px;">Last Name</label>
+                                                        <label for="lastname1" class="lang-de"
+                                                            style="color: #b0b0b0; font-size: 14px;">Nachname</label>
+                                                        <input id="lastname1" name="lastname" type="text"
+                                                            placeholder="Jonson" required
+                                                            style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; color: #fff; padding: 12px 20px; height: 50px;">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="email1" class="lang-en"
+                                                            style="color: #b0b0b0; font-size: 14px;">Email ID</label>
+                                                        <label for="email1" class="lang-de"
+                                                            style="color: #b0b0b0; font-size: 14px;">E-Mail
+                                                            Adresse</label>
+                                                        <input id="email1" name="email" type="text"
+                                                            placeholder="johnson.john@niogod.com" required
+                                                            style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; color: #fff; padding: 12px 20px; height: 50px;">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="phonenumber1" class="lang-en"
+                                                            style="color: #b0b0b0; font-size: 14px;">Phone
+                                                            Number</label>
+                                                        <label for="phonenumber1" class="lang-de"
+                                                            style="color: #b0b0b0; font-size: 14px;">Telefonnummer</label>
+                                                        <input id="phonenumber1" name="phone" type="tel"
+                                                            placeholder="+1-202-555-0174" required
+                                                            style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; color: #fff; padding: 12px 20px; height: 50px;">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="form-group">
+                                                        <label for="message1" class="lang-en"
+                                                            style="color: #b0b0b0; font-size: 14px;">Message</label>
+                                                        <label for="message1" class="lang-de"
+                                                            style="color: #b0b0b0; font-size: 14px;">Nachricht</label>
+                                                        <textarea id="message1" name="message" cols="20" rows="5"
+                                                            placeholder="Type your message here." required
+                                                            style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; color: #fff; padding: 20px; min-height: 150px;"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 mt--20">
+                                                    <div class="form-group mb--0">
+                                                        <button type="submit" id="submit-btn" class="btn-default"
+                                                            style="width: 100%; border-radius: 10px; margin-bottom: 15px;">
+                                                            <span class="lang-en">Send Message</span>
+                                                            <span class="lang-de">Nachricht Senden</span>
+                                                        </button>
+                                                        <!-- Success/Error Message Container -->
+                                                        <div id="form-message"
+                                                            style="display:none; text-align: center; margin-top: 15px; padding: 10px; border-radius: 8px;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            <script>
+                                                $("#submit-form").submit((e) => {
+                                                    e.preventDefault()
 
-            }
-        })
-    })
-</script>
+                                                    // Show loading state
+                                                    var $btn = $("#submit-btn");
+                                                    var originalText = $btn.html();
+                                                    $btn.html('<i class="fa fa-spinner fa-spin"></i> Sending...');
+                                                    $btn.prop('disabled', true);
+
+                                                    $.ajax({
+                                                        url: "https://script.google.com/macros/s/AKfycbzcDo7XfZqP71UeJ_w6erzUNzSIz44InXDhsOIccgticjNfS4gIDF84bZByQMcgl50JmQ/exec",
+                                                        data: $("#submit-form").serialize(),
+                                                        method: "POST",
+                                                        success: function (response) {
+                                                            // Show success message
+                                                            $("#form-message")
+                                                                .html('<span class="lang-en" style="color: #4CAF50;">✓ Form submitted successfully! We will contact you shortly.</span><span class="lang-de" style="color: #4CAF50;">✓ Formular erfolgreich gesendet! Wir werden uns in Kürze bei Ihnen melden.</span>')
+                                                                .fadeIn();
+
+                                                            // Reset form
+                                                            $("#submit-form")[0].reset();
+
+                                                            // Hide success message after 5 seconds
+                                                            setTimeout(function () {
+                                                                $("#form-message").fadeOut();
+                                                            }, 5000);
+
+                                                            // Restore button
+                                                            $btn.html(originalText);
+                                                            $btn.prop('disabled', false);
+                                                        },
+                                                        error: function (err) {
+                                                            // Show error message
+                                                            $("#form-message")
+                                                                .html('<span style="color: #ff4d4d;">Something went wrong. Please try again later.</span>')
+                                                                .fadeIn();
+
+                                                            // Restore button
+                                                            $btn.html(originalText);
+                                                            $btn.prop('disabled', false);
+                                                        }
+                                                    })
+                                                })
+                                            </script>
                                             <!-- End Profile Row  -->
                                         </div>
                                     </div>
@@ -357,7 +375,8 @@
                                     <i class="fa-sharp fa-regular fa-location-dot"></i>
                                 </div>
                                 <div class="inner">
-                                    <h4 class="title">Location</h4>
+                                    <h4 class="title lang-en">Location</h4>
+                                    <h4 class="title lang-de">Standort</h4>
                                     <p class="b2">Eayalil ,P.O Chevayur,<br> Calicut,673017</p>
                                 </div>
                             </div>
@@ -366,7 +385,8 @@
                                     <i class="fa-sharp fa-solid fa-headphones"></i>
                                 </div>
                                 <div class="inner">
-                                    <h4 class="title">Contact Number</h4>
+                                    <h4 class="title lang-en">Contact Number</h4>
+                                    <h4 class="title lang-de">Telefon</h4>
                                     <p class="b2"><a href="#">+91 7012 793980</a></p>
                                 </div>
                             </div>
@@ -375,7 +395,8 @@
                                     <i class="fa-sharp fa-regular fa-envelope"></i>
                                 </div>
                                 <div class="inner">
-                                    <h4 class="title">Our Email Address</h4>
+                                    <h4 class="title lang-en">Our Email Address</h4>
+                                    <h4 class="title lang-de">E-Mail Adresse</h4>
                                     <p class="b2"><a href="mailto:info@niogod.com">info@niogod.com</a></p>
                                     <p class="b2"><a href="mailto:services@niogod.com">services@niogod.com</a></p>
                                 </div>
@@ -387,109 +408,153 @@
 
             <!-- Start CTA Area -->
 
-        <!-- End Contact Area  -->
+            <!-- End Contact Area  -->
 
 
 
 
 
-        <!-- Start Footer Area  -->
-        <footer class="rainbow-footer footer-style-default footer-style-3 position-relative">
-            <div class="footer-top">
-                <div class="container">
-                    <div class="row justify-content-between">
-                        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
-                            <div class="rainbow-footer-widget">
-                                <div class="logo">
-                                    <a href="index.html">
-                                        <b class="theme-gradient is-visible" style="font-size: 45px; text-transform: lowercase;">niogod</b>
-                                    </a>
-                                </div>
-                                <p class="b1 desc-text">Unlock Smarter Hiring: Get Weekly Tips on Compliance,  <br> Payroll Hacks, and IT Talent Management. </p>
-                                <h6 class="subtitle">Join our Newsletter</h6>
-                                <form id="submit-form" method="POST" form class="newsletter-form" action="">
-                                    <div class="form-group">
-                                        <input type="email" placeholder="Enter Your Email Here">
-                                        <button class="btn-default bg-solid-primary" type="submit"><i class="fa-sharp fa-regular fa-arrow-right"></i></button>
+            <!-- Start Footer Area  -->
+            <footer class="rainbow-footer footer-style-default footer-style-3 position-relative">
+                <div class="footer-top">
+                    <div class="container">
+                        <div class="row justify-content-between">
+                            <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+                                <div class="rainbow-footer-widget">
+                                    <div class="logo">
+                                        <a href="index.html">
+                                            <a href="index.html"
+                                                style="display: inline-flex; align-items: center; text-decoration: none;">
+                                                <b class="theme-gradient"
+                                                    style="font-size: 40px; text-transform: lowercase; line-height: 1.3; font-weight: 700; padding-bottom: 5px;">niogod</b>
+                                                <sup
+                                                    style="font-size: 10px; color: #fff !important; margin-left: 3px; position: relative; top: -12px; font-weight: 500;">TM</sup>
+                                            </a>
                                     </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6 col-sm-6 col-12">
-                            <div class="rainbow-footer-widget">
-                                <div class="widget-menu-bottom">
-                                    <h4 class="title">Quick Links</h4>
-                                    <div class="inner">
-                                        <ul class="footer-link link-hover">
-                                            <li><a href="#">Pages</a></li>
-                                            <li><a href="index.html">Home</a></li>
-                                            <li><a href="roadmap.html">Roadmap</a></li>
-                                            <li><a href="Team.html">Meet the Team</a></li>
-                                            <li><a href="blog.html">Blog</a></li>
-                                            <li><a href="contact.html">Contact us</a></li>
-                                        </ul>
+                                    <p class="b1 desc-text overflow-hidden">
+                                        <span class="lang-en">New Integrated Operations.<br>Global On-demand
+                                            Delivery.</span>
+                                        <span class="lang-de">Neue Integrierte Operationen.<br>Globale
+                                            On-Demand-Lieferung.</span>
+                                    </p>
+                                    <div class="address" style="margin-top: 15px; font-size: 0.9em; opacity: 0.7;">
+                                        <span class="lang-en">
+                                            HQ: Cyberpark, Kozhikode, India.<br>
+                                            EU: Arena Läppstiftet, Lilla bommen 2, 411 05 Gothenburg, Sweden.
+                                        </span>
+                                        <span class="lang-de">
+                                            HQ: Cyberpark, Kozhikode, Indien.<br>
+                                            EU: Arena Läppstiftet, Lilla bommen 2, 411 05 Göteborg, Schweden.
+                                        </span>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6 col-sm-6 col-12">
-                            <div class="rainbow-footer-widget">
-                                <div class="widget-menu-top">
-                                    <h4 class="title">Services</h4>
-                                    <div class="inner">
-                                        <ul class="footer-link link-hover">
-                                            <li>Time and Money Contracting</li>
-                                            <li>Fixed Price Contracting </li>
-                                            <li>Dedicated Team Contracting</li>
-                                            <li>Staff Augmentation Contracting</li>
-                                            <li>Managed Service Contracting </li>
-                                        </ul>
+
+                            <!-- Column 2: Legal (DACH) -->
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                                <div class="rainbow-footer-widget">
+                                    <div class="widget-menu-top">
+                                        <h4 class="title">
+                                            <span class="lang-en">Legal (DACH)</span>
+                                            <span class="lang-de">Rechtliches (DACH)</span>
+                                        </h4>
+                                        <div class="inner">
+                                            <ul class="footer-link link-hover">
+                                                <li>
+                                                    <a href="legal.html">
+                                                        <span class="lang-en">Legal Notice</span>
+                                                        <span class="lang-de">Impressum</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="legal.html#privacy">
+                                                        <span class="lang-en">Privacy Policy</span>
+                                                        <span class="lang-de">Datenschutzerklärung</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="legal.html#terms">
+                                                        <span class="lang-en">Terms & Conditions</span>
+                                                        <span class="lang-de">AGB</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                            <div class="rainbow-footer-widget">
-                                <div class="widget-menu-top">
-                                    <h4 class="title">Contact</h4>
-                                    <div class="inner">
-                                        <ul class="footer-link contact-link">
-                                            <li><i class="contact-icon fa-regular fa-location-dot"></i><a href="#">Eayalil ,P.O Chevayur,Calicut,673017</a></li>
-                                            <li><i class="contact-icon fa-sharp fa-regular fa-envelope"></i><a href="#">info@niogod.com</a></li>
-                                            <li><i class="contact-icon fa-regular fa-phone"></i><a href="#">+91 7012 793980</a></li>
-                                        </ul>
+
+                            <!-- Column 3: Contact -->
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                                <div class="rainbow-footer-widget">
+                                    <div class="widget-menu-bottom">
+                                        <h4 class="title">
+                                            <span class="lang-en">Contact</span>
+                                            <span class="lang-de">Kontakt</span>
+                                        </h4>
+                                        <div class="inner">
+                                            <ul class="footer-link link-hover">
+                                                <li><a href="mailto:hello@niogod.com">hello@niogod.com</a></li>
+
+                                            </ul>
+                                        </div>
                                     </div>
+                                </div>
+                            </div>
+
+                            <!-- Column 4: Social -->
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                                <div class="rainbow-footer-widget">
+                                    <div class="widget-menu-bottom">
+                                        <h4 class="title">
+                                            <span class="lang-en">Social</span>
+                                            <span class="lang-de">Social Media</span>
+                                        </h4>
+                                        <div class="inner">
+                                            <ul class="social-icon social-default justify-content-start">
+                                                <li><a href="https://www.linkedin.com/company/niogod/"><i
+                                                            class="fa-brands fa-linkedin-in"></i></a></li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="copyright-area copyright-style-one">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6 col-md-8 col-sm-12 col-12">
+                                <div class="copyright-left">
+                                    <ul class="ft-menu link-hover">
+                                        <li>
+                                            <a href="#">
+                                                <span class="lang-en">© 2025 niogod. All rights reserved.</span>
+                                                <span class="lang-de">© 2025 niogod. Alle Rechte vorbehalten.</span>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-4 col-sm-12 col-12">
+                                <div class="copyright-right text-center text-lg-end">
+                                    <p class="copyright-text"></p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </footer>
-        <!-- End Footer Area  -->
-        <!-- Start Copy Right Area  -->
-        <div class="copyright-area copyright-style-one">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-6 col-md-8 col-sm-12 col-12">
-                        <div class="copyright-left">
-                           
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-4 col-sm-12 col-12">
-                        <div class="copyright-right text-center text-lg-end">
-                            <p class="copyright-text">Copyright &copy; <script>document.write(new Date().getFullYear());</script> <a href="https://www.niogod.com/index" class="btn-read-more"><span>niogod</span></a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Copy Right Area  -->
-        <div class="rbt-progress-parent">
-            <svg class="rbt-back-circle svg-inner" width="100%" height="100%" viewbox="-1 -1 102 102">
-                <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
-            </svg>
-        </div>
+            </footer>
+            <!-- End Footer Area  -->
+            <div class="rbt-progress-parent">
+                <svg class="rbt-back-circle svg-inner" width="100%" height="100%" viewbox="-1 -1 102 102">
+                    <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
+                </svg>
     </main>
     <!-- All Scripts  -->
 
@@ -517,4 +582,45 @@
 
 
 
-</body></html>
+    <!-- Localization JS -->
+    <!-- Localization JS -->
+    <script src="js/localization.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            function adjustHeaderPosition() {
+                var banner = $('.header-top-news');
+                var header = $('.header-transparent');
+
+                if (header.hasClass('sticky')) {
+                    header.attr('style', 'top: 0px !important');
+                } else if (banner.length && header.length && banner.is(':visible')) {
+                    var bannerHeight = banner.outerHeight() || 46; // Fallback to 46px if 0
+                    // Using attr to force !important
+                    header.attr('style', 'top: ' + bannerHeight + 'px !important');
+                } else {
+                    header.attr('style', 'top: 0px !important');
+                }
+            }
+
+            // Run on Ready
+            adjustHeaderPosition();
+
+            // Run on Load (incase images/fonts affect height)
+            $(window).on('load', adjustHeaderPosition);
+
+            // Adjust on resize
+            $(window).on('resize', adjustHeaderPosition);
+
+            // Adjust on scroll (to catch sticky class changes)
+            $(window).on('scroll', adjustHeaderPosition);
+
+            // Adjust on banner close
+            $('.bgsection-activation').on('click', function () {
+                setTimeout(adjustHeaderPosition, 300);
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-style-mode" content="1"> <!-- 0 == light, 1 == dark -->
+
+    <title>Security & Compliance || niogod</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="favicons/logo-favicon.png">
+    <!-- CSS ============================================ -->
+    <link rel="stylesheet" href="css/vendor-bootstrap.min.css">
+    <link rel="stylesheet" href="css/plugins-fontawesome-all.min.css">
+    <link rel="stylesheet" href="css/plugins-feature.css">
+    <link rel="stylesheet" href="css/plugins-animation.css">
+    <link rel="stylesheet" href="css/plugins-slick.css">
+    <link rel="stylesheet" href="css/plugins-slick-theme.css">
+    <link rel="stylesheet" href="css/plugins-bootstrap-select.min.css">
+    <link rel="stylesheet" href="css/plugins-prism.css">
+    <link rel="stylesheet" href="css/css-style.css">
+    <link rel="stylesheet" href="css/css-custom.css">
+    <style>
+        /* FOUC Protection: Set approximate start position before JS calculates exact height */
+        .header-transparent:not(.sticky) {
+            top: 46px;
+        }
+
+        /* Security Image Hover Effect */
+        .security-image-box {
+            padding: 10px;
+            border: 2px solid transparent;
+            border-radius: 12px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .security-image-box:hover {
+            border-color: #a020f0;
+            /* Purple */
+            box-shadow: 0 10px 30px rgba(160, 32, 240, 0.3);
+            transform: translateY(-5px);
+        }
+
+        /* EOR Section Card Hover Effect */
+        .eor-section-card {
+            background: #f8f9fa;
+            border-radius: 20px;
+            padding: 40px;
+            border: 2px solid #e9ecef;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .eor-section-card:hover {
+            border-color: #a020f0;
+            /* Purple */
+            box-shadow: 0 10px 30px rgba(160, 32, 240, 0.2);
+            transform: translateY(-5px);
+        }
+
+        /* Generic Purple Hover for Service Cards */
+        .purple-hover-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid transparent;
+            height: 100%;
+            /* Force equal height */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .purple-hover-card:hover {
+            border-color: #a020f0 !important;
+            box-shadow: 0 10px 30px rgba(160, 32, 240, 0.2);
+            transform: translateY(-5px);
+        }
+
+        /* IP Protection Card Hover Effect */
+        .ip-protection-card {
+            background: linear-gradient(145deg, #e3f2fd, #ffffff);
+            border: 1px solid #bbdefb;
+            padding: 60px;
+            border-radius: 20px;
+            /* Matches other cards */
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .ip-protection-card:hover {
+            border-color: #a020f0 !important;
+            box-shadow: 0 10px 30px rgba(160, 32, 240, 0.3);
+            transform: translateY(-5px);
+        }
+
+        /* ISO Security Text Card Wrapper */
+        .iso-card-wrapper {
+            background: #1a1a1a !important;
+            border: 2px solid #333 !important;
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.4s ease;
+        }
+
+        .iso-card-wrapper:hover {
+            border-color: #a020f0 !important;
+            /* Purple */
+            box-shadow: 0 10px 30px rgba(160, 32, 240, 0.2);
+            transform: translateY(-5px);
+        }
+
+        /* Custom Download Box to completely bypass btn-default issues */
+        .custom-download-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            min-height: 80px;
+            /* Taller by default */
+            padding: 10px;
+            /* Matching btn-border look */
+            border-radius: 30px;
+            /* Gentler rounded corners to prevent text clipping */
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            background: transparent;
+            box-sizing: border-box;
+        }
+
+        .custom-download-box:hover {
+            border-color: #0d6efd;
+            background: rgba(13, 110, 253, 0.1);
+            color: #ffffff;
+            transform: translateY(-3px);
+        }
+
+        .custom-download-box i {
+            margin-right: 12px;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .custom-download-box span {
+            font-size: 14px;
+            line-height: 1.3;
+            text-align: center;
+            word-break: break-word;
+            white-space: normal;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="page-wrapper">
+        <!-- Start Header Top Area  -->
+        <div class="header-top-news bg-image1">
+            <div class="wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="inner">
+                                <div class="content">
+                                    <span class="rainbow-badge">
+                                        <span class="lang-en">Dont Wait</span>
+                                        <span class="lang-de">Nicht warten</span>
+                                    </span>
+                                    <span class="news-text">
+                                        <span class="lang-en">Book the meeting today with our team</span>
+                                        <span class="lang-de">Vereinbaren Sie heute einen Termin mit unserem Team</span>
+                                    </span>
+                                </div>
+                                <div class="right-button">
+                                    <a class="btn-read-more" target="_blank"
+                                        href="https://borcomdynamics.zohobookings.in/#/niogod">
+                                        <span>
+                                            <span class="lang-en">Book Meeting</span>
+                                            <span class="lang-de">Termin buchen</span>
+                                            <i class="fa-sharp fa-regular fa-arrow-right"></i>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="icon-close">
+                <button class="close-button bgsection-activation">
+                    <i class="fa-sharp fa-regular fa-x"></i>
+                </button>
+            </div>
+        </div>
+        <!-- End Header Top Area  -->
+        <header class="rainbow-header header-default header-transparent header-sticky">
+            <div class="container position-relative">
+                <div class="row align-items-center row--0">
+                    <div class="col-lg-3 col-md-6 col-6">
+                        <div class="logo">
+                            <a href="index.html" style="display: inline-flex; align-items: center;">
+                                <b class="theme-gradient is-visible"
+                                    style="font-size: 50px; text-transform: lowercase; line-height: 1.3; padding-bottom: 5px;">niogod</b>
+                                <sup
+                                    style="font-size: 12px; color: #fff !important; margin-left: 4px; position: relative; top: -15px; font-weight: 500;">TM</sup>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 d-none d-lg-block">
+                        <nav class="mainmenu-nav d-none d-lg-flex justify-content-center">
+                            <ul class="mainmenu">
+                                <li>
+                                    <a href="index.html" class="lang-en">Solutions</a>
+                                    <a href="index.html" class="lang-de">Lösungen</a>
+                                </li>
+                                <li>
+                                    <a href="protocol.html" class="lang-en">The Protocol</a>
+                                    <a href="protocol.html" class="lang-de">Der Prozess</a>
+                                </li>
+                                <li>
+                                    <a href="security-compliance.html" class="lang-en">Security & Compliance</a>
+                                    <a href="security-compliance.html" class="lang-de">Sicherheit & Compliance</a>
+                                </li>
+                                <li>
+                                    <a href="philosophy.html" class="lang-en">Philosophy</a>
+                                    <a href="philosophy.html" class="lang-de">Über Uns</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 col-6 position-static">
+                        <div class="header-right">
+
+                            <!-- Start Header Btn  -->
+                            <div class="header-btn">
+                                <a class="btn-default btn-small round" href="#" id="lang-toggle">EN | <span
+                                        style="opacity:0.5">DE</span></a>
+                                <a class="btn-default btn-small round lang-en" href="contact.html">Start Sprint</a>
+                                <a class="btn-default btn-small round lang-de" href="contact.html">Beratungstermin</a>
+                            </div>
+                            <!-- End Header Btn  -->
+
+                            <!-- Start Mobile-Menu-Bar -->
+                            <div class="mobile-menu-bar ml--5 d-flex justify-content-end d-lg-none">
+                                <div class="hamberger">
+                                    <button class="hamberger-button">
+                                        <i class="fa-sharp fa-regular fa-bars"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- Start Mobile-Menu-Bar -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- End Header Area  -->
+        <div class="popup-mobile-menu">
+            <div class="inner-popup">
+                <div class="header-top">
+                    <div class="logo">
+                        <a href="index.html" style="display: inline-flex; align-items: center;">
+                            <b class="theme-gradient is-visible"
+                                style="font-size: 50px; text-transform: lowercase; line-height: 1.3; padding-bottom: 5px;">niogod</b>
+                            <sup
+                                style="font-size: 12px; color: #fff !important; margin-left: 4px; position: relative; top: -15px; font-weight: 500;">TM</sup>
+                        </a>
+                    </div>
+                    <div class="close-menu">
+                        <button class="close-button">
+                            <i class="fa-sharp fa-regular fa-x"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="content">
+                    <ul class="mainmenu">
+                        <li>
+                            <a href="index.html" class="lang-en">Solutions</a>
+                            <a href="index.html" class="lang-de">Lösungen</a>
+                        </li>
+                        <li>
+                            <a href="protocol.html" class="lang-en">The Protocol</a>
+                            <a href="protocol.html" class="lang-de">Der Prozess</a>
+                        </li>
+                        <li>
+                            <a href="security-compliance.html" class="lang-en">Security & Compliance</a>
+                            <a href="security-compliance.html" class="lang-de">Sicherheit & Compliance</a>
+                        </li>
+                        <li>
+                            <a href="philosophy.html" class="lang-en">Philosophy</a>
+                            <a href="philosophy.html" class="lang-de">Über Uns</a>
+                        </li>
+                        <li>
+                            <a href="contact.html" class="lang-en">Contact</a>
+                            <a href="contact.html" class="lang-de">Kontakt</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+
+            <!-- Start Header Btn  -->
+            <div class="header-btn d-block d-md-none">
+                <a class="btn-default @@btnClass" target="_blank" href="text-generator.html">Get Started Free</a>
+            </div>
+            <!-- End Header Btn  -->
+        </div>
+
+        <!-- Imroz Preloader -->
+        <div class="preloader">
+            <div class="loader">
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+            </div>
+        </div>
+        <!-- End Header Top Area  -->
+
+
+        <!-- Start Testimonial Area  -->
+        <div class="main-content">
+            <!-- Start Breadcrumb Area -->
+            <div class="breadcrumb-area breadcarumb-style-1 pt--180 pb--100">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="breadcrumb-inner text-center">
+                                <h3 class="title h3 theme-gradient">
+                                    <span class="lang-en">Security & Compliance</span>
+                                    <span class="lang-de">Sicherheit & Compliance</span>
+                                </h3>
+                                <p class="description">
+                                    <span class="lang-en">Bank-Grade Security for Remote Teams.</span>
+                                    <span class="lang-de">Bankenstandard-Sicherheit für Remote-Teams.</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Breadcrumb Area -->
+
+            <!-- Start Security Content Area -->
+            <div class="rainbow-section-gap">
+                <div class="container">
+                    <!-- 1. The Fortress (Hero Concept) -->
+                    <div class="row mb--60">
+                        <div class="col-lg-12">
+                            <div class="section-title text-center">
+                                <div class="icon-box mb--20">
+                                    <i class="fa-regular fa-shield-check" style="font-size: 60px; color: #2f9e44;"></i>
+                                </div>
+                                <h3 class="title">
+                                    <span class="lang-en">The Compliance Shield</span>
+                                    <span class="lang-de">Ihr Schutzschild gegen Risiken</span>
+                                </h3>
+                                <p class="b1">
+                                    <span class="lang-en">We built a legal firewall around your engineering team. 100%
+                                        GDPR compliant. Zero co-employment risk. Your IP remains yours, legally and
+                                        technically.</span>
+                                    <span class="lang-de">Wir eliminieren die rechtlichen Hürden des Outsourcings. Kein
+                                        Risiko von Scheinselbstständigkeit. Volle DSGVO-Konformität. Sie konzentrieren
+                                        sich auf den Code, wir auf das Gesetz.</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. The Legal Framework (Firewall Diagram) -->
+                    <div class="row row--30 align-items-center mb--60 eor-section-card">
+                        <div class="col-lg-6">
+                            <div class="section-title text-left">
+                                <h4 class="title">
+                                    <span class="lang-en">The Model: Employer of Record (EOR)</span>
+                                    <span class="lang-de">Das Modell: Rechtssichere Dienstverträge</span>
+                                </h4>
+                                <div class="content mt--20">
+                                    <h5 class="subtitle"><span class="lang-en">How it Works:</span><span
+                                            class="lang-de">So funktioniert es:</span></h5>
+                                    <ul class="list-style--1">
+                                        <li>
+                                            <i class="feather-check-circle" style="color: #2f9e44;"></i>
+                                            <span class="lang-en">You sign a B2B Service Agreement with niogod.</span>
+                                            <span class="lang-de">Sie schließen einen Dienstvertrag mit niogod
+                                                ab.</span>
+                                        </li>
+                                        <li>
+                                            <i class="feather-check-circle" style="color: #2f9e44;"></i>
+                                            <span class="lang-en">We hold the Employment Contract with the
+                                                engineer.</span>
+                                            <span class="lang-de">Wir sind der rechtliche Arbeitgeber des
+                                                Entwicklers.</span>
+                                        </li>
+                                        <li>
+                                            <i class="feather-check-circle" style="color: #2f9e44;"></i>
+                                            <span class="lang-en">Result: You receive a service, not an employee.</span>
+                                            <span class="lang-de">Ergebnis: Sie erhalten eine Dienstleistung, keinen
+                                                Angestellten.</span>
+                                        </li>
+                                        <li>
+                                            <i class="feather-check-circle" style="color: #2f9e44;"></i>
+                                            <span class="lang-en">We handle payroll, taxes, and benefits
+                                                liability.</span>
+                                            <span class="lang-de">Wir übernehmen Lohnfortzahlung und
+                                                Sozialabgaben.</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <!-- Custom CSS Firewall Diagram -->
+                            <div class="firewall-diagram"
+                                style="text-align: center; position: relative; padding: 20px;">
+                                <div class="client-node"
+                                    style="display: inline-block; padding: 20px; background: #fff; border: 2px solid #0056b3; border-radius: 10px; margin-bottom: 20px; width: 100%;">
+                                    <i class="fa-regular fa-user-tie" style="font-size: 30px; color: #0056b3;"></i>
+                                    <h5 style="margin: 10px 0 0; color: #0056b3;">Client (You)</h5>
+                                </div>
+                                <div class="connection-line"
+                                    style="height: 40px; width: 2px; background: #ccc; margin: 0 auto;"></div>
+                                <div class="niogod-shield"
+                                    style="background: #e7f5ff; border: 2px solid #2f9e44; padding: 30px; border-radius: 50%; width: 200px; height: 200px; margin: 0 auto; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; z-index: 2;">
+                                    <i class="fa-regular fa-shield-check" style="font-size: 50px; color: #2f9e44;"></i>
+                                    <h4 style="margin: 10px 0 0; color: #2f9e44;">niogod</h4>
+                                    <span style="font-size: 12px; font-weight: bold; color: #2f9e44;">The
+                                        Firewall</span>
+                                </div>
+                                <div class="connection-line"
+                                    style="height: 40px; width: 2px; background: #ccc; margin: 0 auto;"></div>
+                                <div class="dev-node"
+                                    style="display: inline-block; padding: 20px; background: #fff; border: 2px solid #6c757d; border-radius: 10px; margin-top: 20px; width: 100%;">
+                                    <i class="fa-regular fa-code" style="font-size: 30px; color: #6c757d;"></i>
+                                    <h5 style="margin: 10px 0 0; color: #6c757d;">Developer</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. Data Sovereignty (GDPR) -->
+                    <div class="row row--30 mb--60">
+                        <div class="col-lg-12 text-center mb--40">
+                            <h3 class="title">
+                                <span class="lang-en">GDPR is our Default Setting</span>
+                                <span class="lang-de">Datensouveränität & DSGVO</span>
+                            </h3>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <div
+                                class="service service__style--1 bg-color-blackest radius mt--25 text-center purple-hover-card">
+                                <div class="icon">
+                                    <i class="fa-regular fa-server" style="color: #0d6efd;"></i>
+                                </div>
+                                <div class="content">
+                                    <h4 class="title">
+                                        <span class="lang-en">Frankfurt Data Residency</span>
+                                        <span class="lang-de">Serverstandort Deutschland</span>
+                                    </h4>
+                                    <p class="description b1">
+                                        <span class="lang-en">All client portals and project specs are hosted on AWS
+                                            EU-Central-1 (Frankfurt).</span>
+                                        <span class="lang-de">Alle sensiblen Daten werden in Frankfurt (AWS)
+                                            gehostet.</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <div
+                                class="service service__style--1 bg-color-blackest radius mt--25 text-center purple-hover-card">
+                                <div class="icon">
+                                    <i class="fa-regular fa-file-contract" style="color: #0d6efd;"></i>
+                                </div>
+                                <div class="content">
+                                    <h4 class="title">
+                                        <span class="lang-en">Standard Contractual Clauses</span>
+                                        <span class="lang-de">AVV & SCCs</span>
+                                    </h4>
+                                    <p class="description b1">
+                                        <span class="lang-en">We sign EU-approved SCCs for every engagement to
+                                            legitimize data processing.</span>
+                                        <span class="lang-de">Wir bieten standardmäßig einen AVV und
+                                            EU-Standardvertragsklauseln an.</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <div
+                                class="service service__style--1 bg-color-blackest radius mt--25 text-center purple-hover-card">
+                                <div class="icon">
+                                    <i class="fa-regular fa-lock" style="color: #0d6efd;"></i>
+                                </div>
+                                <div class="content">
+                                    <h4 class="title">
+                                        <span class="lang-en">Vetted Endpoints</span>
+                                        <span class="lang-de">Clean-Desk-Policy</span>
+                                    </h4>
+                                    <p class="description b1">
+                                        <span class="lang-en">Secure workstations with encrypted hard drives and
+                                            disabled USB ports.</span>
+                                        <span class="lang-de">Strenge Sicherheitsstandards: keine Smartphones am Platz,
+                                            gesicherter Zugang.</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4. IP Protection -->
+                    <div class="row mb--60">
+                        <div class="col-lg-12">
+                            <div class="call-to-action-area rainbow-section-gapTop radius ip-protection-card">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="section-title text-center">
+                                            <h2 class="title" style="color: #0d6efd;">
+                                                <span class="lang-en">You Own Every Line of Code</span>
+                                                <span class="lang-de">Ihr Code gehört Ihnen</span>
+                                            </h2>
+                                            <p class="b1" style="color: #555;">
+                                                <span class="lang-en">Our contracts are explicit: Intellectual Property
+                                                    transfer is instantaneous upon creation. The developer has no claim
+                                                    to the code, algorithms, or business logic they build for you. This
+                                                    is enforced via strict local Indian employment law and our B2B
+                                                    contract with you.</span>
+                                                <span class="lang-de">Unsere Verträge regeln eindeutig: Das geistige
+                                                    Eigentum (IP) geht sofort nach Erstellung auf Sie über. Der
+                                                    Entwickler tritt alle Nutzungsrechte unwiderruflich ab. Dies wird
+                                                    durch lokale Arbeitsverträge und unseren Dienstvertrag rechtssicher
+                                                    durchgesetzt.</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 5. Physical & ISO Security -->
+                    <div class="row row--30 align-items-center mb--60">
+                        <div class="col-lg-6">
+                            <div class="thumbnail security-image-box">
+                                <!-- New Security Shield Image -->
+                                <img class="w-100 radius" src="assets/images/service/security-shield.png"
+                                    alt="Security Infrastructure" style="opacity: 1; filter: none;">
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="iso-card-wrapper">
+                                <div class="section-title text-left">
+                                    <h3 class="title">
+                                        <span class="lang-en">Physical & ISO Security</span>
+                                        <span class="lang-de">Physische & ISO Sicherheit</span>
+                                    </h3>
+                                    <div class="content mt--20">
+                                        <ul class="list-style--1">
+                                            <li>
+                                                <i class="feather-check-circle"></i>
+                                                <span class="lang-en"><strong>ISO 27001 Aligned:</strong> Strict InfoSec
+                                                    protocols.</span>
+                                                <span class="lang-de"><strong>ISO 27001 Standards:</strong> Orientierung
+                                                    an
+                                                    internationalen Normen.</span>
+                                            </li>
+                                            <li>
+                                                <i class="feather-check-circle"></i>
+                                                <span class="lang-en"><strong>Physical Perimeter:</strong> Biometric
+                                                    access
+                                                    control to our Cyberpark center.</span>
+                                                <span class="lang-de"><strong>Physische Sicherheit:</strong>
+                                                    Biometrische
+                                                    Zugangskontrollen im Cyberpark.</span>
+                                            </li>
+                                            <li>
+                                                <i class="feather-check-circle"></i>
+                                                <span class="lang-en"><strong>Network Security:</strong>
+                                                    Enterprise-grade
+                                                    firewalls & VPN tunnels.</span>
+                                                <span class="lang-de"><strong>Netzwerkschutz:</strong> VPN-Tunnel &
+                                                    Enterprise-Firewalls.</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 6. Downloads -->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="section-title text-center mb--20">
+                                <h4 class="title">
+                                    <span class="lang-en">Whitepapers & Agreements</span>
+                                    <span class="lang-de">Downloads & Dokumente</span>
+                                </h4>
+                            </div>
+                            <div class="row row--15 justify-content-center">
+                                <div class="col-lg-4 col-md-6 col-12 mt--20">
+                                    <a href="assets/downloads/Compliance Whitepaper 2025.pdf"
+                                        class="custom-download-box" target="_blank">
+                                        <i class="fa-regular fa-file-pdf"></i>
+                                        <div style="display: flex; flex-direction: column;">
+                                            <span class="lang-en">Compliance Whitepaper 2025</span>
+                                            <span class="lang-de">Compliance Whitepaper 2025</span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-12 mt--20">
+                                    <a href="assets/downloads/Sample Service Agreement.pdf" class="custom-download-box"
+                                        target="_blank">
+                                        <i class="fa-regular fa-file-pdf"></i>
+                                        <div style="display: flex; flex-direction: column;">
+                                            <span class="lang-en">Sample Service Agreement</span>
+                                            <span class="lang-de">Muster-Dienstvertrag</span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-12 mt--20">
+                                    <a href="assets/downloads/DATA PROCESSING AGREEMENT.pdf" class="custom-download-box"
+                                        target="_blank">
+                                        <i class="fa-regular fa-file-pdf"></i>
+                                        <div style="display: flex; flex-direction: column;">
+                                            <span class="lang-en">Data Processing Agreement</span>
+                                            <span class="lang-de">AVV Muster</span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- End Security Content Area -->
+        </div>
+        <!-- End Testimonial Area  -->
+
+
+        <!-- Start Footer Area  -->
+        <footer class="rainbow-footer footer-style-default footer-style-3 position-relative">
+            <div class="footer-top">
+                <div class="container">
+                    <div class="row justify-content-between">
+                        <!-- Column 1: Brand -->
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-12">
+                            <div class="rainbow-footer-widget">
+                                <div class="logo">
+                                    <a href="index.html"
+                                        style="display: inline-flex; align-items: center; text-decoration: none;">
+                                        <b class="theme-gradient"
+                                            style="font-size: 40px; text-transform: lowercase; line-height: 1.3; font-weight: 700; padding-bottom: 5px;">niogod</b>
+                                        <sup
+                                            style="font-size: 10px; color: #fff !important; margin-left: 3px; position: relative; top: -12px; font-weight: 500;">TM</sup>
+                                    </a>
+                                </div>
+                                <p class="b1 desc-text overflow-hidden">
+                                    <span class="lang-en">New Integrated Operations.<br>Global On-demand
+                                        Delivery.</span>
+                                    <span class="lang-de">Neue Integrierte Operationen.<br>Globale
+                                        On-Demand-Lieferung.</span>
+                                </p>
+                                <div class="address" style="margin-top: 15px; font-size: 0.9em; opacity: 0.7;">
+                                    <span class="lang-en">
+                                        HQ: Cyberpark, Kozhikode, India.<br>
+                                        EU: Arena Läppstiftet, Lilla bommen 2, 411 05 Gothenburg, Sweden.
+                                    </span>
+                                    <span class="lang-de">
+                                        HQ: Cyberpark, Kozhikode, Indien.<br>
+                                        EU: Arena Läppstiftet, Lilla bommen 2, 411 05 Göteborg, Schweden.
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Column 2: Legal (DACH) -->
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                            <div class="rainbow-footer-widget">
+                                <div class="widget-menu-top">
+                                    <h4 class="title">
+                                        <span class="lang-en">Legal (DACH)</span>
+                                        <span class="lang-de">Rechtliches (DACH)</span>
+                                    </h4>
+                                    <div class="inner">
+                                        <ul class="footer-link link-hover">
+                                            <li>
+                                                <a href="legal.html">
+                                                    <span class="lang-en">Legal Notice</span>
+                                                    <span class="lang-de">Impressum</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="legal.html#privacy">
+                                                    <span class="lang-en">Privacy Policy</span>
+                                                    <span class="lang-de">Datenschutzerklärung</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="legal.html#terms">
+                                                    <span class="lang-en">Terms & Conditions</span>
+                                                    <span class="lang-de">AGB</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Column 3: Contact -->
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                            <div class="rainbow-footer-widget">
+                                <div class="widget-menu-bottom">
+                                    <h4 class="title">
+                                        <span class="lang-en">Contact</span>
+                                        <span class="lang-de">Kontakt</span>
+                                    </h4>
+                                    <div class="inner">
+                                        <ul class="footer-link link-hover">
+                                            <li><a href="mailto:hello@niogod.com">hello@niogod.com</a></li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Column 4: Social -->
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                            <div class="rainbow-footer-widget">
+                                <div class="widget-menu-bottom">
+                                    <h4 class="title">
+                                        <span class="lang-en">Social</span>
+                                        <span class="lang-de">Social Media</span>
+                                    </h4>
+                                    <div class="inner">
+                                        <ul class="social-icon social-default justify-content-start">
+                                            <li><a href="https://www.linkedin.com/company/niogod/"><i
+                                                        class="fa-brands fa-linkedin-in"></i></a></li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright-area copyright-style-one">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 col-md-8 col-sm-12 col-12">
+                            <div class="copyright-left">
+                                <ul class="ft-menu link-hover">
+                                    <li>
+                                        <a href="#">
+                                            <span class="lang-en">© 2025 niogod. All rights reserved.</span>
+                                            <span class="lang-de">© 2025 niogod. Alle Rechte vorbehalten.</span>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-4 col-sm-12 col-12">
+                            <div class="copyright-right text-center text-lg-end">
+                                <p class="copyright-text"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- End Footer Area  -->
+        <div class="rbt-progress-parent">
+            <svg class="rbt-back-circle svg-inner" width="100%" height="100%" viewbox="-1 -1 102 102">
+                <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
+            </svg>
+        </div>
+    </main>
+    <!-- All Scripts  -->
+
+    <!-- JS
+    ============================================ -->
+    <script src="js/vendor-modernizr.min.js"></script>
+    <script src="js/vendor-jquery.min.js"></script>
+    <script src="js/vendor-bootstrap.min.js"></script>
+    <script src="js/vendor-waypoint.min.js"></script>
+    <script src="js/vendor-wow.min.js"></script>
+    <script src="js/vendor-counterup.min.js"></script>
+    <script src="js/vendor-sal.min.js"></script>
+    <script src="js/vendor-slick.min.js"></script>
+    <script src="js/vendor-text-type.js"></script>
+    <script src="js/vendor-prism.js"></script>
+    <script src="js/vendor-jquery.style.swicher.js"></script>
+    <script src="js/vendor-bootstrap-select.min.js"></script>
+    <script src="js/vendor-backto-top.js"></script>
+
+    <script src="js/vendor-js.cookie.js"></script>
+    <script src="js/vendor-jquery-one-page-nav.js"></script>
+    <!-- Main JS -->
+    <script src="js/js-main.js"></script>
+
+
+
+
+    <!-- Localization JS -->
+    <!-- Localization JS -->
+    <script src="js/localization.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            function adjustHeaderPosition() {
+                var banner = $('.header-top-news');
+                var header = $('.header-transparent');
+
+                if (header.hasClass('sticky')) {
+                    header.attr('style', 'top: 0px !important');
+                } else if (banner.length && header.length && banner.is(':visible')) {
+                    var bannerHeight = banner.outerHeight() || 46; // Fallback to 46px if 0
+                    // Using attr to force !important
+                    header.attr('style', 'top: ' + bannerHeight + 'px !important');
+                } else {
+                    header.attr('style', 'top: 0px !important');
+                }
+            }
+
+            // Run on Ready
+            adjustHeaderPosition();
+
+            // Run on Load (incase images/fonts affect height)
+            $(window).on('load', adjustHeaderPosition);
+
+            // Adjust on resize
+            $(window).on('resize', adjustHeaderPosition);
+
+            // Adjust on scroll (to catch sticky class changes)
+            $(window).on('scroll', adjustHeaderPosition);
+
+            // Adjust on banner close
+            $('.bgsection-activation').on('click', function () {
+                setTimeout(adjustHeaderPosition, 300);
+            });
+        });
+    </script>
+</body>
+
+</html>

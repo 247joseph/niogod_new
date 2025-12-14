@@ -9,11 +9,11 @@
 
         d: function (e) {
             this._window = $(window),
-            this._document = $(document),
-            this._body = $('body'),
-            this._html = $('html')
+                this._document = $(document),
+                this._body = $('body'),
+                this._html = $('html')
         },
-        
+
         methods: function (e) {
             aiwaveJs.smothScroll();
             aiwaveJs.counterUpActivation();
@@ -44,24 +44,24 @@
 
         menuCurrentLink: function () {
             var currentPage = location.pathname.split("/"),
-            current = currentPage[currentPage.length-1];
-            $('.dashboard-mainmenu li a').each(function(){
+                current = currentPage[currentPage.length - 1];
+            $('.dashboard-mainmenu li a').each(function () {
                 var $this = $(this);
-                if($this.attr('href') === current){
+                if ($this.attr('href') === current) {
                     $this.addClass('active');
                     $this.parents('.has-menu-child-item').addClass('menu-item-open')
                 }
             });
-            $('.mainmenu li a').each(function(){
+            $('.mainmenu li a').each(function () {
                 var $this = $(this);
-                if($this.attr('href') === current){
+                if ($this.attr('href') === current) {
                     $this.addClass('active');
                     $this.parents('.has-menu-child-item').addClass('menu-item-open')
                 }
             });
-            $('.user-nav li a').each(function(){
+            $('.user-nav li a').each(function () {
                 var $this = $(this);
-                if($this.attr('href') === current){
+                if ($this.attr('href') === current) {
                     $this.addClass('active');
                     $this.parents('.has-menu-child-item').addClass('menu-item-open')
                 }
@@ -102,7 +102,7 @@
             });
         },
 
-        popupDislikeSection: function(e){
+        popupDislikeSection: function (e) {
             $('.dislike-section-btn').on('click', function (e) {
                 $('.popup-dislike-section').addClass('active');
             });
@@ -112,7 +112,7 @@
             });
         },
 
-        popupleftdashboard: function(e){
+        popupleftdashboard: function (e) {
             function updateSidebar() {
                 if ($(window).width() >= 1600) {
                     $('.popup-dashboardleft-btn').removeClass('collapsed');
@@ -131,12 +131,12 @@
 
             // Show sidebars after determining the appropriate state
             $('.popup-dashboardleft-btn, .popup-dashboardleft-section, .rbt-main-content, .rbt-static-bar').show();
-        
+
             // Update on window resize
             $(window).on('resize', function () {
                 updateSidebar();
             });
-        
+
             // Toggle classes on button click
             $('.popup-dashboardleft-btn').on('click', function (e) {
                 $('.popup-dashboardleft-btn').toggleClass('collapsed');
@@ -144,7 +144,7 @@
             });
         },
 
-        popuprightdashboard: function(e){
+        popuprightdashboard: function (e) {
             function updateSidebar() {
                 if ($(window).width() >= 1600) {
                     $('.popup-dashboardright-btn').removeClass('collapsed');
@@ -162,12 +162,12 @@
 
             // Show sidebars after determining the appropriate state
             $('.popup-right-btn, .popup-right-section, .rbt-main-content, .rbt-static-bar').show();
-        
+
             // Update on window resize
             $(window).on('resize', function () {
                 updateSidebar();
             });
-        
+
             // Toggle classes on button click
             $('.popup-dashboardright-btn').on('click', function (e) {
                 $('.popup-dashboardright-btn').toggleClass('collapsed');
@@ -175,7 +175,7 @@
             });
         },
 
-        preloaderInit: function(){
+        preloaderInit: function () {
             aiwaveJs._window.on('load', function () {
                 $('.preloader').fadeOut('slow', function () {
                     $(this).remove();
@@ -190,13 +190,13 @@
                     $(this).text('Show Less');
                     $(this).parent('.has-show-more').toggleClass('active');
 
-                    
+
                     if ($(this).parent('.has-show-more').hasClass('active')) {
                         $(this).innerHTML('Show Less');
                     } else {
                         $(this).text('Show More');
                     }
-                    
+
                 });
             };
             $(document).on('click', '.rbt-show-more-btn', function () {
@@ -205,7 +205,7 @@
         },
 
 
-        
+
 
         slickSliderActivation: function () {
             $('.testimonial-activation').not('.slick-initialized').slick({
@@ -252,7 +252,7 @@
                 cssEase: 'linear',
                 responsive: [
                     {
-                      breakpoint: 769,
+                        breakpoint: 769,
                         settings: {
                             slidesToShow: 2,
                             slidesToScroll: 2
@@ -265,7 +265,7 @@
                             slidesToScroll: 1
                         }
                     }
-                  ]
+                ]
             });
 
             $('.rainbow-service-slider-actvation').not('.slick-initialized').slick({
@@ -279,21 +279,21 @@
                 cssEase: 'linear',
                 responsive: [
                     {
-                      breakpoint: 1200,
+                        breakpoint: 1200,
                         settings: {
                             slidesToShow: 2,
                             slidesToScroll: 1
                         }
                     },
                     {
-                      breakpoint: 992,
+                        breakpoint: 992,
                         settings: {
                             slidesToShow: 2,
                             slidesToScroll: 1
                         }
                     },
                     {
-                      breakpoint: 769,
+                        breakpoint: 769,
                         settings: {
                             slidesToShow: 1,
                             slidesToScroll: 1
@@ -306,7 +306,7 @@
                             slidesToScroll: 1
                         }
                     }
-                  ]
+                ]
             });
 
             $('.slider-brand-activation').not('.slick-initialized').slick({
@@ -325,40 +325,40 @@
                 cssEase: 'linear',
                 responsive: [
                     {
-                    breakpoint: 1200,
-                    settings: {
-                        arrows: false,
-                        centerMode: true,
-                        centerPadding: '40px',
-                        slidesToShow: 4,
-                    }
+                        breakpoint: 1200,
+                        settings: {
+                            arrows: false,
+                            centerMode: true,
+                            centerPadding: '40px',
+                            slidesToShow: 4,
+                        }
                     },
                     {
-                    breakpoint: 992,
-                    settings: {
-                        arrows: false,
-                        centerMode: true,
-                        centerPadding: '40px',
-                        slidesToShow: 3,
-                    }
+                        breakpoint: 992,
+                        settings: {
+                            arrows: false,
+                            centerMode: true,
+                            centerPadding: '40px',
+                            slidesToShow: 3,
+                        }
                     },
                     {
-                    breakpoint: 768,
-                    settings: {
-                        arrows: false,
-                        centerMode: true,
-                        centerPadding: '40px',
-                        slidesToShow: 2,
-                    }
+                        breakpoint: 768,
+                        settings: {
+                            arrows: false,
+                            centerMode: true,
+                            centerPadding: '40px',
+                            slidesToShow: 2,
+                        }
                     },
                     {
-                    breakpoint: 480,
-                    settings: {
-                        arrows: false,
-                        centerMode: true,
-                        centerPadding: '40px',
-                        slidesToShow: 1
-                    }
+                        breakpoint: 480,
+                        settings: {
+                            arrows: false,
+                            centerMode: true,
+                            centerPadding: '40px',
+                            slidesToShow: 1
+                        }
                     }
                 ]
             });
@@ -376,7 +376,7 @@
                 nextArrow: '<button class="slide-arrow next-arrow"><i class="fa-sharp fa-regular fa-arrow-right"></i></button>',
                 responsive: [
                     {
-                      breakpoint: 769,
+                        breakpoint: 769,
                         settings: {
                             slidesToShow: 4,
                             slidesToScroll: 2
@@ -394,7 +394,7 @@
                             slidesToShow: 2,
                         }
                     },
-                  ]
+                ]
             });
 
             $('.banner-imgview-carousel-activation').not('.slick-initialized').slick({
@@ -405,14 +405,14 @@
                 autoplay: true,
                 arrows: false,
                 adaptiveHeight: true,
-                centerMode:true,
+                centerMode: true,
                 centerPadding: '100px',
                 cssEase: 'linear',
                 prevArrow: '<button class="slide-arrow prev-arrow"><i class="fa-regular fa-arrow-left"></i></button>',
                 nextArrow: '<button class="slide-arrow next-arrow"><i class="fa-sharp fa-regular fa-arrow-right"></i></button>',
                 responsive: [
                     {
-                      breakpoint: 769,
+                        breakpoint: 769,
                         settings: {
                             slidesToShow: 3,
                             slidesToScroll: 2
@@ -430,7 +430,7 @@
                             slidesToShow: 2,
                         }
                     },
-                  ]
+                ]
             });
 
             $('.vedio-popup-carousel-activation').not('.slick-initialized').slick({
@@ -441,14 +441,14 @@
                 autoplay: false,
                 arrows: false,
                 adaptiveHeight: true,
-                centerMode:true,
+                centerMode: true,
                 centerPadding: '200px',
                 cssEase: 'linear',
                 prevArrow: '<button class="slide-arrow prev-arrow"><i class="fa-regular fa-arrow-left"></i></button>',
                 nextArrow: '<button class="slide-arrow next-arrow"><i class="fa-sharp fa-regular fa-arrow-right"></i></button>',
                 responsive: [
                     {
-                      breakpoint: 769,
+                        breakpoint: 769,
                         settings: {
                             slidesToShow: 2,
                             slidesToScroll: 1
@@ -466,7 +466,7 @@
                             slidesToShow: 2,
                         }
                     },
-                  ]
+                ]
             });
 
             $('.brand-carousel-init').not('.slick-initialized').slick({
@@ -481,7 +481,7 @@
                 nextArrow: '<button class="slide-arrow next-arrow"><i class="fa-sharp fa-regular fa-arrow-right"></i></button>',
                 responsive: [
                     {
-                      breakpoint: 769,
+                        breakpoint: 769,
                         settings: {
                             slidesToShow: 4,
                             slidesToScroll: 2
@@ -499,7 +499,7 @@
                             slidesToShow: 2,
                         }
                     },
-                  ]
+                ]
             });
 
 
@@ -530,7 +530,7 @@
                 nextArrow: '<button class="slide-arrow next-arrow"><i class="fa-sharp fa-regular fa-arrow-right"></i></button>',
                 responsive: [
                     {
-                      breakpoint: 769,
+                        breakpoint: 769,
                         settings: {
                             slidesToShow: 4,
                             slidesToScroll: 2
@@ -548,7 +548,7 @@
                             slidesToShow: 2,
                         }
                     },
-                  ]
+                ]
             });
 
 
@@ -628,36 +628,36 @@
 
         contactForm: function () {
             $('.rainbow-dynamic-form').on('submit', function (e) {
-				e.preventDefault();
-				var _self = $(this);
-				var __selector = _self.closest('input,textarea');
-				_self.closest('div').find('input,textarea').removeAttr('style');
-				_self.find('.error-msg').remove();
-				_self.closest('div').find('button[type="submit"]').attr('disabled', 'disabled');
-				var data = $(this).serialize();
-				$.ajax({
-					url: 'mail.php',
-					type: "post",
-					dataType: 'json',
-					data: data,
-					success: function (data) {
-						_self.closest('div').find('button[type="submit"]').removeAttr('disabled');
-						if (data.code == false) {
-							_self.closest('div').find('[name="' + data.field + '"]');
-							_self.find('.rainbow-btn').after('<div class="error-msg"><p>*' + data.err + '</p></div>');
-						} else {
-							$('.error-msg').hide();
-							$('.form-group').removeClass('focused');
-							_self.find('.rainbow-btn').after('<div class="success-msg"><p>' + data.success + '</p></div>');
-							_self.closest('div').find('input,textarea').val('');
+                e.preventDefault();
+                var _self = $(this);
+                var __selector = _self.closest('input,textarea');
+                _self.closest('div').find('input,textarea').removeAttr('style');
+                _self.find('.error-msg').remove();
+                _self.closest('div').find('button[type="submit"]').attr('disabled', 'disabled');
+                var data = $(this).serialize();
+                $.ajax({
+                    url: 'mail.php',
+                    type: "post",
+                    dataType: 'json',
+                    data: data,
+                    success: function (data) {
+                        _self.closest('div').find('button[type="submit"]').removeAttr('disabled');
+                        if (data.code == false) {
+                            _self.closest('div').find('[name="' + data.field + '"]');
+                            _self.find('.rainbow-btn').after('<div class="error-msg"><p>*' + data.err + '</p></div>');
+                        } else {
+                            $('.error-msg').hide();
+                            $('.form-group').removeClass('focused');
+                            _self.find('.rainbow-btn').after('<div class="success-msg"><p>' + data.success + '</p></div>');
+                            _self.closest('div').find('input,textarea').val('');
 
-							setTimeout(function () {
-								$('.success-msg').fadeOut('slow');
-							}, 5000);
-						}
-					}
-				});
-			});
+                            setTimeout(function () {
+                                $('.success-msg').fadeOut('slow');
+                            }, 5000);
+                        }
+                    }
+                });
+            });
         },
 
         onePageNav: function () {
@@ -677,26 +677,26 @@
 
 
 // Bg flashlight
-    let cards = document.querySelectorAll('.bg-flashlight')
-    cards.forEach(bgflashlight => {
-        bgflashlight.onmousemove = function(e){
-            let x = e.pageX - bgflashlight.offsetLeft;
-            let y = e.pageY - bgflashlight.offsetTop;
+let cards = document.querySelectorAll('.bg-flashlight')
+cards.forEach(bgflashlight => {
+    bgflashlight.onmousemove = function (e) {
+        let x = e.pageX - bgflashlight.offsetLeft;
+        let y = e.pageY - bgflashlight.offsetTop;
 
-            bgflashlight.style.setProperty('--x', x + 'px');
-            bgflashlight.style.setProperty('--y', y + 'px');
-        }
-    });
+        bgflashlight.style.setProperty('--x', x + 'px');
+        bgflashlight.style.setProperty('--y', y + 'px');
+    }
+});
 
 // Bg flashlight
 let shapes = document.querySelectorAll('.blur-flashlight')
 shapes.forEach(bgflashlight => {
-    bgflashlight.onmousemove = function(e){
+    bgflashlight.onmousemove = function (e) {
         let x = e.pageX - bgflashlight.offsetLeft;
         let y = e.pageY - bgflashlight.offsetTop;
 
-        bgflashlight.style.setProperty('--x', x+70 + 'px');
-        bgflashlight.style.setProperty('--y', y+200 +'px');
+        bgflashlight.style.setProperty('--x', x + 70 + 'px');
+        bgflashlight.style.setProperty('--y', y + 200 + 'px');
     }
 });
 
@@ -706,7 +706,7 @@ shapes.forEach(bgflashlight => {
 // Tooltip
 var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
 var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-  return new bootstrap.Tooltip(tooltipTriggerEl)
+    return new bootstrap.Tooltip(tooltipTriggerEl)
 });
 
 
@@ -726,13 +726,13 @@ var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
 
 
 //Check All JS Activation
-$(function() {
+$(function () {
     var propFn = typeof $.fn.prop === 'function' ? 'prop' : 'attr';
 
-    $('#checkall').click(function() {
+    $('#checkall').click(function () {
         $(this).parents('fieldset:eq(0)').find(':checkbox')[propFn]('checked', this.checked);
     });
-    $("input[type=checkbox]:not(#checkall)").click(function() {
+    $("input[type=checkbox]:not(#checkall)").click(function () {
         if (!this.checked) {
             $("#checkall")[propFn]('checked', this.checked);
         } else {
@@ -751,17 +751,17 @@ function generateAutoReply() {
     // Add your logic here to generate a dynamically generated auto-reply
     // For simplicity, let's just echo a placeholder message
     return `AiWave: I'm a dynamic chat bot!`;
-  }
+}
 
-  function sendMessage(event) {
-    event.preventDefault(); 
+function sendMessage(event) {
+    event.preventDefault();
     const txtarea = document.getElementById('txtarea');
     const chatContainer = document.getElementById('chatContainer');
     let welcomeMessageIndex = 0;
 
     const welcomeMessages = [
-      "Hello! How can I help you today?",
-      "Welcome to our chat! Feel free to ask any questions."
+        "Hello! How can I help you today?",
+        "Welcome to our chat! Feel free to ask any questions."
     ];
 
     const userMessage = txtarea.value.trim();
@@ -771,29 +771,29 @@ function generateAutoReply() {
     appendMessage(userMessageElement);
 
     if (welcomeMessageIndex < welcomeMessages.length) {
-      const welcomeMessageElement = createMessageWithReactions('AiWave', welcomeMessages[welcomeMessageIndex], 'ai-speech', 'assets/images/team/avater.png');
-      appendMessage(welcomeMessageElement);
-      welcomeMessageIndex++;
+        const welcomeMessageElement = createMessageWithReactions('AiWave', welcomeMessages[welcomeMessageIndex], 'ai-speech', 'assets/images/team/avater.png');
+        appendMessage(welcomeMessageElement);
+        welcomeMessageIndex++;
     } else {
-      const autoReply = generateAutoReply();
-      const autoReplyElement = createMessageWithReactions('AiWave', autoReply, 'ai-speech', 'assets/images/team/avater.png');
-      appendMessage(autoReplyElement);
+        const autoReply = generateAutoReply();
+        const autoReplyElement = createMessageWithReactions('AiWave', autoReply, 'ai-speech', 'assets/images/team/avater.png');
+        appendMessage(autoReplyElement);
     }
 
     txtarea.value = '';
-  }
+}
 
-  function createEditableMessage(title, message, speechClass, imgSrc) {
+function createEditableMessage(title, message, speechClass, imgSrc) {
     const messageElement = createMessageElement(title, message, speechClass, imgSrc, true);
     return messageElement;
-  }
+}
 
-  function createMessageWithReactions(title, message, speechClass, imgSrc) {
+function createMessageWithReactions(title, message, speechClass, imgSrc) {
     const messageElement = createMessageElement(title, message, speechClass, imgSrc, false);
     return messageElement;
-  }
+}
 
-  function createMessageElement(title, message, speechClass, imgSrc, isEditable) {
+function createMessageElement(title, message, speechClass, imgSrc, isEditable) {
     const messageElement = document.createElement('div');
     messageElement.className = `chat-box ${speechClass}`;
     messageElement.innerHTML = `
@@ -811,9 +811,9 @@ function generateAutoReply() {
       </div>
     `;
     return messageElement;
-  }
+}
 
-  function getEditButtons() {
+function getEditButtons() {
     return `
       <div class="edit-actions">
         <button class="edit-btn btn-default btn-small btn-border" onclick="editMessage(this)"><i class="fa-solid fa-pen-to-square"></i></button>
@@ -821,9 +821,9 @@ function generateAutoReply() {
         <button class="cancel-btn btn-default btn-small btn-border" onclick="cancelEdit(this)">Cancel</button>
       </div>
     `;
-  }
+}
 
-  function getReactionButtons() {
+function getReactionButtons() {
     return `
       <div class="reaction-section">
       <div class="btn-grp">
@@ -849,22 +849,22 @@ function generateAutoReply() {
   </div>
       </div>
     `;
-  }
+}
 
-  function appendMessage(messageElement) {
+function appendMessage(messageElement) {
     const chatContainer = document.getElementById('chatContainer');
     chatContainer.appendChild(messageElement);
     chatContainer.scrollTop = chatContainer.scrollHeight;
-  }
+}
 
-  function editMessage(button) {
+function editMessage(button) {
     const chatContent = button.parentElement.parentElement.parentElement;
     const editable = chatContent.querySelector('.editable');
     editable.contentEditable = 'true';
     editable.focus();
-  }
+}
 
-  function saveAndRegenerateMessage(button) {
+function saveAndRegenerateMessage(button) {
     const chatContent = button.parentElement.parentElement.parentElement;
     const editable = chatContent.querySelector('.editable');
     const editedMessage = editable.textContent;
@@ -877,30 +877,30 @@ function generateAutoReply() {
     const regeneratedMessage = generateAutoReply();
     const regeneratedMessageElement = createMessageWithReactions('AiWave', regeneratedMessage, 'ai-speech', 'assets/images/team/avater.png');
     appendMessage(regeneratedMessageElement);
-  }
+}
 
-  function cancelEdit(button) {
+function cancelEdit(button) {
     const chatContent = button.parentElement.parentElement.parentElement;
     const editable = chatContent.querySelector('.editable');
     editable.contentEditable = 'false';
     // Optionally, you can revert the content to the original state
-  }
+}
 
-  function regenerateMessage() {
+function regenerateMessage() {
     const regeneratedMessage = generateAutoReply();
     const regeneratedMessageElement = createMessageWithReactions('AiWave', regeneratedMessage, 'ai-speech', 'assets/images/team/avater.png');
     appendMessage(regeneratedMessageElement);
-  }
+}
 
-  const txtarea = document.getElementById('txtarea');
-  if(null !== txtarea) {
+const txtarea = document.getElementById('txtarea');
+if (null !== txtarea) {
     txtarea.addEventListener('keydown', function (e) {
         if (e.key === 'Enter' && !e.shiftKey) {
-          e.preventDefault();
-          sendMessage(e);
+            e.preventDefault();
+            sendMessage(e);
         }
     });
-  };
+};
 
 
 
