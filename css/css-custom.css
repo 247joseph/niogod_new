@@ -798,8 +798,72 @@ body {
 
 .rainbow-footer {
     margin-top: auto !important;
-    width: 100%;
-    /* Reverted to default padding for consistency with Index page */
+}
+
+/* =========================================
+   MOBILE LAYOUT FIXES
+   ========================================= */
+
+/* 1. Fix Logo Overlap in Mobile Menu */
+/* Ensure the header top in mobile menu has space and doesn't overlap */
+.popup-mobile-menu .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    /* Align to top to handle distinct heights */
+    padding-right: 10px;
+    /* Ensure some padding from edge */
+}
+
+/* Constrain logo width on mobile to prevent running into close button */
+.popup-mobile-menu .header-top .logo {
+    max-width: 75%;
+    flex-shrink: 1;
+}
+
+/* Ensure the logo text scales down if necessary */
+.popup-mobile-menu .header-top .logo b {
+    font-size: clamp(30px, 8vw, 50px) !important;
+    word-break: break-word;
+}
+
+/* 2. Vertical Spacing for Cards on Mobile */
+/* Target purple hover cards and compliance cards on mobile */
+@media only screen and (max-width: 768px) {
+
+    /* Add extra bottom margin to column wrappers containing cards */
+    .service-wrapper .col-lg-4,
+    .service-wrapper .col-md-6,
+    .service-wrapper .col-sm-6,
+    .security-image-box,
+    .iso-card-wrapper,
+    .purple-hover-card,
+    .compliance-card,
+    .box-card,
+    .team-card,
+    .timeline-card,
+    .blog-card {
+        margin-bottom: 25px !important;
+    }
+
+    /* Specifically for security-compliance page logic if needed */
+    .row.mb--60 {
+        margin-bottom: 40px !important;
+        /* Adjust section spacing */
+    }
+
+    /* Ensure specific cards inside columns have spacing if the columns don't */
+    .purple-hover-card,
+    .compliance-card {
+        display: flex;
+        flex-direction: column;
+        height: auto !important;
+        /* Allow auto height on mobile to prevent stretching weirdness */
+    }
+}
+
+width: 100%;
+/* Reverted to default padding for consistency with Index page */
 }
 
 .copyright-area {
