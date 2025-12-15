@@ -827,6 +827,11 @@ body {
     word-break: break-word;
 }
 
+/* Also constrain the Main Header logo */
+.rainbow-header .logo b {
+    font-size: clamp(30px, 8vw, 40px) !important;
+}
+
 /* 2. Vertical Spacing for Cards on Mobile */
 /* Target purple hover cards and compliance cards on mobile */
 @media only screen and (max-width: 768px) {

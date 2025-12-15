@@ -799,6 +799,27 @@
 
     <script>
         $(document).ready(function () {
+            // Header Position Adjustment for Banner
+            function adjustHeaderPosition() {
+                var banner = $('.header-top-news');
+                var header = $('.header-transparent');
+
+                if (header.hasClass('sticky')) {
+                    header.attr('style', 'top: 0px !important');
+                } else if (banner.length && header.length && banner.is(':visible')) {
+                    var bannerHeight = banner.outerHeight() || 46;
+                    header.attr('style', 'top: ' + bannerHeight + 'px !important');
+                } else {
+                    header.attr('style', 'top: 0px !important');
+                }
+            }
+
+            adjustHeaderPosition();
+            $(window).on('load resize scroll', adjustHeaderPosition);
+            $('.bgsection-activation').on('click', function () {
+                setTimeout(adjustHeaderPosition, 300);
+            });
+
             $("#newsletter-form").submit((e) => {
                 e.preventDefault()
 
