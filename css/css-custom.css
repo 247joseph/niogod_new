@@ -867,6 +867,157 @@ body {
     }
 }
 
+/* =========================================
+   VIDEO TESTIMONIAL WIDGET
+   ========================================= */
+.video-testimonial-widget {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    /* Moved to right side */
+    width: 280px;
+    /* Slightly larger for better visibility */
+    height: auto;
+    border-radius: 20px;
+    /* Softer corners */
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    background: #000;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    opacity: 0;
+    animation: fadeSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    /* Smoother easing */
+    animation-delay: 2s;
+}
+
+.video-testimonial-widget:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 60px rgba(128, 90, 245, 0.2);
+    /* Purple glow on hover */
+    border-color: rgba(128, 90, 245, 0.4);
+}
+
+.video-testimonial-widget video {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+/* Aesthetically Pleasing Close Button */
+.video-testimonial-widget .close-video-widget {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10000;
+    font-size: 14px;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Bouncy transition */
+    padding: 0;
+    opacity: 0;
+    /* Hidden by default for cleaner look */
+    transform: scale(0.8);
+}
+
+/* Sound Button */
+.video-testimonial-widget .sound-video-widget {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10000;
+    font-size: 14px;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    padding: 0;
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+/* Show buttons when hovering the widget */
+.video-testimonial-widget:hover .close-video-widget,
+.video-testimonial-widget:hover .sound-video-widget {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.video-testimonial-widget .close-video-widget:hover {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
+    transform: scale(1.1) rotate(90deg);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+.video-testimonial-widget .sound-video-widget:hover {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+/* Entrance Animation */
+@keyframes fadeSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+    .video-testimonial-widget {
+        width: 140px;
+        /* Smaller on mobile */
+        bottom: 85px;
+        /* Above the mobile bottom bar/CTA if any */
+        right: 20px;
+        border-radius: 12px;
+    }
+
+    .video-testimonial-widget .close-video-widget {
+        opacity: 1;
+        /* Always show on mobile since no hover */
+        transform: scale(1);
+        width: 24px;
+        height: 24px;
+        top: 8px;
+        right: 8px;
+        font-size: 10px;
+        background: rgba(0, 0, 0, 0.6);
+        /* darker background for visibility */
+    }
+}
+
 .copyright-area {
     /* Reverted to default styles */
 }
