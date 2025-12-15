@@ -1018,13 +1018,9 @@ body {
     }
 }
 
-.copyright-area {
-    /* Reverted to default styles */
-}
+/* .copyright-area { } Removed empty rule */
 
-.rainbow-footer-widget {
-    /* Reverted to default styles */
-}
+/* .rainbow-footer-widget { } Removed empty rule */
 
 /* Responsive Tweaks */
 @media (max-width: 768px) {
@@ -1046,4 +1042,115 @@ body {
         font-size: 2.5rem !important;
         /* Force smaller size */
     }
+}
+
+/* Translucent Header Refactor - Pure "Just Text" Style (JobCover) */
+.header-transparent {
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    left: auto !important;
+    right: auto !important;
+}
+
+/* Ensure no inner boxes on nav elements */
+.header-transparent .mainmenu-nav,
+.header-transparent .mainmenu,
+.header-transparent .header-right {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+.header-transparent .mainmenu {
+    align-items: center !important;
+}
+
+.header-transparent.sticky {
+    margin-top: 0 !important;
+    background: rgba(14, 12, 21, 0.95) !important;
+    /* Make sticky distinct but flat? Or just solid dark? User wanted typical behavior probably. Let's stick to standard solid dark when scrolling. */
+}
+
+.header-transparent .mainmenu>li>a {
+    color: #ffffff !important;
+    /* White text for visibility */
+    font-weight: 500;
+}
+
+.header-transparent .mainmenu>li>a:hover {
+    color: #805AF5 !important;
+    /* Purple on touch/hover */
+}
+
+.header-transparent .hamberger-button i {
+    color: #ffffff !important;
+}
+
+/* Mobile Menu Right Side Placement */
+.popup-mobile-menu .inner-popup {
+    left: auto !important;
+    right: -320px !important;
+    /* Start fully off-screen to the right */
+    transition: all 0.5s ease-out;
+}
+
+.popup-mobile-menu.active .inner-popup {
+    left: auto !important;
+    right: 0 !important;
+    /* Slide to right edge */
+}
+
+/* Ensure close button is on the right or left? 
+   Usually in a right drawer, close button is on top right or top left. 
+   Existing structure has flex justify-between for header-top. 
+   Logo left, Close right. 
+   If drawer is on right, Logo on left of drawer (inner side) and close on right (edge) looks fine.
+*/
+
+/* Language Toggle Button Style (Purple Pill) */
+.header-transparent .mainmenu>li>a.lang-toggle-btn {
+    background-color: #8C52FF;
+    /* Using a vibrant purple similar to the image */
+    color: #ffffff !important;
+    padding: 8px 24px !important;
+    /* Pill padding */
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-left: 10px;
+    /* Spacing from other menu items */
+    height: auto;
+    line-height: 1.2;
+    box-shadow: 0 4px 10px rgba(140, 82, 255, 0.3);
+    /* Soft purple, glow */
+}
+
+/* Hover effect */
+.header-transparent .mainmenu>li>a.lang-toggle-btn:hover {
+    background-color: #7b42ee;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 15px rgba(140, 82, 255, 0.4);
+    color: #ffffff !important;
+    /* Keep white text */
+}
+
+/* Ensure opacity span inside is white */
+.lang-toggle-btn span {
+    color: #ffffff !important;
+}
+
+/* Ensure active/current link is distinct? */
+.header-transparent .mainmenu>li>a.active {
+    color: #805AF5 !important;
 }

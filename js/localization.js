@@ -1,19 +1,42 @@
 
 document.addEventListener('DOMContentLoaded', () => {
-    const langToggle = document.getElementById('lang-toggle');
-    
-    // Check local storage or default to English
-    const currentLang = localStorage.getItem('niogod-lang') || 'en';
-    setLanguage(currentLang);
+    const langToggles = document.querySelectorAll('.lang-toggle-btn');
 
-    if (langToggle) {
-        langToggle.addEventListener('click', (e) => {
+    // Check local storage
+    const storedLang = localStorage.getItem('niogod-lang');
+
+    if (storedLang) {
+        setLanguage(storedLang);
+    } else {
+        // IP-based detection
+        detectLanguageFromIP();
+    }
+
+    langToggles.forEach(toggle => {
+        toggle.addEventListener('click', (e) => {
             e.preventDefault();
             const newLang = document.body.classList.contains('lang-de') ? 'en' : 'de';
             setLanguage(newLang);
         });
-    }
+    });
 });
+
+async function detectLanguageFromIP() {
+    try {
+        const response = await fetch('https://ipapi.co/json/');
+        const data = await response.json();
+        const country = data.country_code;
+        // DACH region defaults to German
+        if (['DE', 'AT', 'CH'].includes(country)) {
+            setLanguage('de');
+        } else {
+            setLanguage('en');
+        }
+    } catch (error) {
+        console.log('IP detection failed, defaulting to English', error);
+        setLanguage('en');
+    }
+}
 
 function setLanguage(lang) {
     if (lang === 'de') {
@@ -28,10 +51,9 @@ function setLanguage(lang) {
 }
 
 function updateToggleText(lang) {
-    const toggle = document.getElementById('lang-toggle');
-    if (toggle) {
+    const toggles = document.querySelectorAll('.lang-toggle-btn');
+    toggles.forEach(toggle => {
         // Simple text toggle or styling
-        // Assuming the toggle is a single link/button
         toggle.innerHTML = lang === 'de' ? 'DE | <span style="opacity:0.5">EN</span>' : 'EN | <span style="opacity:0.5">DE</span>';
-    }
+    });
 }
