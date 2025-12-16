@@ -1,0 +1,1223 @@
+/* CSS Reset for Mobile Responsiveness */
+html {
+    box-sizing: border-box;
+    -webkit-text-size-adjust: 100%;
+    /* Prevent font scaling in landscape */
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+img,
+video,
+iframe,
+canvas,
+svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    /* Removes bottom space */
+}
+
+/* Engineer's Portfolio Typography & Layout */
+body {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    color: #ffffff;
+    /* High Contrast */
+}
+
+/* Fluid Typography: 1rem (mobile) to 1.5rem (desktop) */
+body,
+p,
+.b1,
+.b2,
+.description,
+li,
+.about-text,
+.news-text {
+    font-size: clamp(1rem, 2.5vw, 1.5rem) !important;
+    line-height: 1.6;
+}
+
+/* Constrained Container for Readability (Engineer's Aesthetic) */
+.container {
+    max-width: 800px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* Constrained Container for Readability */
+.text-container {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+
+/* Hero Content Box */
+.hero-content-box {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* LOCALIZATION UTILITIES */
+
+/* Simplified Logic: Only hide what shouldn't be seen. Do not force display properties. */
+
+/* 1. If NOT in German mode (Default), hide German content */
+body:not(.lang-de) .lang-de {
+    display: none !important;
+}
+
+/* 2. If IN German mode, hide English content */
+body.lang-de .lang-en {
+    display: none !important;
+}
+
+/* 3. Ensure German content is visible when in German mode (in case it was hidden by 1, though specificity handles this, we don't need to force display usually) */
+/* Actually, Rule 1 handles the hiding. When body HAS lang-de, Rule 1 doesn't apply. 
+   So .lang-de elements effectively have no 'display: none'. 
+   They will use their natural display or other CSS rules. Perfect. */
+
+
+/* HOTFIX: Hide Preloader to prevent White Screen of Death if JS fails */
+.preloader {
+    display: none !important;
+}
+
+/* End Localization Utilities */
+
+.hero-content-box {
+    padding: 40px 10px;
+    /* Minimal side padding */
+    /* Reduced horizontal padding to give text more room */
+    display: block;
+    /* Changed from inline-block for better box model control */
+    width: 90%;
+    /* Occupy space relative to screen to force centering context */
+    max-width: 900px;
+    margin: 0 auto;
+    overflow: hidden;
+    /* Safety net: cut off if absolutely necessary, but scaling should prevent this */
+    text-align: center;
+    /* strictly center content */
+    container-type: inline-size;
+    /* Enable container queries for child elements */
+}
+
+/* Responsive Font Sizing for Hero Title */
+.hero-content-box .title.display-one {
+    /* Use cqw (Container Query Width) to scale font based on the BOX width, not the screen */
+    /* Use cqw (Container Query Width) to scale font based on the BOX width, not the screen */
+    /* Use cqw (Container Query Width) to scale font based on the BOX width, not the screen */
+    /* Use cqw (Container Query Width) to scale font based on the BOX width, not the screen */
+    font-size: clamp(0.5rem, 8cqw, 5rem) !important;
+    /* Increased to 8cqw for much fuller look, capped at 5rem */
+    line-height: 1.2;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Force children to respect the parent's responsive font size */
+.hero-content-box .cd-headline,
+.hero-content-box .cd-words-wrapper,
+.hero-content-box .cd-words-wrapper b {
+    font-size: inherit !important;
+    line-height: inherit !important;
+}
+
+/* Trust Bar Badges */
+.trust-badge {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.trust-badge:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: #805AF5;
+    /* Purple Border */
+    box-shadow: 0 0 15px rgba(128, 90, 245, 0.3);
+    /* Purple Glow */
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+#lang-toggle {
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+    .hero-content-box {
+        padding: 20px 15px;
+        width: 95%;
+        /* Slightly wider on mobile but still with margins */
+    }
+}
+
+/* Fix for Hero Text Alignment and Clipping */
+.hero-content-box .header-caption,
+.hero-content-box .cd-headline,
+.hero-content-box .cd-words-wrapper {
+    display: block;
+    width: 100% !important;
+    /* Override JS inline style that fixes width on load */
+    text-align: center;
+}
+
+.hero-content-box .cd-words-wrapper {
+    height: auto;
+    min-height: 1.2em;
+    /* Ensure some height definition */
+}
+
+/* Override plugin's absolute positioning width constraint */
+.hero-content-box .cd-words-wrapper b {
+    width: 100%;
+    left: 0;
+    text-align: center;
+    white-space: nowrap;
+    /* Apply nowrap HERE instead to force the rotating text to be single line */
+}
+
+/* Ensure visible element takes up space but matches alignment */
+.hero-content-box .cd-words-wrapper b.is-visible {
+    position: relative;
+    width: 100%;
+    display: block;
+}
+
+/* Failsafe to ensure body is visible */
+body {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Ensure preloader is definitely gone if cached */
+.preloader {
+    display: none !important;
+}
+
+/* 
+   Emergency Override for SAL (Scroll Animation Library).
+   If JS fails to remove the 'start' state, elements stay hidden.
+   We force them to be visible here.
+*/
+[data-sal] {
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
+}
+
+/* Timeline Box Styling */
+.timeline-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 15px 10px;
+    height: auto;
+    min-height: 100%;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.timeline-card:hover {
+    transform: translateY(-5px);
+    border-color: #805AF5;
+    box-shadow: 0 5px 20px rgba(128, 90, 245, 0.2);
+}
+
+/* Force zero margin on the wrapper divs to prevent inherited spacing */
+.timeline-card .icon,
+.timeline-card .content {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.timeline-card .icon span {
+    display: block;
+    margin-bottom: 10px;
+    /* Reduced margin */
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(to right, #ffffff, #b3b3b3);
+    background-clip: text;
+    /* Standard property */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -1px;
+}
+
+.timeline-card h4.title {
+    color: #fff;
+    font-size: 2.2rem;
+    /* Significantly larger */
+    margin-bottom: 5px;
+    font-weight: 700;
+    /* Bolder */
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+}
+
+.timeline-card p.description {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.35rem;
+    line-height: 1.5;
+    font-weight: 400;
+    margin-bottom: 0;
+    max-width: 90%;
+    margin-left: auto;
+    /* Force horizontal centering */
+    margin-right: auto;
+    /* Force horizontal centering */
+}
+
+/* Force centering on all inner container levels */
+.timeline-card .content,
+.timeline-card .lang-en,
+.timeline-card .lang-de {
+    width: 100%;
+    text-align: center !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* Ensure vertical centering too if height allows */
+}
+
+/* Explicitly force text elements inside to center */
+.timeline-card .lang-de h4,
+.timeline-card .lang-de p,
+.timeline-card .lang-en h4,
+.timeline-card .lang-en p {
+    text-align: center !important;
+    width: 100%;
+}
+
+/* FIXED: Language Visibility Control for Timeline Cards */
+
+/* Default (English Active): Show EN (flex), Hide DE (none) */
+.timeline-card .lang-en {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.timeline-card .lang-de {
+    display: none !important;
+}
+
+/* German Active: Hide EN (none), Show DE (flex) */
+body.lang-de .timeline-card .lang-en {
+    display: none !important;
+}
+
+body.lang-de .timeline-card .lang-de {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.step-icon {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+    /* Reduced margin */
+    margin-top: 5px;
+    /* Reduced margin */
+}
+
+.step-icon i {
+    background: linear-gradient(135deg, #ffffff 0%, #805AF5 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 15px rgba(128, 90, 245, 0.3));
+}
+
+/* Hero Box Chamfered Style */
+.hero-content-box {
+    background: rgba(18, 18, 18, 0.8);
+    /* Dark semi-transparent bg */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 50px 40px 70px 40px;
+    /* Increased bottom padding */
+    margin: 0 auto;
+    max-width: 900px;
+
+    /* Rounded Corners (Replaces Chamfer) */
+    border-radius: 24px;
+
+    /* Optional: To make it stand out more since border gets clipped */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    /* Smooth transition */
+}
+
+.hero-content-box:hover {
+    border-color: #805AF5;
+    /* Purple Border on Hover */
+    box-shadow: 0 10px 50px rgba(128, 90, 245, 0.2);
+    /* Subtle purple glow */
+}
+
+.hero-content-box p.description {
+    font-weight: 500;
+    margin-bottom: 0;
+
+    /* Aesthetic Gradient Text */
+    background: linear-gradient(to bottom, #ffffff 0%, #d1d1d1 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #fff;
+    /* Fallback */
+
+    /* Soft premium glow instead of hard shadow */
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+
+    letter-spacing: 0.5px;
+    line-height: 1.6;
+}
+
+/* Remove separate pseudo-element if it was only for border */
+.hero-content-box::before {
+    display: none;
+}
+
+/* Philosophy Box Styling & Interaction */
+.box-card {
+    border: 1px solid transparent;
+    /* invisible border to prevent layout shift */
+    transition: all 0.3s ease;
+}
+
+.box-card:hover {
+    border-color: #805AF5 !important;
+    box-shadow: 0 10px 40px rgba(128, 90, 245, 0.15);
+    /* Soft purple glow */
+    transform: translateY(-2px);
+    /* Slight lift */
+}
+
+/* Compliance Shield Card Styling */
+.compliance-card {
+    padding: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    height: 100%;
+    /* Force equal height */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* Align content to top */
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    background: rgba(255, 255, 255, 0.02);
+    /* Subtle background */
+}
+
+.compliance-card:hover {
+    transform: translateY(-5px);
+    border-color: #805AF5;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.compliance-card i {
+    font-size: 40px;
+    margin-bottom: 25px;
+    color: #fff;
+    display: block;
+    /* Ensure symbol is on its own line */
+}
+
+.compliance-card h3 {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    /* Balanced size */
+    line-height: 1.3;
+    font-weight: 600;
+}
+
+/* Specific typography for German titles to handle long words */
+.compliance-card .lang-de h3 {
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    word-break: break-word;
+    /* Fallback */
+    font-size: 1.4rem;
+    /* Slightly smaller for long German words */
+}
+
+.compliance-card p {
+    font-size: 1.2rem;
+    /* Increased from 1rem */
+    line-height: 1.6;
+    font-weight: 500;
+    /* Increased bold/weight */
+    color: rgba(255, 255, 255, 0.95);
+    /* Brighter for better readability */
+    flex-grow: 1;
+    /* Push content to fill height if needed */
+}
+
+/* =========================================
+   PROTOCOL PAGE STYLES (Engineering of Speed)
+   ========================================= */
+
+/* Font Family */
+.font-mono {
+    font-family: 'Roboto Mono', monospace !important;
+}
+
+/* Protocol Hero */
+.protocol-hero-content .title {
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.protocol-hero-content .description {
+    font-size: 1.25rem;
+    max-width: 800px;
+    margin: 0 auto;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.metric-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(128, 90, 245, 0.1);
+    border: 1px solid rgba(128, 90, 245, 0.3);
+    padding: 10px 25px;
+    border-radius: 30px;
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+.metric-badge i {
+    color: #805AF5;
+}
+
+/* 0-72h Timeline Visualization */
+.timeline-visual {
+    position: relative;
+    max-width: 900px;
+    margin: 60px auto 30px;
+    padding: 0 20px;
+}
+
+.timeline-track {
+    position: relative;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Add a progress gradient line */
+.timeline-track::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(90deg, #805AF5 0%, #00d2ff 100%);
+    opacity: 0.5;
+    border-radius: 4px;
+}
+
+.timeline-marker {
+    width: 16px;
+    height: 16px;
+    background: #121212;
+    border: 3px solid #805AF5;
+    border-radius: 50%;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 0 10px rgba(128, 90, 245, 0.5);
+}
+
+.timeline-marker.start {
+    border-color: #805AF5;
+}
+
+.timeline-marker.mid-1 {
+    border-color: #9f7aea;
+}
+
+.timeline-marker.mid-2 {
+    border-color: #b794f4;
+}
+
+.timeline-marker.end {
+    border-color: #00d2ff;
+}
+
+.timeline-marker span {
+    position: absolute;
+    top: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    background: #121212;
+    padding: 2px 5px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.timeline-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.timeline-labels .label-item {
+    position: relative;
+    width: 20%;
+    text-align: center;
+}
+
+/* Adjust label positioning to align with segments roughly */
+.timeline-labels .label-item:nth-child(1) {
+    text-align: left;
+}
+
+.timeline-labels .label-item:nth-child(2) {
+    text-align: center;
+    width: 60%;
+}
+
+.timeline-labels .label-item:nth-child(3) {
+    text-align: right;
+}
+
+
+/* Detailed Phases */
+.phase-row {
+    position: relative;
+}
+
+/* Vertical line connecting phases on desktop */
+.protocol-phases .container {
+    position: relative;
+}
+
+.protocol-phases .container::before {
+    content: '';
+    position: absolute;
+    left: 8.33%;
+    /* Approx center of col-lg-2 */
+    top: 50px;
+    bottom: 50px;
+    width: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(-50%);
+    z-index: 0;
+    display: none;
+}
+
+@media (min-width: 992px) {
+    .protocol-phases .container::before {
+        display: block;
+    }
+}
+
+.phase-badge {
+    background: #121212;
+    border: 1px solid rgba(128, 90, 245, 0.5);
+    color: #805AF5;
+    padding: 8px 15px;
+    border-radius: 20px;
+    display: inline-block;
+    position: relative;
+    z-index: 2;
+    font-weight: 700;
+    font-size: 0.9rem;
+    background: #000;
+}
+
+.phase-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 30px;
+    transition: all 0.3s ease;
+}
+
+.phase-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(128, 90, 245, 0.3);
+    transform: translateX(5px);
+}
+
+.phase-title {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    color: #fff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 15px;
+}
+
+.phase-content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.phase-block h5 {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.phase-block h5 i {
+    margin-right: 8px;
+    color: #805AF5;
+}
+
+.phase-block h5.text-success i {
+    color: #4CAF50;
+}
+
+.phase-block p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+}
+
+
+.full-width {
+    grid-column: 1 / -1;
+}
+
+.check-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.check-list li {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.9);
+    position: relative;
+    padding-left: 25px;
+}
+
+.check-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+/* Methodology Cards */
+.method-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 30px;
+    border-radius: 12px;
+    height: 100%;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.method-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: #805AF5;
+}
+
+.method-card .icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #fff;
+    background: linear-gradient(135deg, #ffffff 0%, #805AF5 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.method-card .title {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.method-card p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Guarantee Box */
+.guarantee-box {
+    background: linear-gradient(180deg, rgba(20, 20, 20, 1) 0%, rgba(30, 30, 30, 1) 100%);
+    border: 1px solid rgba(76, 175, 80, 0.3);
+    /* Green border */
+    border-radius: 20px;
+    padding: 50px;
+    position: relative;
+    overflow: hidden;
+    margin-top: 100px;
+}
+
+.guarantee-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: #4CAF50;
+    /* Green Top Border */
+}
+
+.rainbow-callto-action.style-8 {
+    padding-bottom: 120px !important;
+    /* Reduced from 350px */
+    margin-bottom: 0 !important;
+    /* Removed extra 200px margin */
+}
+
+.guarantee-box .title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.guarantee-box .description {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+/* Ensure footer is pushed to bottom */
+html,
+body {
+    margin: 0;
+    background-color: #0E0C15;
+}
+
+/* Sticky Footer Logic - Enabled with Width Fix */
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Ensure all main sections inside the wrapper take full width to prevent Flexbox shrinking */
+.page-wrapper>* {
+    width: 100%;
+}
+
+.rainbow-footer {
+    margin-top: auto !important;
+}
+
+/* =========================================
+   MOBILE LAYOUT FIXES
+   ========================================= */
+
+/* 1. Fix Logo Overlap in Mobile Menu */
+/* Ensure the header top in mobile menu has space and doesn't overlap */
+.popup-mobile-menu .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    /* Align to top to handle distinct heights */
+    padding-right: 10px;
+    /* Ensure some padding from edge */
+}
+
+/* Constrain logo width on mobile to prevent running into close button */
+.popup-mobile-menu .header-top .logo {
+    max-width: 75%;
+    flex-shrink: 1;
+}
+
+/* Ensure the logo text scales down if necessary */
+.popup-mobile-menu .header-top .logo b {
+    font-size: clamp(30px, 8vw, 50px) !important;
+    word-break: break-word;
+}
+
+/* Also constrain the Main Header logo */
+.rainbow-header .logo b {
+    font-size: clamp(30px, 8vw, 40px) !important;
+}
+
+/* 2. Vertical Spacing for Cards on Mobile */
+/* Target purple hover cards and compliance cards on mobile */
+@media only screen and (max-width: 768px) {
+
+    /* Add extra bottom margin to column wrappers containing cards */
+    .service-wrapper .col-lg-4,
+    .service-wrapper .col-md-6,
+    .service-wrapper .col-sm-6,
+    .security-image-box,
+    .iso-card-wrapper,
+    .purple-hover-card,
+    .compliance-card,
+    .box-card,
+    .team-card,
+    .timeline-card,
+    .blog-card {
+        margin-bottom: 25px !important;
+    }
+
+    /* Specifically for security-compliance page logic if needed */
+    .row.mb--60 {
+        margin-bottom: 40px !important;
+        /* Adjust section spacing */
+    }
+
+    /* Ensure specific cards inside columns have spacing if the columns don't */
+    .purple-hover-card,
+    .compliance-card {
+        display: flex;
+        flex-direction: column;
+        height: auto !important;
+        /* Allow auto height on mobile to prevent stretching weirdness */
+    }
+}
+
+/* =========================================
+   VIDEO TESTIMONIAL WIDGET
+   ========================================= */
+.video-testimonial-widget {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    right: auto;
+    /* Moved to left side */
+    width: 240px;
+    /* Slightly larger for better visibility */
+    height: auto;
+    border-radius: 20px;
+    /* Softer corners */
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    background: #000;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    opacity: 0;
+    animation: fadeSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    /* Smoother easing */
+    animation-delay: 2s;
+}
+
+.video-testimonial-widget:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 60px rgba(128, 90, 245, 0.2);
+    /* Purple glow on hover */
+    border-color: rgba(128, 90, 245, 0.4);
+}
+
+.video-testimonial-widget video {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+/* Aesthetically Pleasing Close Button */
+.video-testimonial-widget .close-video-widget {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10000;
+    font-size: 14px;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Bouncy transition */
+    padding: 0;
+    opacity: 0;
+    /* Hidden by default for cleaner look */
+    transform: scale(0.8);
+}
+
+/* Sound Button */
+.video-testimonial-widget .sound-video-widget {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10000;
+    font-size: 14px;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    padding: 0;
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+/* Show buttons when hovering the widget */
+.video-testimonial-widget:hover .close-video-widget,
+.video-testimonial-widget:hover .sound-video-widget {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.video-testimonial-widget .close-video-widget:hover {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
+    transform: scale(1.1) rotate(90deg);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+.video-testimonial-widget .sound-video-widget:hover {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+/* Entrance Animation */
+@keyframes fadeSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+    .video-testimonial-widget {
+        width: 140px;
+        /* Smaller on mobile */
+        bottom: 85px;
+        /* Above the mobile bottom bar/CTA if any */
+        left: 20px;
+        right: auto;
+        border-radius: 12px;
+    }
+
+    .video-testimonial-widget .close-video-widget {
+        opacity: 1;
+        /* Always show on mobile since no hover */
+        transform: scale(1);
+        width: 24px;
+        height: 24px;
+        top: 8px;
+        right: 8px;
+        font-size: 10px;
+        background: rgba(0, 0, 0, 0.6);
+        /* darker background for visibility */
+    }
+}
+
+/* .copyright-area { } Removed empty rule */
+
+/* .rainbow-footer-widget { } Removed empty rule */
+
+/* Responsive Tweaks */
+@media (max-width: 768px) {
+    .timeline-visual {
+        display: none;
+        /* Hide complex horizontal timeline on mobile */
+    }
+
+    .phase-content-grid {
+        grid-template-columns: 1fr;
+        /* Stack grid columns */
+    }
+
+    .phase-badge {
+        margin-bottom: 20px;
+    }
+
+    .protocol-hero-content .title {
+        font-size: 2.5rem !important;
+        /* Force smaller size */
+    }
+}
+
+/* Translucent Header Refactor - Pure "Just Text" Style (JobCover) */
+.header-transparent {
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    left: auto !important;
+    right: auto !important;
+}
+
+/* Ensure no inner boxes on nav elements */
+.header-transparent .mainmenu-nav,
+.header-transparent .mainmenu,
+.header-transparent .header-right {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+.header-transparent .mainmenu {
+    align-items: center !important;
+}
+
+.header-transparent.sticky {
+    margin-top: 0 !important;
+    background: rgba(14, 12, 21, 0.95) !important;
+    /* Make sticky distinct but flat? Or just solid dark? User wanted typical behavior probably. Let's stick to standard solid dark when scrolling. */
+}
+
+.header-transparent .mainmenu>li>a {
+    color: #ffffff !important;
+    /* White text for visibility */
+    font-weight: 500;
+}
+
+.header-transparent .mainmenu>li>a:hover {
+    color: #805AF5 !important;
+    /* Purple on touch/hover */
+}
+
+.header-transparent .hamberger-button i {
+    color: #ffffff !important;
+}
+
+/* Mobile Menu Right Side Placement */
+.popup-mobile-menu .inner-popup {
+    left: auto !important;
+    right: -320px !important;
+    /* Start fully off-screen to the right */
+    transition: all 0.5s ease-out;
+}
+
+.popup-mobile-menu.active .inner-popup {
+    left: auto !important;
+    right: 0 !important;
+    /* Slide to right edge */
+}
+
+/* Ensure close button is on the right or left? 
+   Usually in a right drawer, close button is on top right or top left. 
+   Existing structure has flex justify-between for header-top. 
+   Logo left, Close right. 
+   If drawer is on right, Logo on left of drawer (inner side) and close on right (edge) looks fine.
+*/
+
+/* Language Toggle Button Style (Purple Pill) */
+.header-transparent .mainmenu>li>a.lang-toggle-btn {
+    background-color: #8C52FF;
+    /* Using a vibrant purple similar to the image */
+    color: #ffffff !important;
+    padding: 8px 24px !important;
+    /* Pill padding */
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-left: 10px;
+    /* Spacing from other menu items */
+    height: auto;
+    line-height: 1.2;
+    box-shadow: 0 4px 10px rgba(140, 82, 255, 0.3);
+    /* Soft purple, glow */
+}
+
+/* Hover effect */
+.header-transparent .mainmenu>li>a.lang-toggle-btn:hover {
+    background-color: #7b42ee;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 15px rgba(140, 82, 255, 0.4);
+    color: #ffffff !important;
+    /* Keep white text */
+}
+
+/* Ensure opacity span inside is white */
+.lang-toggle-btn span {
+    color: #ffffff !important;
+}
+
+/* Ensure active/current link is distinct? */
+.header-transparent .mainmenu>li>a.active {
+    color: #805AF5 !important;
+}

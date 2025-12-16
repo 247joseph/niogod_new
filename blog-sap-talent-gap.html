@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="css/plugins-prism.css">
     <link rel="stylesheet" href="css/css-style.css">
     <link rel="stylesheet" href="css/css-custom.css">
+    <link rel="stylesheet" href="css/css-pure-menu.css">
+    <link rel="stylesheet" href="css/css-header-fix.css">
     <style>
         .header-transparent:not(.sticky) {
             top: 46px;
@@ -113,11 +115,11 @@
         </div>
         <!-- End Header Top Area  -->
 
-        <!-- Header -->
         <header class="rainbow-header header-default header-transparent header-sticky">
-            <div class="container position-relative">
+            <div class="container-fluid position-relative px-4">
                 <div class="row align-items-center row--0">
-                    <div class="col-lg-3 col-md-6 col-6">
+                    <!-- Logo Column -->
+                    <div class="col-lg-3 col-6">
                         <div class="logo">
                             <a href="index.html" style="display: inline-flex; align-items: center;">
                                 <b class="theme-gradient is-visible"
@@ -128,89 +130,59 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-6 d-none d-lg-block">
-                        <nav class="mainmenu-nav d-none d-lg-flex justify-content-center">
+                    <!-- Pure CSS Nav Column -->
+                    <div class="col-lg-9 col-6 d-flex align-items-center justify-content-end position-static">
+
+                        <!-- 1. The Hidden Checkbox -->
+                        <input type="checkbox" id="nav-toggle">
+
+                        <!-- 2. The Hamburger Label (Visible on Mobile) -->
+                        <label for="nav-toggle" class="nav-toggle-label">
+                            <span></span>
+                        </label>
+
+                        <!-- 3. The Menu Content -->
+                        <nav class="pure-css-nav">
                             <ul class="mainmenu">
                                 <li>
-                                    <a href="index.html" class="lang-en">Solutions</a>
-                                    <a href="index.html" class="lang-de">Lösungen</a>
+                                    <a href="index.html">
+                                        <span class="lang-en">Solutions</span>
+                                        <span class="lang-de">Lösungen</span>
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="protocol.html" class="lang-en">The Protocol</a>
-                                    <a href="protocol.html" class="lang-de">Der Prozess</a>
+                                    <a href="protocol.html">
+                                        <span class="lang-en">The Protocol</span>
+                                        <span class="lang-de">Der Prozess</span>
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="security-compliance.html" class="lang-en">Security & Compliance</a>
-                                    <a href="security-compliance.html" class="lang-de">Sicherheit & Compliance</a>
+                                    <a href="security-compliance.html">
+                                        <span class="lang-en">Security</span>
+                                        <span class="lang-de">Sicherheit</span>
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="philosophy.html" class="lang-en">Philosophy</a>
-                                    <a href="philosophy.html" class="lang-de">Über Uns</a>
+                                    <a href="philosophy.html">
+                                        <span class="lang-en">Philosophy</span>
+                                        <span class="lang-de">Über Uns</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="contact.html">
+                                        <span class="lang-en">Contact</span>
+                                        <span class="lang-de">Kontakt</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="lang-toggle-btn">EN | <span style="opacity:0.5">DE</span></a>
                                 </li>
                             </ul>
                         </nav>
                     </div>
-
-                    <div class="col-lg-3 col-md-6 col-6 position-static">
-                        <div class="header-right">
-                            <div class="header-btn">
-                                <a class="btn-default btn-small round" href="#" id="lang-toggle">EN | <span
-                                        style="opacity:0.5">DE</span></a>
-                                <a class="btn-default btn-small round lang-en" href="contact.html">Start Sprint</a>
-                                <a class="btn-default btn-small round lang-de" href="contact.html">Beratungstermin</a>
-                            </div>
-                            <!-- Mobile Menu Bar -->
-                            <div class="mobile-menu-bar ml--5 d-flex justify-content-end d-lg-none">
-                                <div class="hamberger">
-                                    <button class="hamberger-button">
-                                        <i class="fa-sharp fa-regular fa-bars"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </header>
-
-        <!-- Mobile Menu -->
-        <div class="popup-mobile-menu">
-            <div class="inner-popup">
-                <div class="header-top">
-                    <div class="logo">
-                        <a href="index.html" style="display: inline-flex; align-items: center;">
-                            <b class="theme-gradient is-visible"
-                                style="font-size: 50px; text-transform: lowercase; line-height: 1.3; padding-bottom: 5px;">niogod</b>
-                            <sup
-                                style="font-size: 12px; color: #fff !important; margin-left: 4px; position: relative; top: -15px; font-weight: 500;">TM</sup>
-                        </a>
-                    </div>
-                    <div class="close-menu">
-                        <button class="close-button">
-                            <i class="fa-sharp fa-regular fa-x"></i>
-                        </button>
-                    </div>
-                </div>
-                <div class="content">
-                    <ul class="mainmenu">
-                        <li><a href="index.html" class="lang-en">Solutions</a><a href="index.html"
-                                class="lang-de">Lösungen</a></li>
-                        <li><a href="protocol.html" class="lang-en">The Protocol</a><a href="protocol.html"
-                                class="lang-de">Der Prozess</a></li>
-                        <li><a href="security-compliance.html" class="lang-en">Security & Compliance</a><a
-                                href="security-compliance.html" class="lang-de">Sicherheit & Compliance</a></li>
-                        <li><a href="philosophy.html" class="lang-en">Philosophy</a><a href="philosophy.html"
-                                class="lang-de">Über Uns</a></li>
-                        <li><a href="contact.html" class="lang-en">Contact</a><a href="contact.html"
-                                class="lang-de">Kontakt</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="header-btn d-block d-md-none">
-                <a class="btn-default btn-small round lang-en" href="contact.html">Start Sprint</a>
-                <a class="btn-default btn-small round lang-de" href="contact.html">Beratungstermin</a>
-            </div>
-        </div>
 
         <!-- Main Content -->
         <div class="main-content pt--180 pb--100">
@@ -218,7 +190,7 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
                         <article class="blog-details-area">
-                            <img src="assets/images/blog/tech.png" alt="SAP Talent Bridge" class="blog-hero-image">
+                            <img loading="lazy" src="assets/images/blog/tech.png" alt="SAP Talent Bridge" class="blog-hero-image">
 
                             <h1 class="title theme-gradient">
                                 <span class="lang-en">Solving the SAP Talent Gap: The India-Germany Bridge</span>
@@ -467,20 +439,20 @@
     <!-- JS -->
     <script src="js/vendor-modernizr.min.js"></script>
     <script src="js/vendor-jquery.min.js"></script>
-    <script src="js/vendor-bootstrap.min.js"></script>
-    <script src="js/vendor-waypoint.min.js"></script>
-    <script src="js/vendor-wow.min.js"></script>
-    <script src="js/vendor-counterup.min.js"></script>
-    <script src="js/vendor-sal.min.js"></script>
-    <script src="js/vendor-slick.min.js"></script>
-    <script src="js/vendor-text-type.js"></script>
-    <script src="js/vendor-prism.js"></script>
-    <script src="js/vendor-jquery.style.swicher.js"></script>
-    <script src="js/vendor-bootstrap-select.min.js"></script>
-    <script src="js/vendor-backto-top.js"></script>
-    <script src="js/vendor-js.cookie.js"></script>
-    <script src="js/vendor-jquery-one-page-nav.js"></script>
-    <script src="js/js-main.js"></script>
+    <script defer src="js/vendor-bootstrap.min.js"></script>
+    <script defer src="js/vendor-waypoint.min.js"></script>
+    <script defer src="js/vendor-wow.min.js"></script>
+    <script defer src="js/vendor-counterup.min.js"></script>
+    <script defer src="js/vendor-sal.min.js"></script>
+    <script defer src="js/vendor-slick.min.js"></script>
+    <script defer src="js/vendor-text-type.js"></script>
+    <script defer src="js/vendor-prism.js"></script>
+    <script defer src="js/vendor-jquery.style.swicher.js"></script>
+    <script defer src="js/vendor-bootstrap-select.min.js"></script>
+    <script defer src="js/vendor-backto-top.js"></script>
+    <script defer src="js/vendor-js.cookie.js"></script>
+    <script defer src="js/vendor-jquery-one-page-nav.js"></script>
+    <script defer src="js/js-main.js"></script>
     <script src="js/localization.js"></script>
     <script>
         $(document).ready(function () {
