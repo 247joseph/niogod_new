@@ -637,73 +637,96 @@ ul {
 /* Mini Tablet / Narrow Window (Keep 2 columns but squeeze tightly) */
 @media (max-width: 768px) and (min-width: 481px) {
     .hero-box {
-        padding: 2rem 1rem 0 1.5rem;
-        grid-template-columns: 63% 37%;
-        /* Aggressively bias towards text */
-        gap: 5px;
-        max-height: 600px;
+        padding: 2.5rem 1.5rem 0 2rem;
+        grid-template-columns: 55% 45%;
+        /* Slightly more space for image overlap */
+        gap: 0px;
+        max-height: 580px;
+        align-items: center;
     }
 
     .hero-title {
-        font-size: 1.6rem;
-        /* Even smaller for mini-tab */
+        font-size: 2rem;
+        /* Larger for impact */
+        line-height: 1.1;
+        margin-bottom: 15px;
     }
 
     .hero-subtitle {
-        font-size: 0.85rem;
+        font-size: 0.9rem;
         margin-bottom: 20px;
+        line-height: 1.4;
     }
 
-    /* Ensure Side-by-Side persistence */
+    /* Helper styling from mobile */
+    .hero-helper-text {
+        font-size: 0.8rem;
+        padding: 6px 14px;
+        margin-bottom: 15px;
+        background: #f3e8ff;
+        border: none;
+        display: inline-block;
+        width: auto;
+        border-radius: 20px;
+    }
+
+    /* Stack the CTAs */
     .hero-cta-group {
-        flex-direction: row;
-        align-items: center;
+        flex-direction: column;
+        align-items: flex-start;
         justify-content: flex-start;
-        /* Explicit Left Align */
         padding-left: 0;
         margin-left: 0;
-        gap: 10px;
-        flex-wrap: wrap;
+        gap: 15px;
+        width: 100%;
+        margin-top: 5px;
     }
 
     .hero-subscribe-bar {
-        max-width: 230px;
-        /* Super compact */
-        padding-left: 4px;
-        /* Reduced padding for alignment */
+        max-width: 100%;
+        width: 100%;
+        /* Take available width */
+        padding: 4px 4px 4px 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     }
 
     .hero-subscribe-bar input {
-        width: 80px;
-        /* Allow shrinking */
+        width: auto;
+        flex-grow: 1;
+        font-size: 0.9rem;
     }
 
-    .hero-subscribe-bar input::placeholder {
-        font-size: 0.8rem;
-        content: "email";
-        /* Fallback attempt (css dont support changing placeholder text) */
+    .hero-subscribe-bar button {
+        padding: 8px 20px;
     }
 
-    /* Override Desktop Min-Widths to allow Row Layout & Make "Let's Talk" Small */
-    .btn-pill.btn-outline,
-    .btn-pill.btn-primary {
+    .btn-pill {
         min-width: 0 !important;
         width: auto;
-        padding: 6px 12px;
-        /* Smaller padding */
-        font-size: 0.8rem;
-        /* Smaller text */
-        height: 36px;
+        padding: 10px 24px;
+        font-size: 0.9rem;
+        height: 40px;
         margin-left: 0 !important;
-        /* Strict Left Align */
+        /* Match mobile vibrant style */
+        background: radial-gradient(circle at 10% 20%, rgb(151, 65, 252) 0%, rgb(113, 29, 237) 90%);
+        box-shadow: 0 5px 15px -5px rgba(113, 29, 237, 0.5);
+        color: white;
+    }
+
+
+
+    .hero-image {
+        align-items: flex-end;
+        justify-content: flex-end;
+        height: 100%;
+        margin-bottom: 0;
     }
 
     .hero-man-img {
-        width: 200%;
-        /* Make him big relative to his narrow column */
-        max-width: 200%;
-        max-height: 520px;
-        margin-right: -60px;
+        width: 180%;
+        max-width: 180%;
+        max-height: 540px;
+        margin-right: -50px;
         margin-bottom: 0;
     }
 }
@@ -1148,6 +1171,18 @@ ul {
     .nav-list {
         flex-direction: column;
         gap: 30px;
+    }
+
+    .header-right {
+        gap: 10px;
+        /* Reduce gap on mobile */
+    }
+
+    .lang-switcher {
+        padding: 6px 12px;
+        /* Compact padding */
+        font-size: 0.8rem;
+        height: 36px;
     }
 
     .mobile-only-li {
