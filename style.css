@@ -710,41 +710,111 @@ ul {
 
 /* Mobile Responsiveness (Stack columns below 480px) */
 @media (max-width: 480px) {
+    .hero {
+        padding-top: 80px;
+        /* Less padding on mobile */
+    }
+
     .hero-box {
         grid-template-columns: 1fr;
         /* Stack columns */
-        padding: 3rem 2rem 0 2rem;
+        padding: 2.5rem 1.5rem 0 1.5rem;
+        /* Adjust padding */
         text-align: left;
+        max-height: none;
+        /* Let it grow */
+        height: auto;
+        gap: 0;
     }
 
     .hero-content {
         align-items: flex-start;
-        padding-bottom: 1rem;
+        padding-bottom: 2rem;
         padding-top: 0;
+        width: 100%;
     }
 
     .hero-title {
-        font-size: 2.2rem;
-        /* Smaller on mobile */
+        font-size: 2.5rem;
+        /* Adjust for impact */
+        line-height: 1.1;
+        margin-bottom: 15px;
     }
 
     .hero-subtitle {
         font-size: 1rem;
+        margin-bottom: 25px;
+        max-width: 100%;
+        color: #555;
+    }
+
+    .hero-helper-text {
+        font-size: 0.8rem;
+        padding: 8px 16px;
+        margin-bottom: 20px;
+        background: #f3e8ff;
+        /* Light purple background */
+        border: none;
+        width: 100%;
+        /* Full width or nearly so */
+        text-align: left;
+        display: inline-block;
+        /* Or flex if needed */
+        line-height: 1.4;
+    }
+
+    .hero-cta-group {
+        flex-direction: column;
+        /* Stack buttons */
+        align-items: flex-start;
+        width: 100%;
+        gap: 15px;
+        margin-top: 0;
+    }
+
+    .hero-subscribe-bar {
+        width: 100%;
+        max-width: 100%;
+        padding: 4px 4px 4px 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .hero-subscribe-bar input {
+        font-size: 0.9rem;
+    }
+
+    .hero-subscribe-bar button {
+        padding: 10px 24px;
+        font-size: 0.9rem;
+    }
+
+    .btn-pill {
+        width: auto;
+        /* Let it size to content or full if preferred */
+        padding: 12px 30px;
+        background: radial-gradient(circle at 10% 20%, rgb(151, 65, 252) 0%, rgb(113, 29, 237) 90%);
+        /* Bright purple */
+        color: white;
+        font-weight: 600;
+        box-shadow: 0 10px 20px -5px rgba(113, 29, 237, 0.5);
     }
 
     .hero-image {
-        align-items: center;
+        align-items: flex-end;
         justify-content: flex-end;
         width: 100%;
-        margin-top: -20px;
+        margin-top: -30px;
+        /* Pull up slightly */
+        position: relative;
     }
 
     .hero-man-img {
-        max-height: 380px;
-        margin-right: 0;
+        max-height: 400px;
+        margin-right: -20px;
+        /* Slight overhang */
         margin-bottom: 0;
         width: auto;
-        max-width: 100%;
+        max-width: 120%;
     }
 }
 
