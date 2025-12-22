@@ -731,31 +731,30 @@ ul {
     }
 }
 
-/* Mobile Responsiveness (Stack columns below 480px) */
+/* Mobile Responsiveness (Fluid Scaling below 480px) */
+/* Mobile Responsiveness (Fluid Scaling below 480px) */
 @media (max-width: 480px) {
     .hero {
-        padding-top: 80px;
+        padding-top: 25vw;
+        padding-bottom: 5vw;
     }
 
     .hero-box {
         display: block;
-        /* Use block layout to allow layering */
         position: relative;
-        padding: 2rem 1.5rem 0rem 1.5rem;
-        /* Reduced bottom padding as content floats */
+        padding: 8vw 6vw 0 6vw;
         text-align: left;
         height: auto;
-        min-height: 580px;
-        /* Ensure enough height for image */
+        min-height: 140vw;
         overflow: hidden;
+        border-radius: 8vw;
     }
 
     .hero-content {
         position: relative;
         z-index: 2;
-        /* Bring content to front */
         width: 100%;
-        padding-bottom: 2rem;
+        padding-bottom: 5vw;
         padding-top: 0;
         display: flex;
         flex-direction: column;
@@ -763,87 +762,95 @@ ul {
     }
 
     .hero-title {
-        font-size: 2.2rem;
-        line-height: 1.1;
-        margin-bottom: 15px;
-        max-width: 65%;
-        /* Avoid covering the face */
-        word-wrap: break-word;
+        font-size: 10vw;
+        line-height: 1.0;
+        /* Tightened */
+        margin-bottom: 4vw;
+        max-width: 100%;
+        word-wrap: normal;
+        word-break: normal;
+        -webkit-hyphens: none;
+        -ms-hyphens: none;
+        hyphens: none;
     }
 
     .hero-subtitle {
-        font-size: 1rem;
-        margin-bottom: 20px;
-        max-width: 60%;
-        /* Avoid covering the face */
+        font-size: 3.8vw;
+        margin-bottom: 6vw;
+        max-width: 100%;
         color: #555;
+        line-height: 1.5;
     }
 
     .hero-helper-text {
-        font-size: 0.8rem;
-        padding: 8px 16px;
-        margin-bottom: 20px;
+        font-size: 3.2vw;
+        padding: 2.5vw 4vw;
+        margin-bottom: 5vw;
+        margin-top: 2vw;
+        /* Added separation from subtitle */
         background: #f3e8ff;
         border: none;
         width: auto;
-        max-width: 85%;
+        max-width: 100%;
         text-align: left;
         display: inline-block;
-        border-radius: 20px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        border-radius: 5vw;
+        box-shadow: 0 1vw 2vw rgba(0, 0, 0, 0.05);
     }
 
     .hero-cta-group {
         flex-direction: column;
         align-items: flex-start;
         width: 100%;
-        max-width: 90%;
-        /* Allow overlap */
-        gap: 15px;
+        max-width: 100%;
+        gap: 0;
+        /* Gap handled by margins now */
         margin-top: 0;
     }
 
     .hero-subscribe-bar {
         width: 100%;
         max-width: 100%;
-        padding: 4px 4px 4px 15px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-        background: rgba(255, 255, 255, 0.95);
-        /* Slight transparency if needed, or solid */
-        backdrop-filter: blur(5px);
+        padding: 1vw 1vw 1vw 4vw;
+        box-shadow: 0 1vw 3vw rgba(0, 0, 0, 0.08);
+        background: #fff;
+        backdrop-filter: none;
+        border-radius: 10vw;
+        height: 11vw;
+        margin-bottom: 5vw;
+        /* Spacing from main CTA */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 
     .hero-subscribe-bar input {
-        font-size: 0.9rem;
+        font-size: 3.5vw;
         min-width: 0;
+        flex-grow: 1;
     }
 
     .hero-subscribe-bar button {
-        padding: 8px 20px;
-        font-size: 0.85rem;
+        padding: 0 5vw;
+        font-size: 3.5vw;
+        height: 100%;
+        border-radius: 10vw;
     }
 
     .btn-pill {
         width: 100%;
         justify-content: center;
-        margin-top: 5px;
+        margin-top: 0;
+        /* Margin handled by subscribe bar */
         background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
-        /* Ensure distinct purple */
+        font-size: 3.5vw;
+        padding: 3.5vw 5vw;
+        height: auto;
+        border-radius: 10vw;
     }
 
     .hero-image {
-        position: absolute;
-        bottom: 0;
-        right: -15%;
-        width: 70%;
-        /* Image takes up right side */
-        height: auto;
-        z-index: 1;
-        /* Behind content */
-        display: block;
-        margin: 0;
-        pointer-events: none;
-        /* Let clicks pass through */
+        display: none;
     }
 
     .hero-man-img {
@@ -853,6 +860,13 @@ ul {
         margin: 0;
         position: static;
         display: block;
+    }
+
+    #video-widget {
+        bottom: 20px !important;
+        right: 20px !important;
+        transform: scale(0.8) !important;
+        transform-origin: bottom right;
     }
 }
 
