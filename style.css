@@ -1824,3 +1824,81 @@ ul {
     display: inline-block;
     font-family: 'Poppins', sans-serif;
 }
+/* =========================================
+   FIX: Localization & Mobile Alignment
+   Apply to style.css to sync EN/DE Layouts
+   ========================================= */
+
+/* 1. Global Typography for Long Words */
+html {
+    overflow-x: hidden; /* Prevent horiz. scroll from long words */
+}
+
+h1, h2, h3, h4, h5, h6, p, a, span, button {
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto; /* Break long German words automatically */
+    overflow-wrap: break-word; /* Ensure text doesn't flow out of containers */
+}
+
+/* 2. Header Container Logic */
+.header-container {
+    /* Use gap instead of margins for better flow */
+    gap: 1rem; 
+    flex-wrap: nowrap; /* Prevent wrapping on desktop, force shrink/collapse */
+}
+
+/* 3. Navigation Layout - Robust for Variable Lengths */
+.nav-list {
+    gap: clamp(15px, 3vw, 40px); /* Fluid gap: shrinks on narrower screens (tablets) */
+    margin-inline-end: auto; /* Logical property for right margin */
+    margin-inline-start: auto; /* Center the nav block logically */
+    white-space: nowrap; /* Prevent nav links from breaking onto new lines */
+}
+
+/* 4. Mobile Menu Alignment (< 992px - Tablet/Mobile) */
+@media (max-width: 991px) {
+    .header-container {
+        padding-inline: 15px; /* Consistent padding */
+    }
+    
+    .nav-center {
+        /* On mobile, this usually hides or moves to hamburger menu */
+        /* Ensure it doesn't take up layout space if visible but collapsed */
+        order: 3; /* Move visual order if using flex-wrap */
+    }
+
+    .logo {
+        font-size: clamp(1.4rem, 4vw, 1.8rem); /* Shrink logo slightly on tiny phones */
+        z-index: 1100; /* Ensure above overlay */
+    }
+
+    /* Fix Right Side Grouping */
+    .header-right {
+        gap: 10px; /* Tighter gap for mobile */
+    }
+
+    .nav-cta.btn-primary {
+        /* Hide text on very small screens if needed, or adjust padding */
+        padding: 8px 16px;
+        font-size: 0.85rem;
+    }
+}
+
+/* 5. Extreme Mobile (< 480px) */
+@media (max-width: 480px) {
+    .lang-switcher {
+        /* Compact Switcher for small screens */
+        padding: 6px 10px;
+        font-size: 0.75rem;
+        height: 36px;
+    }
+
+    .lang-switcher span { 
+        margin: 0 4px; /* Tighter separator */
+    }
+
+    .nav-cta {
+        display: none; /* Often better to hide the big CTA button on tiny screens in favor of the menu link */
+    }
+}
