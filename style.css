@@ -1157,11 +1157,23 @@ ul {
         height: 100vh;
         background: white;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
+        /* Align top instead of center */
+        padding-top: 120px;
+        /* Space from top */
         align-items: center;
         box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
         transition: right 0.3s ease;
         z-index: 1000;
+    }
+
+    /* Active Link Mobile Style */
+    .nav-link.active {
+        color: var(--primary-color);
+        background: rgba(106, 13, 173, 0.05);
+        padding: 10px 25px;
+        border-radius: 50px;
+        font-weight: 700;
     }
 
     .nav-center.active {
@@ -1179,10 +1191,13 @@ ul {
     }
 
     .lang-switcher {
-        padding: 6px 12px;
+        padding: 0 16px;
         /* Compact padding */
-        font-size: 0.8rem;
-        height: 36px;
+        font-size: 0.9rem;
+        height: 48px;
+        /* Minimum touch target */
+        display: flex;
+        align-items: center;
     }
 
     .mobile-only-li {
@@ -1199,10 +1214,20 @@ ul {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        width: 30px;
-        height: 21px;
+        width: 48px;
+        /* Touch target size */
+        height: 48px;
+        /* Touch target size */
+        display: flex;
+        align-items: center;
+        /* Center lines */
+        padding: 12px;
+        /* Pad content */
+        box-sizing: border-box;
         cursor: pointer;
         z-index: 1100;
+        margin-right: -10px;
+        /* Offset padding visual */
     }
 
     .mobile-menu-toggle span {
@@ -1493,8 +1518,7 @@ ul {
     }
 }
 
-margin-bottom: 30px;
-}
+
 
 .info-label {
     display: block;
@@ -1650,13 +1674,16 @@ margin-bottom: 30px;
     }
 
     .close-video-btn {
-        width: 24px;
-        height: 24px;
-        font-size: 14px;
+        width: 48px;
+        height: 48px;
+        font-size: 18px;
+        background: rgba(0, 0, 0, 0.7);
+        /* Slightly darker for visibility */
     }
 
     .sound-toggle-btn {
-        width: 30px;
+        width: 48px;
+        height: 48px;
         transform: translateY(0);
     }
 }

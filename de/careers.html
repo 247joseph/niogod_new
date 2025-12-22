@@ -1,0 +1,1603 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karriere | Niogod - Werden Sie Teil unseres Teams</title>
+    <meta name="description"
+        content="Werden Sie Teil von Niogods Elite-Team aus KI-Ingenieuren, Datenwissenschaftlern und Tech-Profis. Gestalten Sie die Zukunft der Enterprise-KI-Infrastruktur.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="../assets/favicon.png" type="image/png">
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+        /* Careers Page Specific Styles */
+        .careers-hero {
+            padding-top: 120px;
+            padding-bottom: 40px;
+            text-align: center;
+            background: var(--bg-light);
+        }
+
+        .careers-hero .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, rgba(106, 13, 173, 0.1) 0%, rgba(157, 70, 255, 0.1) 100%);
+            border: 1px solid rgba(106, 13, 173, 0.2);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .careers-hero .hero-badge::before {
+            content: '◆';
+            font-size: 0.7em;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 0.5;
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+        .careers-hero h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .careers-hero h1 span {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .careers-hero p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 550px;
+            margin: 0 auto;
+        }
+
+        /* Form Section */
+        .form-section {
+            padding: 40px 0 80px;
+            background: var(--bg-white);
+        }
+
+        .form-card {
+            background: var(--bg-white);
+            border: 1px solid #eee;
+            border-radius: var(--radius-lg);
+            padding: 50px;
+            max-width: 700px;
+            margin: 0 auto;
+            box-shadow: var(--shadow-md);
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .form-header h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+
+        .form-header p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Form Layout */
+        .careers-form {
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-label {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .form-label .required {
+            color: var(--primary-color);
+            font-size: 0.85em;
+        }
+
+        /* Input Styling */
+        .careers-input {
+            background: var(--bg-light);
+            border: 1px solid #e0e0e5;
+            border-radius: var(--radius-md);
+            padding: 14px 18px;
+            font-size: 1rem;
+            font-family: inherit;
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+            outline: none;
+            width: 100%;
+        }
+
+        .careers-input::placeholder {
+            color: #999;
+        }
+
+        .careers-input:hover {
+            border-color: rgba(106, 13, 173, 0.3);
+            background: #fff;
+        }
+
+        .careers-input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(106, 13, 173, 0.1);
+            background: #fff;
+        }
+
+        /* ============================================
+           CUSTOM DROPDOWN STYLES
+           ============================================ */
+        .custom-select-wrapper {
+            position: relative;
+            width: 100%;
+        }
+
+        .custom-select-trigger {
+            background: var(--bg-light);
+            border: 1px solid #e0e0e5;
+            border-radius: var(--radius-md);
+            padding: 14px 50px 14px 18px;
+            font-size: 1rem;
+            font-family: inherit;
+            color: var(--text-dark);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            user-select: none;
+        }
+
+        .custom-select-trigger:hover {
+            border-color: rgba(106, 13, 173, 0.3);
+            background: #fff;
+        }
+
+        .custom-select-wrapper.open .custom-select-trigger {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(106, 13, 173, 0.1);
+            background: #fff;
+            border-radius: var(--radius-md) var(--radius-md) 0 0;
+        }
+
+        .custom-select-trigger .placeholder {
+            color: #999;
+        }
+
+        .custom-select-trigger .arrow {
+            position: absolute;
+            right: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .custom-select-trigger .arrow svg {
+            width: 100%;
+            height: 100%;
+            stroke: var(--primary-color);
+        }
+
+        .custom-select-wrapper.open .custom-select-trigger .arrow {
+            transform: translateY(-50%) rotate(180deg);
+        }
+
+        .custom-select-options {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: #fff;
+            border: 1px solid var(--primary-color);
+            border-top: none;
+            border-radius: 0 0 var(--radius-md) var(--radius-md);
+            box-shadow: 0 10px 30px rgba(106, 13, 173, 0.15);
+            z-index: 100;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .custom-select-wrapper.open .custom-select-options {
+            max-height: 300px;
+            opacity: 1;
+            overflow-y: auto;
+        }
+
+        .custom-select-option {
+            padding: 14px 18px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            border-bottom: 1px solid #f0f0f5;
+        }
+
+        .custom-select-option:last-child {
+            border-bottom: none;
+        }
+
+        .custom-select-option:hover {
+            background: linear-gradient(135deg, rgba(106, 13, 173, 0.08) 0%, rgba(157, 70, 255, 0.05) 100%);
+        }
+
+        .custom-select-option.selected {
+            background: linear-gradient(135deg, rgba(106, 13, 173, 0.12) 0%, rgba(157, 70, 255, 0.08) 100%);
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .custom-select-option .role-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, rgba(106, 13, 173, 0.1) 0%, rgba(157, 70, 255, 0.1) 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .custom-select-option .role-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .custom-select-option .role-title {
+            font-weight: 500;
+        }
+
+        .custom-select-option .role-desc {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            font-weight: 400;
+        }
+
+        /* Hidden native select for form submission */
+        .native-select {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+            width: 0;
+            height: 0;
+        }
+
+        /* ============================================
+           CUSTOM DATE PICKER STYLES
+           ============================================ */
+        .date-input-wrapper {
+            position: relative;
+            width: 100%;
+        }
+
+        .date-display {
+            background: var(--bg-light);
+            border: 1px solid #e0e0e5;
+            border-radius: var(--radius-md);
+            padding: 14px 50px 14px 18px;
+            font-size: 1rem;
+            font-family: inherit;
+            color: var(--text-dark);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+
+        .date-display:hover {
+            border-color: rgba(106, 13, 173, 0.3);
+            background: #fff;
+        }
+
+        .date-display.active {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(106, 13, 173, 0.1);
+            background: #fff;
+        }
+
+        .date-display .placeholder {
+            color: #999;
+        }
+
+        .date-display .calendar-icon {
+            position: absolute;
+            right: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+        }
+
+        .date-display .calendar-icon svg {
+            width: 100%;
+            height: 100%;
+            stroke: var(--primary-color);
+        }
+
+        /* Calendar Dropdown */
+        .calendar-dropdown {
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 0;
+            background: #fff;
+            border: 1px solid #e0e0e5;
+            border-radius: var(--radius-md);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+            z-index: 100;
+            padding: 20px;
+            min-width: 300px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+
+        .calendar-dropdown.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #f0f0f5;
+        }
+
+        .calendar-title {
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-dark);
+        }
+
+        .calendar-nav {
+            display: flex;
+            gap: 8px;
+        }
+
+        .calendar-nav button {
+            width: 32px;
+            height: 32px;
+            border: 1px solid #e0e0e5;
+            border-radius: 8px;
+            background: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .calendar-nav button:hover {
+            background: var(--bg-light);
+            border-color: var(--primary-color);
+        }
+
+        .calendar-nav button svg {
+            width: 16px;
+            height: 16px;
+            stroke: var(--text-dark);
+        }
+
+        .calendar-weekdays {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 4px;
+            margin-bottom: 8px;
+        }
+
+        .calendar-weekday {
+            text-align: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-light);
+            text-transform: uppercase;
+            padding: 8px 0;
+        }
+
+        .calendar-days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 4px;
+        }
+
+        .calendar-day {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: var(--text-dark);
+            border: none;
+            background: transparent;
+            font-family: inherit;
+        }
+
+        .calendar-day:hover:not(.empty):not(.selected) {
+            background: var(--bg-light);
+        }
+
+        .calendar-day.empty {
+            cursor: default;
+        }
+
+        .calendar-day.today {
+            border: 2px solid var(--primary-color);
+            font-weight: 600;
+        }
+
+        .calendar-day.selected {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .calendar-day.other-month {
+            color: #ccc;
+        }
+
+        /* Year/Month selector - Custom Dropdowns */
+        .calendar-selectors {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .cal-dropdown-wrapper {
+            flex: 1;
+            position: relative;
+        }
+
+        .cal-dropdown-trigger {
+            width: 100%;
+            padding: 10px 35px 10px 14px;
+            border: 1px solid #e0e0e5;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, #fafafa 0%, #fff 100%);
+            cursor: pointer;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            user-select: none;
+        }
+
+        .cal-dropdown-trigger:hover {
+            border-color: rgba(106, 13, 173, 0.4);
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(106, 13, 173, 0.08);
+        }
+
+        .cal-dropdown-wrapper.open .cal-dropdown-trigger {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(106, 13, 173, 0.1);
+            background: #fff;
+        }
+
+        .cal-dropdown-trigger .cal-arrow {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 14px;
+            height: 14px;
+            transition: transform 0.25s ease;
+        }
+
+        .cal-dropdown-trigger .cal-arrow svg {
+            width: 100%;
+            height: 100%;
+            stroke: var(--primary-color);
+        }
+
+        .cal-dropdown-wrapper.open .cal-dropdown-trigger .cal-arrow {
+            transform: translateY(-50%) rotate(180deg);
+        }
+
+        .cal-dropdown-list {
+            position: absolute;
+            top: calc(100% + 5px);
+            left: 0;
+            right: 0;
+            background: #fff;
+            border: 1px solid var(--primary-color);
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(106, 13, 173, 0.15);
+            z-index: 150;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: all 0.25s ease;
+        }
+
+        .cal-dropdown-wrapper.open .cal-dropdown-list {
+            max-height: 220px;
+            opacity: 1;
+            overflow-y: auto;
+        }
+
+        .cal-dropdown-list::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .cal-dropdown-list::-webkit-scrollbar-track {
+            background: #f5f5f5;
+            border-radius: 3px;
+        }
+
+        .cal-dropdown-list::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+            border-radius: 3px;
+        }
+
+        .cal-dropdown-item {
+            padding: 10px 14px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 0.88rem;
+            color: var(--text-dark);
+            border-bottom: 1px solid #f5f5f8;
+        }
+
+        .cal-dropdown-item:last-child {
+            border-bottom: none;
+        }
+
+        .cal-dropdown-item:hover {
+            background: linear-gradient(135deg, rgba(106, 13, 173, 0.08) 0%, rgba(157, 70, 255, 0.05) 100%);
+            padding-left: 18px;
+        }
+
+        .cal-dropdown-item.selected {
+            background: linear-gradient(135deg, rgba(106, 13, 173, 0.12) 0%, rgba(157, 70, 255, 0.08) 100%);
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .cal-dropdown-item.selected::before {
+            content: '✓';
+            margin-right: 8px;
+            font-weight: bold;
+        }
+
+        /* Hidden native date input */
+        .native-date {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+            width: 0;
+            height: 0;
+        }
+
+        /* File Upload Zone */
+        .upload-zone {
+            border: 2px dashed #d0d0d8;
+            border-radius: var(--radius-lg);
+            padding: 35px 25px;
+            text-align: center;
+            background: var(--bg-light);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .upload-zone:hover,
+        .upload-zone.dragover {
+            border-color: var(--primary-color);
+            background: rgba(106, 13, 173, 0.03);
+        }
+
+        .upload-zone.dragover {
+            box-shadow: 0 0 20px rgba(106, 13, 173, 0.15);
+        }
+
+        .upload-icon {
+            width: 55px;
+            height: 55px;
+            margin: 0 auto 15px;
+            background: linear-gradient(135deg, rgba(106, 13, 173, 0.1) 0%, rgba(157, 70, 255, 0.1) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .upload-icon svg {
+            width: 26px;
+            height: 26px;
+            stroke: var(--primary-color);
+        }
+
+        .upload-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--text-dark);
+        }
+
+        .upload-subtitle {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 12px;
+        }
+
+        .upload-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .upload-btn:hover {
+            background: var(--primary-color);
+            color: #fff;
+        }
+
+        .file-input {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .file-name {
+            margin-top: 12px;
+            font-size: 0.85rem;
+            color: var(--primary-color);
+            font-weight: 500;
+            display: none;
+        }
+
+        .file-name.show {
+            display: block;
+        }
+
+        /* Submit Button */
+        .submit-btn {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 16px 40px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            box-shadow: 0 4px 15px rgba(106, 13, 173, 0.3);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(106, 13, 173, 0.4);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        .success-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, rgba(0, 180, 100, 0.15) 0%, rgba(0, 212, 150, 0.1) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .success-icon svg {
+            width: 35px;
+            height: 35px;
+            stroke: #00b464;
+        }
+
+        .success-message h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .success-message p {
+            color: var(--text-light);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .careers-hero {
+                padding-top: 100px;
+                padding-bottom: 30px;
+            }
+
+            .careers-hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .careers-hero p {
+                font-size: 1rem;
+            }
+
+            .form-card {
+                padding: 30px 20px;
+                margin: 0 15px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .form-header h2 {
+                font-size: 1.4rem;
+            }
+
+            .upload-zone {
+                padding: 25px 15px;
+            }
+
+            .submit-btn {
+                width: 100%;
+            }
+
+            .calendar-dropdown {
+                left: 50%;
+                transform: translateX(-50%) translateY(-10px);
+                min-width: 280px;
+            }
+
+            .calendar-dropdown.show {
+                transform: translateX(-50%) translateY(0);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .careers-hero h1 {
+                font-size: 1.6rem;
+            }
+
+            .careers-input,
+            .custom-select-trigger,
+            .date-display {
+                padding: 12px 14px;
+            }
+
+            .upload-icon {
+                width: 45px;
+                height: 45px;
+            }
+
+            .upload-icon svg {
+                width: 22px;
+                height: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">niogod<span class="tm-symbol">TM</span></a>
+
+            <!-- Centered Nav Links -->
+            <nav class="nav-center">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="protocol.html" class="nav-link">Protocol</a></li>
+                    <li><a href="security.html" class="nav-link">Security</a></li>
+                    <li><a href="about-us.html" class="nav-link">About Us</a></li>
+                    <li class="mobile-only-li"><a href="contact.html" class="nav-link">Let's Talk</a></li>
+                </ul>
+            </nav>
+
+            <!-- Right Side CTA & Mobile Toggle -->
+            <div class="header-right">
+                <div class="lang-switcher"><a href="#" class="active">EN</a><span>|</span><a href="de/careers.html"
+                        class="lang-link" data-lang="de">DE</a></div>
+                <a href="contact.html" class="btn btn-primary nav-cta">Let's Talk</a>
+                <div class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="careers-hero">
+        <div class="container">
+            <span class="hero-badge">Wir stellen ein</span>
+            <h1>Gestalten Sie die Zukunft mit <span>niogod</span></h1>
+            <p>Werden Sie Teil eines Elite-Teams aus Ingenieuren, Wissenschaftlern und Visionären, die die
+                Enterprise-KI-Infrastruktur formen.</p>
+        </div>
+    </section>
+
+    <!-- Application Form Section -->
+    <section class="form-section">
+        <div class="container">
+            <div class="form-card">
+                <div class="form-header">
+                    <h2>Jetzt bewerben</h2>
+                    <p>Füllen Sie das Formular unten aus und wir melden uns innerhalb von 72 Stunden bei Ihnen.</p>
+                </div>
+                <iframe name="hidden-iframe" id="hidden-iframe" style="display:none;"></iframe>
+                <form class="careers-form" id="careers-form"
+                    action="https://script.google.com/macros/s/AKfycbyO7H1VTXgtVmPtw6LdJ42BcreupS4D9b5syysiLqxGJwCratlASpL292CuyVxL1PkC/exec"
+                    method="POST" enctype="multipart/form-data" target="hidden-iframe">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">
+                                Vollständiger Name <span class="required">*</span>
+                            </label>
+                            <input type="text" class="careers-input" name="fullName"
+                                placeholder="Ihr vollständiger Name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">
+                                Geburtsdatum <span class="required">*</span>
+                            </label>
+                            <!-- Custom Date Picker -->
+                            <div class="date-input-wrapper" id="date-wrapper">
+                                <input type="hidden" name="dob" id="dob-input" required>
+                                <div class="date-display" id="date-display">
+                                    <span class="placeholder">Geburtsdatum auswählen</span>
+                                    <span class="calendar-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div class="calendar-dropdown" id="calendar-dropdown">
+                                    <div class="calendar-selectors">
+                                        <!-- Custom Month Dropdown -->
+                                        <div class="cal-dropdown-wrapper" id="month-dropdown-wrapper">
+                                            <div class="cal-dropdown-trigger" id="month-trigger">
+                                                <span id="month-trigger-text">December</span>
+                                                <span class="cal-arrow">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                        viewBox="0 0 24 24" stroke="currentColor">
+                                                        <polyline points="6 9 12 15 18 9" stroke-width="2"
+                                                            stroke-linecap="round" stroke-linejoin="round" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <div class="cal-dropdown-list" id="month-dropdown-list"></div>
+                                        </div>
+                                        <!-- Custom Year Dropdown -->
+                                        <div class="cal-dropdown-wrapper" id="year-dropdown-wrapper">
+                                            <div class="cal-dropdown-trigger" id="year-trigger">
+                                                <span id="year-trigger-text">2025</span>
+                                                <span class="cal-arrow">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                        viewBox="0 0 24 24" stroke="currentColor">
+                                                        <polyline points="6 9 12 15 18 9" stroke-width="2"
+                                                            stroke-linecap="round" stroke-linejoin="round" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <div class="cal-dropdown-list" id="year-dropdown-list"></div>
+                                        </div>
+                                    </div>
+                                    <div class="calendar-header">
+                                        <span class="calendar-title" id="calendar-title">December 2025</span>
+                                        <div class="calendar-nav">
+                                            <button type="button" id="prev-month">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                    stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M15 19l-7-7 7-7" />
+                                                </svg>
+                                            </button>
+                                            <button type="button" id="next-month">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                    stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M9 5l7 7-7 7" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="calendar-weekdays">
+                                        <span class="calendar-weekday">Sun</span>
+                                        <span class="calendar-weekday">Mon</span>
+                                        <span class="calendar-weekday">Tue</span>
+                                        <span class="calendar-weekday">Wed</span>
+                                        <span class="calendar-weekday">Thu</span>
+                                        <span class="calendar-weekday">Fri</span>
+                                        <span class="calendar-weekday">Sat</span>
+                                    </div>
+                                    <div class="calendar-days" id="calendar-days"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">
+                                E-Mail-Adresse <span class="required">*</span>
+                            </label>
+                            <input type="email" class="careers-input" name="email" placeholder="name@firma.de" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">
+                                Telefonnummer <span class="required">*</span>
+                            </label>
+                            <input type="tel" class="careers-input" name="phone" placeholder="+49 123 456789" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label class="form-label">
+                            Position wählen <span class="required">*</span>
+                        </label>
+                        <!-- Custom Dropdown -->
+                        <div class="custom-select-wrapper" id="role-select-wrapper">
+                            <select class="native-select" name="role" id="role-select" required>
+                                <option value="" disabled selected>Rolle auswählen</option>
+                                <option value="data-scientist">Data Scientist</option>
+                                <option value="ml-engineer">ML Engineer</option>
+                                <option value="mlops">MLops</option>
+                                <option value="devops">DevOps</option>
+                                <option value="aws-architect">AWS Architect</option>
+                                <option value="legal-consultant">Legal Consultant</option>
+                            </select>
+                            <div class="custom-select-trigger" id="role-trigger">
+                                <span class="placeholder">Gewünschte Position auswählen</span>
+                                <span class="arrow">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor">
+                                        <polyline points="6 9 12 15 18 9" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="custom-select-options" id="role-options">
+                                <div class="custom-select-option" data-value="data-scientist">
+                                    <span class="role-icon">📊</span>
+                                    <span class="role-info">
+                                        <span class="role-title">Data Scientist</span>
+                                        <span class="role-desc">Machine learning & analytics</span>
+                                    </span>
+                                </div>
+                                <div class="custom-select-option" data-value="ml-engineer">
+                                    <span class="role-icon">🤖</span>
+                                    <span class="role-info">
+                                        <span class="role-title">ML Engineer</span>
+                                        <span class="role-desc">Model development & deployment</span>
+                                    </span>
+                                </div>
+                                <div class="custom-select-option" data-value="mlops">
+                                    <span class="role-icon">⚙️</span>
+                                    <span class="role-info">
+                                        <span class="role-title">MLops</span>
+                                        <span class="role-desc">ML infrastructure & pipelines</span>
+                                    </span>
+                                </div>
+                                <div class="custom-select-option" data-value="devops">
+                                    <span class="role-icon">🚀</span>
+                                    <span class="role-info">
+                                        <span class="role-title">DevOps</span>
+                                        <span class="role-desc">CI/CD & cloud operations</span>
+                                    </span>
+                                </div>
+                                <div class="custom-select-option" data-value="aws-architect">
+                                    <span class="role-icon">☁️</span>
+                                    <span class="role-info">
+                                        <span class="role-title">AWS Architect</span>
+                                        <span class="role-desc">Cloud architecture & design</span>
+                                    </span>
+                                </div>
+                                <div class="custom-select-option" data-value="legal-consultant">
+                                    <span class="role-icon">⚖️</span>
+                                    <span class="role-info">
+                                        <span class="role-title">Legal Consultant</span>
+                                        <span class="role-desc">Compliance & contracts</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label class="form-label">
+                            Lebenslauf hochladen <span class="required">*</span>
+                        </label>
+                        <div class="upload-zone" id="upload-zone">
+                            <input type="file" class="file-input" id="cv-input" accept=".pdf" required>
+                            <!-- Hidden input for base64 string -->
+                            <input type="hidden" name="cvFile" id="hidden-cv-data">
+
+                            <div class="upload-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                                </svg>
+                            </div>
+                            <p class="upload-title">Lebenslauf hier ablegen</p>
+                            <p class="upload-subtitle">oder klicken zum Durchsuchen (PDF)</p>
+                            <span class="upload-btn">Datei wählen</span>
+                            <p class="file-name" id="file-name"></p>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        Submit Application →
+                    </button>
+                </form>
+
+                <!-- Success Message -->
+                <div class="success-message" id="success-message">
+                    <div class="success-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </div>
+                    <h3>Bewerbung erfolgreich!</h3>
+                    <p>Vielen Dank für Ihre Bewerbung. Unser Team meldet sich in Kürze.</p>
+                    <button class="submit-btn" id="reset-btn"
+                        style="margin-top: 2rem; background: var(--primary-color);">
+                        Für eine andere Rolle bewerben
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3 class="footer-logo">niogod<span class="tm-symbol">TM</span></h3>
+                    <p>Infrastructure for the Modern Enterprise.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Unternehmen</h4>
+                    <ul>
+                        <li><a href="index.html">Startseite</a></li>
+                        <li><a href="protocol.html">Protokoll</a></li>
+                        <li><a href="security.html">Sicherheit</a></li>
+                        <li><a href="about-us.html">Über Uns</a></li>
+                        <li><a href="careers.html">Karriere</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Rechtliches (DACH)</h4>
+                    <ul>
+                        <li><a href="legal.html">Impressum</a></li>
+                        <li><a href="legal.html">Datenschutzerklärung</a></li>
+                        <li><a href="legal.html">AGB</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Kontakt</h4>
+                    <p><a href="mailto:hello@niogod.com">hello@niogod.com</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 niogod. All rights reserved.</p>
+                <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 5px;">Borcom Dynamics Private Limited |
+                    U82990KL2023PTC084978</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // ============================================
+        // CUSTOM DROPDOWN (Role Selection)
+        // ============================================
+        const roleWrapper = document.getElementById('role-select-wrapper');
+        const roleTrigger = document.getElementById('role-trigger');
+        const roleOptions = document.querySelectorAll('.custom-select-option');
+        const nativeSelect = document.getElementById('role-select');
+
+        roleTrigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            roleWrapper.classList.toggle('open');
+        });
+
+        roleOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                const value = option.dataset.value;
+                const title = option.querySelector('.role-title').textContent;
+
+                // Update native select
+                nativeSelect.value = value;
+
+                // Update trigger text
+                roleTrigger.innerHTML = `
+                    <span>${title}</span>
+                    <span class="arrow">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <polyline points="6 9 12 15 18 9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                `;
+
+                // Update selected state
+                roleOptions.forEach(opt => opt.classList.remove('selected'));
+                option.classList.add('selected');
+
+                // Close dropdown
+                roleWrapper.classList.remove('open');
+            });
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!roleWrapper.contains(e.target)) {
+                roleWrapper.classList.remove('open');
+            }
+        });
+
+        // ============================================
+        // CUSTOM DATE PICKER
+        // ============================================
+        const dateWrapper = document.getElementById('date-wrapper');
+        const dateDisplay = document.getElementById('date-display');
+        const calendarDropdown = document.getElementById('calendar-dropdown');
+        const calendarDays = document.getElementById('calendar-days');
+        const calendarTitle = document.getElementById('calendar-title');
+        const prevMonthBtn = document.getElementById('prev-month');
+        const nextMonthBtn = document.getElementById('next-month');
+        const dobInput = document.getElementById('dob-input');
+
+        // Custom dropdown elements
+        const monthDropdownWrapper = document.getElementById('month-dropdown-wrapper');
+        const monthTrigger = document.getElementById('month-trigger');
+        const monthTriggerText = document.getElementById('month-trigger-text');
+        const monthDropdownList = document.getElementById('month-dropdown-list');
+
+        const yearDropdownWrapper = document.getElementById('year-dropdown-wrapper');
+        const yearTrigger = document.getElementById('year-trigger');
+        const yearTriggerText = document.getElementById('year-trigger-text');
+        const yearDropdownList = document.getElementById('year-dropdown-list');
+
+        let currentDate = new Date();
+        let selectedDate = null;
+        let selectedMonthIndex = currentDate.getMonth();
+        let selectedYear = currentDate.getFullYear();
+
+        const months = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni',
+            'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
+
+        // Initialize custom dropdowns
+        function initSelectors() {
+            // Populate months dropdown
+            months.forEach((month, index) => {
+                const item = document.createElement('div');
+                item.className = 'cal-dropdown-item' + (index === selectedMonthIndex ? ' selected' : '');
+                item.textContent = month;
+                item.dataset.value = index;
+                item.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    selectMonth(index);
+                });
+                monthDropdownList.appendChild(item);
+            });
+
+            // Populate years dropdown (1940 to current year)
+            const currentYear = new Date().getFullYear();
+            for (let year = currentYear; year >= 1940; year--) {
+                const item = document.createElement('div');
+                item.className = 'cal-dropdown-item' + (year === selectedYear ? ' selected' : '');
+                item.textContent = year;
+                item.dataset.value = year;
+                item.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    selectYear(year);
+                });
+                yearDropdownList.appendChild(item);
+            }
+
+            updateDropdownTriggers();
+        }
+
+        function updateDropdownTriggers() {
+            monthTriggerText.textContent = months[currentDate.getMonth()];
+            yearTriggerText.textContent = currentDate.getFullYear();
+
+            // Update selected states
+            monthDropdownList.querySelectorAll('.cal-dropdown-item').forEach((item, index) => {
+                item.classList.toggle('selected', index === currentDate.getMonth());
+            });
+
+            yearDropdownList.querySelectorAll('.cal-dropdown-item').forEach(item => {
+                item.classList.toggle('selected', parseInt(item.dataset.value) === currentDate.getFullYear());
+            });
+        }
+
+        function selectMonth(monthIndex) {
+            currentDate.setMonth(monthIndex);
+            monthDropdownWrapper.classList.remove('open');
+            updateDropdownTriggers();
+            renderCalendar();
+        }
+
+        function selectYear(year) {
+            currentDate.setFullYear(year);
+            yearDropdownWrapper.classList.remove('open');
+            updateDropdownTriggers();
+            renderCalendar();
+        }
+
+        // Month dropdown toggle
+        monthTrigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            yearDropdownWrapper.classList.remove('open');
+            monthDropdownWrapper.classList.toggle('open');
+
+            // Scroll to selected month
+            const selectedItem = monthDropdownList.querySelector('.selected');
+            if (selectedItem) {
+                selectedItem.scrollIntoView({ block: 'center' });
+            }
+        });
+
+        // Year dropdown toggle
+        yearTrigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            monthDropdownWrapper.classList.remove('open');
+            yearDropdownWrapper.classList.toggle('open');
+
+            // Scroll to selected year
+            const selectedItem = yearDropdownList.querySelector('.selected');
+            if (selectedItem) {
+                selectedItem.scrollIntoView({ block: 'center' });
+            }
+        });
+
+        function renderCalendar() {
+            const year = currentDate.getFullYear();
+            const month = currentDate.getMonth();
+
+            calendarTitle.textContent = `${months[month]} ${year}`;
+            updateDropdownTriggers();
+
+            const firstDay = new Date(year, month, 1).getDay();
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+            const today = new Date();
+
+            calendarDays.innerHTML = '';
+
+            // Empty slots for days before first day
+            for (let i = 0; i < firstDay; i++) {
+                const emptyDay = document.createElement('button');
+                emptyDay.type = 'button';
+                emptyDay.className = 'calendar-day empty';
+                calendarDays.appendChild(emptyDay);
+            }
+
+            // Days of the month
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dayBtn = document.createElement('button');
+                dayBtn.type = 'button';
+                dayBtn.className = 'calendar-day';
+                dayBtn.textContent = day;
+
+                const dateCheck = new Date(year, month, day);
+
+                if (today.getDate() === day && today.getMonth() === month && today.getFullYear() === year) {
+                    dayBtn.classList.add('today');
+                }
+
+                if (selectedDate && selectedDate.getDate() === day &&
+                    selectedDate.getMonth() === month && selectedDate.getFullYear() === year) {
+                    dayBtn.classList.add('selected');
+                }
+
+                dayBtn.addEventListener('click', () => selectDate(year, month, day));
+                calendarDays.appendChild(dayBtn);
+            }
+        }
+
+        function selectDate(year, month, day) {
+            selectedDate = new Date(year, month, day);
+
+            // Format: YYYY-MM-DD for hidden input
+            const formattedDate = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+            dobInput.value = formattedDate;
+
+            // Display friendly format
+            const displayDate = `${months[month]} ${day}, ${year}`;
+            dateDisplay.innerHTML = `
+                <span>${displayDate}</span>
+                <span class="calendar-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                </span>
+            `;
+
+            calendarDropdown.classList.remove('show');
+            dateDisplay.classList.remove('active');
+            monthDropdownWrapper.classList.remove('open');
+            yearDropdownWrapper.classList.remove('open');
+            renderCalendar();
+        }
+
+        // Toggle calendar
+        dateDisplay.addEventListener('click', (e) => {
+            e.stopPropagation();
+            calendarDropdown.classList.toggle('show');
+            dateDisplay.classList.toggle('active');
+        });
+
+        // Navigation
+        prevMonthBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            currentDate.setMonth(currentDate.getMonth() - 1);
+            renderCalendar();
+        });
+
+        nextMonthBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            currentDate.setMonth(currentDate.getMonth() + 1);
+            renderCalendar();
+        });
+
+        // Close calendar and dropdowns when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!dateWrapper.contains(e.target)) {
+                calendarDropdown.classList.remove('show');
+                dateDisplay.classList.remove('active');
+            }
+            if (!monthDropdownWrapper.contains(e.target)) {
+                monthDropdownWrapper.classList.remove('open');
+            }
+            if (!yearDropdownWrapper.contains(e.target)) {
+                yearDropdownWrapper.classList.remove('open');
+            }
+        });
+
+        // Initialize
+        initSelectors();
+        renderCalendar();
+
+        // ============================================
+        // FILE UPLOAD
+        // ============================================
+        const uploadZone = document.getElementById('upload-zone');
+        const fileInput = document.getElementById('cv-input');
+        const fileName = document.getElementById('file-name');
+
+        uploadZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadZone.classList.add('dragover');
+        });
+
+        uploadZone.addEventListener('dragleave', (e) => {
+            e.preventDefault();
+            uploadZone.classList.remove('dragover');
+        });
+
+        uploadZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadZone.classList.remove('dragover');
+            const files = e.dataTransfer.files;
+            if (files.length) {
+                fileInput.files = files;
+                updateFileName(files[0]);
+            }
+        });
+
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length) {
+                updateFileName(e.target.files[0]);
+            }
+        });
+
+        function updateFileName(file) {
+            fileName.textContent = `Ausgewählt: ${file.name}`;
+            fileName.classList.add('show');
+        }
+
+        // ============================================
+        // FORM SUBMISSION
+        // ============================================
+        const form = document.getElementById('careers-form');
+        const successMessage = document.getElementById('success-message');
+        const submitBtn = form.querySelector('.submit-btn');
+        const hiddenIframe = document.getElementById('hidden-iframe');
+
+        const cvInput = document.getElementById('cv-input');
+        const hiddenCvData = document.getElementById('hidden-cv-data');
+
+        const resetBtn = document.getElementById('reset-btn');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault(); // Pause to process file
+
+            // Show processing state locally
+            submitBtn.innerHTML = 'Verarbeite...';
+            submitBtn.disabled = true;
+
+            const file = cvInput.files[0];
+
+            // Helper to submit and show success INSTANTLY
+            const submitAndShowSuccess = () => {
+                form.submit();
+
+                // Show success IMMEDIATELY (Optimistic UI) - no timeout
+                form.style.display = 'none';
+                document.querySelector('.form-header').style.display = 'none';
+                successMessage.classList.add('show');
+                document.querySelector('.form-card').scrollIntoView({ behavior: 'smooth', block: 'center' });
+            };
+
+            if (file) {
+                const reader = new FileReader();
+
+                reader.onload = function (evt) {
+                    hiddenCvData.value = evt.target.result;
+                    submitAndShowSuccess();
+                };
+
+                reader.onerror = function () {
+                    alert('Fehler beim Lesen der Datei. Bitte versuchen Sie es erneut.');
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = 'Bewerbung absenden →';
+                };
+
+                reader.readAsDataURL(file);
+            } else {
+                submitAndShowSuccess();
+            }
+        });
+
+        // Reset Logic
+        if (resetBtn) {
+            resetBtn.addEventListener('click', function () {
+                form.reset();
+
+                // Reset file UI
+                document.getElementById('file-name').textContent = '';
+                document.getElementById('file-name').classList.remove('show');
+                document.getElementById('upload-zone').classList.remove('dragover');
+
+                // Reset Button State
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = 'Bewerbung absenden →';
+                submitBtn.style.opacity = '1';
+
+                // Hide success, show form
+                successMessage.classList.remove('show');
+                form.style.display = 'block';
+                document.querySelector('.form-header').style.display = 'block';
+
+                // Scroll back up
+                document.querySelector('.form-card').scrollIntoView({ behavior: 'smooth', block: 'center' });
+            });
+        }
+
+        // Also listen for iframe load event as backup
+        hiddenIframe.addEventListener('load', function () {
+            // Only trigger if form was submitted
+            if (submitBtn.disabled) {
+                form.style.display = 'none';
+                document.querySelector('.form-header').style.display = 'none';
+                successMessage.classList.add('show');
+                document.querySelector('.form-card').scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        });
+
+        // Email validation feedback
+        const emailInput = document.querySelector('input[type="email"]');
+        emailInput.addEventListener('blur', function () {
+            if (this.value && !this.checkValidity()) {
+                this.style.borderColor = '#ff4d4d';
+            } else {
+                this.style.borderColor = '';
+            }
+        });
+
+        emailInput.addEventListener('input', function () {
+            this.style.borderColor = '';
+        });
+    </script>
+
+</body>
+
+</html>
