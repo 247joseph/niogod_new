@@ -1596,9 +1596,130 @@
             }
         });
 
+        // emailInput listener (existing code)
         emailInput.addEventListener('input', function () {
+            // Reset error state on input
             this.style.borderColor = '';
+            saveFormProgress();
         });
+
+        // ============================================
+        // FORM PERSISTENCE (Auto-Save)
+        // ============================================
+        const PERSISTENCE_KEY = 'niogod_careers_form_data';
+
+        function saveFormProgress() {
+            const formData = {
+                fullName: document.querySelector('input[name="fullName"]').value,
+                email: document.querySelector('input[name="email"]').value,
+                phone: document.querySelector('input[name="phone"]').value,
+                role: nativeSelect.value,
+                dob: dobInput.value,
+                // Files cannot be saved in localStorage for security reasons
+            };
+            localStorage.setItem(PERSISTENCE_KEY, JSON.stringify(formData));
+        }
+
+        function loadFormProgress() {
+            const saved = localStorage.getItem(PERSISTENCE_KEY);
+            if (!saved) return;
+
+            try {
+                const data = JSON.parse(saved);
+
+                // Restore simple inputs
+                if (data.fullName) document.querySelector('input[name="fullName"]').value = data.fullName;
+                if (data.email) document.querySelector('input[name="email"]').value = data.email;
+                if (data.phone) document.querySelector('input[name="phone"]').value = data.phone;
+
+                // Restore Role
+                if (data.role) {
+                    nativeSelect.value = data.role;
+                    // Update UI
+                    const selectedOption = document.querySelector(`.custom-select-option[data-value="${data.role}"]`);
+                    if (selectedOption) {
+                        const title = selectedOption.querySelector('.role-title').textContent;
+                        roleTrigger.innerHTML = `
+                            <span>${title}</span>
+                            <span class="arrow">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <polyline points="6 9 12 15 18 9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                        `;
+                        roleOptions.forEach(opt => opt.classList.remove('selected'));
+                        selectedOption.classList.add('selected');
+                    }
+                }
+
+                // Restore Date of Birth
+                if (data.dob) {
+                    dobInput.value = data.dob;
+                    // Restore UI (Parse YYYY-MM-DD)
+                    const [y, m, d] = data.dob.split('-').map(Number);
+                    if (y && m && d) {
+                        selectedDate = new Date(y, m - 1, d);
+                        currentDate = new Date(y, m - 1, 1); // Set calendar view to that month
+
+                        const displayDate = `${months[m - 1]} ${d}, ${y}`;
+                        dateDisplay.innerHTML = `
+                            <span>${displayDate}</span>
+                            <span class="calendar-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                            </span>
+                        `;
+                        renderCalendar(); // Re-render to show selection
+                    }
+                }
+
+            } catch (e) {
+                console.error("Error loading saved form data", e);
+            }
+        }
+
+        // Add Listeners for Auto-Save
+        ['input', 'change'].forEach(evt => {
+            document.querySelectorAll('.careers-input').forEach(input => {
+                input.addEventListener(evt, saveFormProgress);
+            });
+        });
+
+        // Hook into custom dropdowns for saving
+        // Role
+        const originalRoleClick = roleTrigger.parentElement.querySelectorAll('.custom-select-option');
+        originalRoleClick.forEach(opt => {
+            opt.addEventListener('click', () => setTimeout(saveFormProgress, 0));
+        });
+
+        // Date - hooked into selectDate function indirectly via DOM changes or just wrap the function?
+        // Easiest is to wrap the update function or just expose a save call.
+        // We will modify the selectDate function in the future steps if needed, but here we can just watch the hidden input?
+        // Hidden inputs don't trigger 'input'/'change' events cleanly when setting value via JS.
+        // Better to manually call saveFormProgress inside selectDate if possible, OR loop check.
+        // Let's attach to the "click" on calendar days which triggers selectDate
+        // Actually, we can just edit the selectDate function in the block below?
+        // No, replace_file_content is replacing a block.
+        // Let's add a MutationObserver or just piggyback on click events in calendar.
+
+        calendarDays.addEventListener('click', () => setTimeout(saveFormProgress, 100));
+
+
+        // Load on Init
+        loadFormProgress();
+
+        // Clear on Submit (Modify submit handler)
+        // Note: The submit handler is above. We need to clear it there.
+        // Since we are replacing lines 1599+, we aren't touching the submit handler (lines 1513+).
+        // I will add a separate listener for submit here that runs BEFORE the actual logic? 
+        // Or just one that runs separate.
+        form.addEventListener('submit', () => {
+            // We only clear if it's successful. The optimistic UI logic in the main handler hides the form.
+            // We can clear it.
+            localStorage.removeItem(PERSISTENCE_KEY);
+        });
+
     </script>
 
 </body>
