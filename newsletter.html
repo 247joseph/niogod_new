@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog | Niogod</title>
+    <title>niogod's Intelligence Report</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
@@ -34,7 +34,7 @@
 
             <!-- Right Side CTA & Mobile Toggle -->
             <div class="header-right">
-                <div class="lang-switcher"><a href="#" class="active">EN</a><span>|</span><a href="de/blog.html"
+                <div class="lang-switcher"><a href="#" class="active">EN</a><span>|</span><a href="de/newsletter.html"
                         class="lang-link" data-lang="de">DE</a></div>
                 <a href="contact.html" class="btn btn-primary nav-cta">Let's Talk</a>
                 <div class="mobile-menu-toggle">
@@ -47,17 +47,38 @@
     </header>
 
     <!-- Page Header -->
-    <section class="page-header">
+    <section class="page-header" style="padding-bottom: 40px;">
         <div class="container">
-            <h1 class="page-title">Latest Intelligence.</h1>
-            <p class="page-subtitle">Insights on Remote Engineering, DACH Compliance, and the Future of Work.</p>
+            <h1 class="page-title">niogod's Intelligence Report</h1>
+            <p class="page-subtitle" style="margin-bottom: 40px;">Insights on Remote Engineering, DACH Compliance, and
+                the Future of Work.</p>
+
+            <div style="display: flex; justify-content: center; flex-direction: column; align-items: center;">
+                <form class="hero-subscribe-bar" id="subscribe-form"
+                    style="box-shadow: 0 10px 25px rgba(106, 13, 173, 0.15);">
+                    <input type="email" name="email" placeholder="name@company.com" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+
+                <div style="text-align: center; margin-top: 30px;">
+                    <a href="assets/Sample Intelligence Report.pdf" class="btn btn-primary btn-pill" target="_blank"
+                        style="padding: 10px 30px; font-size: 0.95rem; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(106, 13, 173, 0.2);">
+                        Download Sample
+                    </a>
+                    <p style="color: #666; font-size: 0.95rem; max-width: 600px; margin: 0 auto; line-height: 1.6;">
+                        Sent every Saturday. 8 people, 2 days of work composed into one actionable report. Available in
+                        both English and German. <br><span style="font-weight: 600; color: var(--primary-color);">Free
+                            forever.</span>
+                    </p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Blog Grid -->
+    <!-- Blog Slider Section -->
     <section class="text-content-section" style="padding-top: 20px;">
         <div class="container">
-            <div class="blog-grid">
+            <div class="blog-slider">
                 <!-- Post 1 -->
                 <article class="blog-card">
                     <div class="blog-image"
@@ -148,6 +169,7 @@
             </div>
         </div>
     </footer>
+
     <script src="script.js"></script>
 </body>
 

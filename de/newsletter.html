@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog | Niogod</title>
+    <title>niogod's Intelligence Report</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
@@ -27,13 +27,14 @@
                     <li><a href="protocol.html" class="nav-link">Protokoll</a></li>
                     <li><a href="security.html" class="nav-link">Sicherheit</a></li>
                     <li><a href="about-us.html" class="nav-link">Über uns</a></li>
+                    <li><a href="careers.html" class="nav-link">Karriere</a></li>
                     <li class="mobile-only-li"><a href="contact.html" class="nav-link">Kontakt</a></li>
                 </ul>
             </nav>
 
             <!-- Right Side CTA & Mobile Toggle -->
             <div class="header-right">
-                <div class="lang-switcher"><a href="../blog.html" class="lang-link"
+                <div class="lang-switcher"><a href="../newsletter.html" class="lang-link"
                         data-lang="en">EN</a><span>|</span><a href="#" class="active">DE</a></div>
                 <a href="contact.html" class="btn btn-primary nav-cta">Kontakt</a>
                 <div class="mobile-menu-toggle">
@@ -46,17 +47,38 @@
     </header>
 
     <!-- Page Header -->
-    <section class="page-header">
+    <section class="page-header" style="padding-bottom: 40px;">
         <div class="container">
-            <h1 class="page-title">Neueste Erkenntnisse.</h1>
-            <p class="page-subtitle">Einblicke in Remote-Engineering, DACH-Compliance und die Zukunft der Arbeit.</p>
+            <h1 class="page-title">niogod's Intelligence Report</h1>
+            <p class="page-subtitle" style="margin-bottom: 40px;">Einblicke in Remote-Engineering, DACH-Compliance und
+                die Zukunft der Arbeit.</p>
+
+            <div style="display: flex; justify-content: center; flex-direction: column; align-items: center;">
+                <form class="hero-subscribe-bar" id="subscribe-form"
+                    style="box-shadow: 0 10px 25px rgba(106, 13, 173, 0.15);">
+                    <input type="email" name="email" placeholder="name@company.com" required>
+                    <button type="submit">Abonnieren</button>
+                </form>
+
+                <div style="text-align: center; margin-top: 30px;">
+                    <a href="../assets/Sample Intelligence Report.pdf" class="btn btn-primary btn-pill" target="_blank"
+                        style="padding: 10px 30px; font-size: 0.95rem; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(106, 13, 173, 0.2);">
+                        Beispiel herunterladen
+                    </a>
+                    <p style="color: #666; font-size: 0.95rem; max-width: 600px; margin: 0 auto; line-height: 1.6;">
+                        Jeden Samstag gesendet. 8 Personen, 2 Tage Arbeit destilliert in einem Bericht. Verfügbar in
+                        Englisch und Deutsch. <br><span style="font-weight: 600; color: var(--primary-color);">Für immer
+                            kostenlos.</span>
+                    </p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Blog Grid -->
+    <!-- Blog Slider Section -->
     <section class="text-content-section" style="padding-top: 20px;">
         <div class="container">
-            <div class="blog-grid">
+            <div class="blog-slider">
                 <!-- Post 1 -->
                 <article class="blog-card">
                     <div class="blog-image"
@@ -126,6 +148,7 @@
                         <li><a href="protocol.html">Protokoll</a></li>
                         <li><a href="security.html">Sicherheit</a></li>
                         <li><a href="about-us.html">Über uns</a></li>
+                        <li><a href="careers.html">Karriere</a></li>
                         <li><a href="blog.html">Blog</a></li>
                     </ul>
                 </div>
@@ -149,6 +172,7 @@
             </div>
         </div>
     </footer>
+
     <script src="../script.js"></script>
 </body>
 
