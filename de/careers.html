@@ -200,6 +200,23 @@
             user-select: none;
         }
 
+        .custom-select-search {
+            border: none;
+            outline: none;
+            background: transparent;
+            width: 100%;
+            font-family: inherit;
+            font-size: inherit;
+            color: var(--text-dark);
+            padding: 0;
+            margin: 0;
+            cursor: text;
+        }
+
+        .custom-select-search::placeholder {
+            color: #999;
+        }
+
         .custom-select-trigger:hover {
             border-color: rgba(106, 13, 173, 0.3);
             background: #fff;
@@ -1043,7 +1060,9 @@
                                 <option value="legal-consultant">Legal Consultant</option>
                             </select>
                             <div class="custom-select-trigger" id="role-trigger">
-                                <span class="placeholder">Gewünschte Position auswählen</span>
+                                <input type="text" class="custom-select-search" id="role-search-input"
+                                    placeholder="Suchen und wählen Sie die Position, für die Sie sich bewerben"
+                                    autocomplete="off">
                                 <span class="arrow">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke="currentColor">
@@ -1191,12 +1210,43 @@
         // ============================================
         const roleWrapper = document.getElementById('role-select-wrapper');
         const roleTrigger = document.getElementById('role-trigger');
+        const roleSearchInput = document.getElementById('role-search-input');
+        const roleOptionsContainer = document.getElementById('role-options');
         const roleOptions = document.querySelectorAll('.custom-select-option');
         const nativeSelect = document.getElementById('role-select');
 
+        // Toggle dropdown on trigger click (if not clicking input directly)
         roleTrigger.addEventListener('click', (e) => {
-            e.stopPropagation();
-            roleWrapper.classList.toggle('open');
+            if (e.target !== roleSearchInput) {
+                roleWrapper.classList.toggle('open');
+                if (roleWrapper.classList.contains('open')) {
+                    roleSearchInput.focus();
+                }
+            }
+        });
+
+        // Open dropdown when focusing input
+        roleSearchInput.addEventListener('focus', () => {
+            roleWrapper.classList.add('open');
+        });
+
+        // Search functionality
+        roleSearchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            let hasVisible = false;
+
+            roleOptions.forEach(option => {
+                const title = option.querySelector('.role-title').textContent.toLowerCase();
+                if (title.includes(searchTerm)) {
+                    option.style.display = 'flex';
+                    hasVisible = true;
+                } else {
+                    option.style.display = 'none';
+                }
+            });
+
+            // Keep open while typing
+            roleWrapper.classList.add('open');
         });
 
         roleOptions.forEach(option => {
@@ -1207,15 +1257,8 @@
                 // Update native select
                 nativeSelect.value = value;
 
-                // Update trigger text
-                roleTrigger.innerHTML = `
-                    <span>${title}</span>
-                    <span class="arrow">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <polyline points="6 9 12 15 18 9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </span>
-                `;
+                // Update search input value
+                roleSearchInput.value = title;
 
                 // Update selected state
                 roleOptions.forEach(opt => opt.classList.remove('selected'));
@@ -1223,6 +1266,11 @@
 
                 // Close dropdown
                 roleWrapper.classList.remove('open');
+
+                // Reset filter
+                setTimeout(() => {
+                    roleOptions.forEach(opt => opt.style.display = 'flex');
+                }, 300);
             });
         });
 
