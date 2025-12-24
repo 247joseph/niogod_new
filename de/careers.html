@@ -1506,6 +1506,33 @@
         renderCalendar();
 
         // ============================================
+        // DEEP LINKING (Pre-select Role)
+        // ============================================
+        function handleDeepLink() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const roleParam = urlParams.get('role');
+
+            if (roleParam) {
+                // Decode and normalize the parameter
+                const decodedRole = decodeURIComponent(roleParam).toLowerCase();
+
+                // Find matching option based on visible text
+                const options = document.querySelectorAll('.custom-select-option');
+                for (const option of options) {
+                    const title = option.querySelector('.role-title').textContent.trim();
+                    if (title.toLowerCase() === decodedRole) {
+                        // Simulate click to trigger all existing logic (update input, hidden select, UI state)
+                        option.click();
+                        break;
+                    }
+                }
+            }
+        }
+
+        // Run checking
+        handleDeepLink();
+
+        // ============================================
         // FILE UPLOAD
         // ============================================
         const uploadZone = document.getElementById('upload-zone');
