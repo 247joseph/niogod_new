@@ -1284,6 +1284,31 @@
     <script src="script.js"></script>
     <script>
         // ============================================
+        // Handle URL Parameters (Deep Linking)
+        // ============================================
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const roleParam = urlParams.get('role');
+            if (roleParam) {
+                // Find option with matching value
+                const option = document.querySelector(`.custom-select-option[data-value="${roleParam}"]`);
+                if (option) {
+                    const roleSearchInput = document.getElementById('role-search-input');
+                    const nativeSelect = document.getElementById('role-select');
+                    const roleOptions = document.querySelectorAll('.custom-select-option');
+
+                    // Trigger click or manually set values
+                    const title = option.querySelector('.role-title').textContent;
+                    roleSearchInput.value = title;
+                    nativeSelect.value = roleParam;
+
+                    roleOptions.forEach(opt => opt.classList.remove('selected'));
+                    option.classList.add('selected');
+                }
+            }
+        });
+
+        // ============================================
         // CUSTOM DROPDOWN (Role Selection)
         // ============================================
         const roleWrapper = document.getElementById('role-select-wrapper');
