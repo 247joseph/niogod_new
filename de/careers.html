@@ -188,7 +188,8 @@
             background: var(--bg-light);
             border: 1px solid #e0e0e5;
             border-radius: var(--radius-md);
-            padding: 14px 50px 14px 18px;
+            padding: 0 18px;
+            /* Use flex alignment for vertical spacing */
             font-size: 1rem;
             font-family: inherit;
             color: var(--text-dark);
@@ -198,19 +199,33 @@
             align-items: center;
             justify-content: space-between;
             user-select: none;
+            position: relative;
+            height: 54px;
+            /* Fixed height for consistency */
         }
 
         .custom-select-search {
             border: none;
             outline: none;
             background: transparent;
-            width: 100%;
+            width: auto;
+            flex: 1;
+            /* Take available space */
             font-family: inherit;
             font-size: inherit;
             color: var(--text-dark);
             padding: 0;
             margin: 0;
             cursor: text;
+            height: 100%;
+            z-index: 5;
+            user-select: text;
+            /* Force enable selection */
+            -webkit-user-select: text;
+            /* Safari fix */
+            opacity: 1;
+            /* Ensure visible */
+            pointer-events: auto;
         }
 
         .custom-select-search::placeholder {
@@ -233,24 +248,70 @@
             color: #999;
         }
 
+        /* Container for icon and arrow to keep them together */
+        .trigger-controls {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            /* Group closely */
+            flex-shrink: 0;
+            /* Prevent shrinking */
+            margin-left: 10px;
+            /* Space from input */
+            height: 100%;
+        }
+
         .custom-select-trigger .arrow {
-            position: absolute;
-            right: 18px;
-            top: 50%;
-            transform: translateY(-50%);
+            position: relative;
             width: 20px;
             height: 20px;
+            min-width: 20px;
             transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.8;
+            color: var(--primary-color);
+        }
+
+        .custom-select-trigger .search-icon {
+            position: relative;
+            width: 20px;
+            height: 20px;
+            min-width: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0.8;
+            z-index: 10;
+            pointer-events: auto;
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .custom-select-trigger .search-icon:hover {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        .custom-select-trigger .search-icon svg {
+            width: 100%;
+            height: 100%;
+            stroke: var(--primary-color);
+            /* Explicit color */
+            fill: none;
+            display: block;
         }
 
         .custom-select-trigger .arrow svg {
             width: 100%;
             height: 100%;
             stroke: var(--primary-color);
+            /* Explicit color */
         }
 
         .custom-select-wrapper.open .custom-select-trigger .arrow {
-            transform: translateY(-50%) rotate(180deg);
+            transform: rotate(180deg);
         }
 
         .custom-select-options {
@@ -1052,6 +1113,7 @@
                         <div class="custom-select-wrapper" id="role-select-wrapper">
                             <select class="native-select" name="role" id="role-select" required>
                                 <option value="" disabled selected>Rolle auswählen</option>
+                                <option value="frontend-engineer">Frontend Engineer</option>
                                 <option value="data-scientist">Data Scientist</option>
                                 <option value="ml-engineer">ML Engineer</option>
                                 <option value="mlops">MLops</option>
@@ -1063,15 +1125,31 @@
                                 <input type="text" class="custom-select-search" id="role-search-input"
                                     placeholder="Suchen und wählen Sie die Position, für die Sie sich bewerben"
                                     autocomplete="off">
-                                <span class="arrow">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                        stroke="currentColor">
-                                        <polyline points="6 9 12 15 18 9" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                </span>
+                                <div class="trigger-controls">
+                                    <span class="search-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                        </svg>
+                                    </span>
+                                    <span class="arrow">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke="currentColor">
+                                            <polyline points="6 9 12 15 18 9" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                        </svg>
+                                    </span>
+                                </div>
                             </div>
                             <div class="custom-select-options" id="role-options">
+                                <div class="custom-select-option" data-value="frontend-engineer">
+                                    <span class="role-icon">💻</span>
+                                    <span class="role-info">
+                                        <span class="role-title">Frontend Engineer</span>
+                                        <span class="role-desc">UI/UX & Webentwicklung</span>
+                                    </span>
+                                </div>
                                 <div class="custom-select-option" data-value="data-scientist">
                                     <span class="role-icon">📊</span>
                                     <span class="role-info">
@@ -1216,7 +1294,16 @@
         const nativeSelect = document.getElementById('role-select');
 
         // Toggle dropdown on trigger click (if not clicking input directly)
+        // Toggle dropdown on trigger click (if not clicking input directly)
         roleTrigger.addEventListener('click', (e) => {
+            // If clicking the search icon specifically, ALWAYS open and focus
+            if (e.target.closest('.search-icon')) {
+                roleWrapper.classList.add('open');
+                roleSearchInput.focus();
+                // prevent default toggle behavior if it bubbles
+                return;
+            }
+
             if (e.target !== roleSearchInput) {
                 roleWrapper.classList.toggle('open');
                 if (roleWrapper.classList.contains('open')) {
@@ -1226,9 +1313,38 @@
         });
 
         // Open dropdown when focusing input
-        roleSearchInput.addEventListener('focus', () => {
+        let justFocused = false;
+        roleSearchInput.addEventListener('focus', function () {
+            roleWrapper.classList.add('open');
+            this.select();
+            justFocused = true;
+            // Clear the flag after a short delay so it doesn't block future interactions
+            setTimeout(() => { justFocused = false; }, 200);
+        });
+
+        roleSearchInput.addEventListener('mouseup', function (e) {
+            if (justFocused) {
+                e.preventDefault();
+                justFocused = false;
+            }
+        });
+
+        // Ensure dropdown opens on click even if already focused
+        roleSearchInput.addEventListener('click', function () {
             roleWrapper.classList.add('open');
         });
+
+        // Search Icon Click - Explicitly Open Search
+        const searchIcon = roleTrigger.querySelector('.search-icon');
+        if (searchIcon) {
+            searchIcon.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                roleWrapper.classList.add('open');
+                roleSearchInput.focus();
+                roleSearchInput.select();
+            });
+        }
 
         // Search functionality
         roleSearchInput.addEventListener('input', (e) => {
@@ -1531,6 +1647,63 @@
 
         // Run checking
         handleDeepLink();
+
+        // Self-healing: Ensure search icon exists on load (fixes persistency issues)
+        // Self-healing: Ensure search icon exists and is correctly wrapped on load
+        window.addEventListener('load', () => {
+            const trigger = document.getElementById('role-trigger');
+            if (trigger) {
+                let controls = trigger.querySelector('.trigger-controls');
+
+                // If wrapper is missing (e.g. legacy state restore), create it
+                if (!controls) {
+                    controls = document.createElement('div');
+                    controls.className = 'trigger-controls';
+
+                    // Find any loose arrow
+                    const existingArrow = trigger.querySelector('.arrow');
+                    if (existingArrow) {
+                        controls.appendChild(existingArrow);
+                    } else {
+                        // Create arrow if missing
+                        const arrowHTML = `
+                            <span class="arrow">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <polyline points="6 9 12 15 18 9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </span>
+                        `;
+                        controls.insertAdjacentHTML('beforeend', arrowHTML);
+                    }
+                    trigger.appendChild(controls);
+                }
+
+                // Ensure Icon exists inside wrapper
+                if (!controls.querySelector('.search-icon')) {
+                    const iconHTML = `
+                        <span class="search-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                        </span>
+                    `;
+                    controls.insertAdjacentHTML('afterbegin', iconHTML); // Prepend icon
+                }
+
+                // Re-bind click event to ensure functionality
+                const icon = controls.querySelector('.search-icon');
+                if (icon) {
+                    icon.onclick = (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        roleWrapper.classList.add('open');
+                        roleSearchInput.focus();
+                        roleSearchInput.select();
+                    };
+                }
+            }
+        });
+
 
         // ============================================
         // FILE UPLOAD
