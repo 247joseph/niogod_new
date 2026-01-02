@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erfolgsgeschichten | Niogod</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="../assets/favicon.png" type="image/png">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .ppp-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            margin-bottom: 40px;
+        }
+
+        .ppp-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .ppp-column h3 {
+            font-family: var(--font-mono);
+            color: var(--text-accent);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .ppp-column p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .ppp-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">niogod<span class="tm-symbol">TM</span></a>
+
+            <!-- Centered Nav Links -->
+            <nav class="nav-center">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Startseite</a></li>
+                    <li><a href="protocol.html" class="nav-link">Protokoll</a></li>
+                    <li><a href="regional-advantage.html" class="nav-link">Hub: Indien</a></li>
+                    <li><a href="case-studies.html" class="nav-link active">Erfolgsgeschichten</a></li>
+                    <li><a href="about-us.html" class="nav-link">Über Uns</a></li>
+                    <li><a href="careers.html" class="nav-link">Karriere</a></li>
+                    <li class="mobile-only-li"><a href="contact.html" class="nav-link">Kontakt</a></li>
+                </ul>
+            </nav>
+
+            <!-- Right Side CTA & Mobile Toggle -->
+            <div class="header-right">
+                <div class="lang-switcher"><a href="../case-studies.html" class="lang-link"
+                        data-lang="en">EN</a><span>|</span><a href="#" class="active">DE</a></div>
+                <a href="contact.html" class="btn btn-primary nav-cta">Kontakt</a>
+                <div class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Beweis der Ausführung.</h1>
+            <p class="page-subtitle">Echte Ergebnisse aus dem Niogod-Protokoll. Analysiert durch den
+                Problem-Protokoll-Leistung-Rahmen.</p>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="text-content-section" style="padding-top: 0;">
+        <div class="container">
+
+            <!-- Case Study 1: SAP Talent Gap -->
+            <div class="ppp-card">
+                <h2 style="margin-bottom: 10px;">Der SAP Integrations-Sprint</h2>
+                <div class="ppp-grid">
+                    <!-- Problem -->
+                    <div class="ppp-column">
+                        <h3>01. Problem</h3>
+                        <p>Ein führendes Frankfurter Logistikunternehmen stand vor einem kritischen Engpass: Lokaler
+                            Mangel an SAP ABAP-Entwicklern verzögerte die Migration auf S/4HANA. 6 Monate Verzögerung
+                            prognostiziert.</p>
+                    </div>
+                    <!-- Protocol -->
+                    <div class="ppp-column">
+                        <h3>02. Protokoll</h3>
+                        <p>"72-Stunden-Protokoll" aktiviert. Gefiltert nach "SAP Zertifiziert" +
+                            "Logistik-Domänenerfahrung". 3 Senior-Kandidaten aus unserem Hub in Bangalore beschafft.</p>
+                    </div>
+                    <!-- Performance -->
+                    <div class="ppp-column">
+                        <h3>03. Leistung</h3>
+                        <p><strong style="color: var(--text-primary);">Time-to-Code:</strong> Reduziert von Monaten auf
+                            72 Stunden.<br>
+                            <strong style="color: var(--text-primary);">Kosten-Delta:</strong> 45% Ersparnis gegenüber
+                            lokalen Auftragnehmern.<br>
+                            <strong style="color: var(--text-primary);">Ergebnis:</strong> Migration 2 Wochen vor
+                            Zeitplan geliefert.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Case Study 2: Fintech Compliance -->
+            <div class="ppp-card">
+                <h2 style="margin-bottom: 10px;">Fintech Sicherheits-Skalierung</h2>
+                <div class="ppp-grid">
+                    <!-- Problem -->
+                    <div class="ppp-column">
+                        <h3>01. Problem</h3>
+                        <p>Berliner Fintech, das seine KYC-Engine skaliert, benötigte Python/ML-Ingenieure, durfte aber
+                            keine Kompromisse bei DSGVO/Datensouveränität eingehen.</p>
+                    </div>
+                    <!-- Protocol -->
+                    <div class="ppp-column">
+                        <h3>02. Protokoll</h3>
+                        <p>Compliance-Schild aktiviert. Ingenieure über VDI (Virtual Desktop Infrastructure) eingesetzt,
+                            geroutet durch Frankfurter Rechenzentren. Null Datenabfluss.</p>
+                    </div>
+                    <!-- Performance -->
+                    <div class="ppp-column">
+                        <h3>03. Leistung</h3>
+                        <p><strong style="color: var(--text-primary);">Compliance:</strong> 100% Audit bestanden.<br>
+                            <strong style="color: var(--text-primary);">Skalierung:</strong> Team wuchs in 4 Wochen von
+                            2 auf 12.<br>
+                            <strong style="color: var(--text-primary);">Geschwindigkeit:</strong> Feature-Release-Zyklus
+                            um 30% verkürzt.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div style="text-align: center; margin-top: 60px;">
+                <p style="margin-bottom: 20px; color: var(--text-secondary);">Stehen Sie vor einer ähnlichen technischen
+                    Hürde?</p>
+                <a href="contact.html" class="btn btn-primary">Starten Sie Ihre Fallstudie &rarr;</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3 class="footer-logo">niogod<span class="tm-symbol">TM</span></h3>
+                    <p>Infrastruktur für das moderne Unternehmen.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Unternehmen</h4>
+                    <ul>
+                        <li><a href="index.html">Startseite</a></li>
+                        <li><a href="protocol.html">Protokoll</a></li>
+                        <li><a href="regional-advantage.html">Hub: Indien</a></li>
+                        <li><a href="case-studies.html">Erfolgsgeschichten</a></li>
+                        <li><a href="about-us.html">Über Uns</a></li>
+                        <li><a href="careers.html">Karriere</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Rechtliches (DACH)</h4>
+                    <ul>
+                        <li><a href="legal.html">Impressum</a></li>
+                        <li><a href="legal.html">Datenschutzerklärung</a></li>
+                        <li><a href="legal.html">AGB</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Kontakt</h4>
+                    <p><a href="mailto:hello@niogod.com">hello@niogod.com</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 niogod. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+
+</html>

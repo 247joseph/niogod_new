@@ -274,4 +274,136 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 500);
         });
     }
+
+    // 9. ROI Calculator Logic
+    const roiData = {
+        roles: [
+            { name: "Frontend Engineer (React/Vue)", baseSalary: 65000 },
+            { name: "Backend Engineer (Java/Go)", baseSalary: 75000 },
+            { name: "Full-Stack Developer", baseSalary: 72000 },
+            { name: "Data Scientist / ML Engineer", baseSalary: 85000 },
+            { name: "SAP ABAP Specialist", baseSalary: 90000 }
+        ],
+        levels: [
+            { name: "Junior (1-2 Years)", multiplier: 0.7 },
+            { name: "Mid-Level (3-5 Years)", multiplier: 1.0 },
+            { name: "Senior (5-8 Years)", multiplier: 1.3 },
+            { name: "Lead / Architect (8+ Years)", multiplier: 1.6 },
+            { name: "Principal (10+ Years)", multiplier: 2.0 }
+        ],
+        // Niogod's efficiency model: Remote talent cost is significantly lower due to geo-arbitrage
+        // Generally ~40-50% of the local equivalent
+        geoArbitrageIndex: 0.45,
+        niogodFixedFee: 6000 // Annual Fee/Overhead for Niogod
+    };
+
+    const roleSlider = document.getElementById('role-slider');
+    const levelSlider = document.getElementById('level-slider');
+    const roleDisplay = document.getElementById('role-display');
+    const levelDisplay = document.getElementById('level-display');
+
+    // Results DOM Elements
+    const barLocal = document.getElementById('bar-local');
+    const valLocal = document.getElementById('val-local');
+    const barNiogod = document.getElementById('bar-niogod');
+    const valNiogod = document.getElementById('val-niogod');
+    const savingsAmount = document.getElementById('savings-amount');
+    const savingsPercent = document.getElementById('savings-percent');
+
+    // Toggle Logic
+    const toggleDetails = document.getElementById('toggle-details');
+    const detailsDiv = document.getElementById('hidden-costs-details');
+
+    if (toggleDetails && detailsDiv) {
+        toggleDetails.addEventListener('click', () => {
+            const isHidden = detailsDiv.style.display === 'none';
+            detailsDiv.style.display = isHidden ? 'block' : 'none';
+            toggleDetails.textContent = isHidden ? 'Hide Hidden Costs' : 'View Hidden Costs Breakdown';
+        });
+    }
+
+    // Calculation Function
+    function calculate() {
+        const roleIndex = parseInt(roleSlider.value);
+        const levelIndex = parseInt(levelSlider.value);
+
+        const role = roiData.roles[roleIndex];
+        const level = roiData.levels[levelIndex];
+
+        // Update Displays
+        roleDisplay.textContent = role.name;
+        levelDisplay.textContent = level.name;
+
+        // 1. Calculate Local TCO
+        // Base Salary * Level Multiplier
+        const localBase = role.baseSalary * level.multiplier;
+        // Total Local Cost = Base + 20% SSC + 15% Overhead
+        const localSSC = localBase * 0.20;
+        const localOverhead = localBase * 0.15;
+        const totalLocal = localBase + localSSC + localOverhead;
+
+        // 2. Calculate Niogod Cost
+        // Remote Salary roughly 45% of local base
+        const remoteSalary = localBase * roiData.geoArbitrageIndex;
+        const totalNiogod = remoteSalary + roiData.niogodFixedFee;
+
+        // 3. Savings
+        const savings = totalLocal - totalNiogod;
+        const perSavings = Math.round((savings / totalLocal) * 100);
+
+        // 4. Update UI
+        animateValue(valLocal, totalLocal);
+        animateValue(valNiogod, totalNiogod);
+        animateValue(savingsAmount, savings);
+
+        savingsPercent.textContent = `${perSavings}% reduction in TCO`;
+
+        // Bar Widths (normalize to max value which is roughly 200k for Principal SAP)
+        const maxVal = 250000;
+        const wLocal = Math.min((totalLocal / maxVal) * 100, 100);
+        const wNiogod = Math.min((totalNiogod / maxVal) * 100, 100);
+
+        barLocal.style.width = `${wLocal}%`;
+        barNiogod.style.width = `${wNiogod}%`;
+    }
+
+    // Odometer Animation
+    function animateValue(obj, end) {
+        // Simple easing for number increment
+        const start = parseInt(obj.textContent.replace(/[^0-9]/g, '')) || 0;
+        if (start === Math.round(end)) return;
+
+        const duration = 500;
+        const startTime = performance.now();
+
+        function update(currentTime) {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+
+            // Ease out quart
+            const ease = 1 - Math.pow(1 - progress, 4);
+
+            const current = start + (end - start) * ease;
+            obj.textContent = formatCurrency(current);
+
+            if (progress < 1) {
+                requestAnimationFrame(update);
+            }
+        }
+
+        requestAnimationFrame(update);
+    }
+
+    function formatCurrency(num) {
+        return '€' + Math.round(num).toLocaleString('de-DE'); // German formatting
+    }
+
+    // Event Listeners
+    if (roleSlider && levelSlider) {
+        roleSlider.addEventListener('input', calculate);
+        levelSlider.addEventListener('input', calculate);
+
+        // Initial Calc
+        calculate();
+    }
 });
