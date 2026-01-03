@@ -324,9 +324,9 @@
         @media (max-width:992px) {
             .hero-box {
                 padding: 3rem 1.5rem 0 1.5rem;
-                grid-template-columns: 60% 40%;
+                display: block;
                 align-items: center;
-                gap: 20px;
+                gap: 0;
                 max-height: 600px;
                 height: auto
             }
@@ -339,13 +339,8 @@
                 display: flex
             }
 
-            .hero-man-img {
-                position: static;
-                max-height: 480px;
-                width: 160%;
-                max-width: 160%;
-                margin-right: -40px;
-                margin-bottom: 0
+            .hero-image {
+                display: none
             }
         }
 
@@ -358,13 +353,6 @@
                 padding: 8vw 6vw 0 6vw;
                 display: block;
                 height: auto
-            }
-
-            .hero-image {
-                display: flex;
-                margin-top: 20px;
-                align-items: center;
-                justify-content: center
             }
         }
 
