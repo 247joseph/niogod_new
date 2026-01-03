@@ -868,9 +868,7 @@ ul {
         border-radius: 10vw;
     }
 
-    .hero-image {
-        display: none;
-    }
+    .hero-image { display: flex; width: 100%; justify-content: center; margin-top: 2rem; }
 
     .hero-man-img {
         max-height: none;

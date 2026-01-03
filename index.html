@@ -11,17 +11,112 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet">
     <link rel="icon" href="assets/favicon.png" type="image/png">
-    <link rel="stylesheet" href="style.css">
+    
+    <!-- Critical CSS Inlined for <500ms Render -->
+    <style>
+    :root {
+        --bg-color: #ffffff;
+        --bg-light: #f3f4f6;
+        --bg-card: #ffffff;
+        --text-primary: #2d283e;
+        --text-secondary: #564f6f;
+        --text-light: #7e6e9c;
+        --text-dark: #1e1b29;
+        --text-accent: #4f5d75;
+        --text-white: #ffffff;
+        --primary-color: #4f5d75;
+        --primary-light: #77859d;
+        --primary-dark: #2d3748;
+        --primary-gradient: linear-gradient(135deg, #4f5d75 0%, #7e6e9c 100%);
+        --primary-gradient-hover: linear-gradient(135deg, #3e4a5e 0%, #63567a 100%);
+        --border-color: #e5e7eb;
+        --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+        --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+        --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        --radius-sm: 8px;
+        --radius-md: 12px;
+        --radius-lg: 20px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: var(--font-sans); color: var(--text-primary); line-height: 1.6; background-color: var(--bg-color); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
+    ul { list-style: none; }
+    .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    .btn { display: inline-block; padding: 12px 30px; border-radius: 50px; font-weight: 600; cursor: pointer; text-align: center; border: 2px solid transparent; }
+    .btn-primary { background: var(--primary-gradient); color: var(--text-white); box-shadow: var(--shadow-md); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); background: var(--primary-gradient-hover); }
+    .btn-outline { border-color: var(--primary-color); color: var(--primary-color); background: transparent; }
+    .btn-white { background: var(--text-white); color: var(--primary-color); }
+    .header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background: #fff; padding: 15px 0; box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05); }
+    .header-container { display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-size: 1.8rem; font-weight: 800; background: var(--primary-gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; letter-spacing: -1px; z-index: 1001; }
+    .nav-center { flex: 1; display: flex; justify-content: flex-end; padding-right: 40px; }
+    .nav-list { display: flex; align-items: center; gap: 40px; }
+    .nav-link { font-weight: 500; color: var(--text-dark); font-size: 0.95rem; }
+    .nav-link:hover, .nav-link.active { color: var(--primary-color); }
+    .header-right { display: flex; align-items: center; gap: 15px; }
+    .nav-cta { padding: 10px 24px; font-size: 0.9rem; }
+    .mobile-only-li { display: none; }
+    .mobile-menu-toggle { display: none; } /* Hidden on desktop */
+    .hero { padding-top: 100px; padding-bottom: 60px; background: #f8f9fa; overflow: hidden; }
+    .hero-box { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; background: linear-gradient(135deg, #f1f5ff 0%, #fefeff 100%); border-radius: 40px; padding: 2rem 3rem 0 3rem; position: relative; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); border: 1px solid #eef2f6; align-items: end; max-height: 550px; overflow: hidden; }
+    .hero-content { display: flex; flex-direction: column; justify-content: center; padding-bottom: 3rem; padding-top: 2rem; z-index: 2; height: 100%; }
+    .hero-title { font-size: 3.5rem; font-weight: 800; line-height: 1.1; margin-bottom: 20px; color: var(--text-dark); text-transform: uppercase; }
+    .hero-subtitle { font-size: 1.25rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 25px; max-width: 90%; }
+    .hero-helper-text { font-size: 0.85rem; color: var(--text-secondary); background: var(--bg-light); border: 1px solid var(--border-color); padding: 6px 14px; border-radius: 20px; margin-bottom: 12px; font-weight: 500; display: inline-block; width: fit-content; max-width: 100%; }
+    .hero-cta-group { display: flex; flex-direction: row; gap: 20px; align-items: center; width: 100%; margin-top: 10px; }
+    .hero-subscribe-bar { display: flex; align-items: center; background: #fff; border: 1px solid #eee; border-radius: 50px; padding: 3px 3px 3px 20px; width: 100%; max-width: 380px; transition: box-shadow 0.3s ease; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); }
+    .hero-subscribe-bar input { background: transparent; border: none; outline: none; color: #333; flex-grow: 1; font-size: 0.95rem; min-width: 0; }
+    .hero-subscribe-bar button { background: var(--primary-gradient); color: white; border: none; border-radius: 30px; padding: 8px 20px; font-size: 0.9rem; font-weight: 500; cursor: pointer; white-space: nowrap; }
+    .btn-pill { width: auto; min-width: 0; justify-content: center; border-radius: 50px; padding: 10px 24px; font-size: 0.95rem; display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; height: 44px; color: white; border: none; }
+    .hero-image { display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-end; position: relative; height: 100%; }
+    .hero-man-img { width: auto; max-width: 130%; height: auto; max-height: 580px; object-fit: contain; object-position: bottom right; display: block; position: absolute; bottom: -70px; right: -20px; }
+    
+    @media (max-width: 992px) {
+        .hero-box { padding: 3rem 1.5rem 0 1.5rem; grid-template-columns: 60% 40%; align-items: center; gap: 20px; max-height: 600px; height: auto; }
+        .hero-title { font-size: 2rem; }
+        .mobile-menu-toggle { display: flex; /* Simplified override */ }
+        .hero-man-img { position: static; max-height: 480px; width: 160%; max-width: 160%; margin-right: -40px; margin-bottom: 0px; }
+    }
+    @media (max-width: 768px) {
+        .nav-center { display: none; } /* Mobile Menu Logic */
+        .hero-box { padding: 8vw 6vw 0 6vw; display: block; height: auto; }
+        .hero-image { display: flex; margin-top: 20px; align-items: center; justify-content: center; } /* Often hidden or stacked */
+    }
+    /* Rest of the styles are loaded async */
+    </style>
+
+    <!-- Async Main CSS -->
+    <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="style.css"></noscript>
+
+    <!-- JSON-LD SEO Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Niogod",
+      "url": "https://niogod.com",
+      "logo": "https://niogod.com/assets/favicon.png",
+      "description": "Deploying GCC grade talent in 72 hours. Institutional Rigor. Rapid Execution.",
+      "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "hello@niogod.com",
+          "contactType": "customer service"
+      }
+    }
+    </script>
 </head>
 
 <body>
 
     <!-- Header -->
     <header class="header">
-        <div class="container header-container">
+        <div class="header-container container">
             <a href="#" class="logo">niogod<span class="tm-symbol">TM</span></a>
 
-            <!-- Centered Nav Links -->
             <nav class="nav-center">
                 <ul class="nav-list">
                     <li><a href="index.html" class="nav-link active">Home</a></li>
@@ -34,10 +129,11 @@
                 </ul>
             </nav>
 
-            <!-- Right Side CTA & Mobile Toggle -->
             <div class="header-right">
-                <div class="lang-switcher"><a href="#" class="active">EN</a><span>|</span><a href="de/index.html"
-                        class="lang-link" data-lang="de">DE</a></div>
+                <div class="lang-switcher">
+                    <a href="#" class="active">EN</a><span>|</span>
+                    <a href="de/index.html" class="lang-link" data-lang="de">DE</a>
+                </div>
                 <a href="contact.html" class="btn btn-primary nav-cta">Let's Talk</a>
                 <div class="mobile-menu-toggle">
                     <span></span>
@@ -48,191 +144,197 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-box">
-                <div class="hero-content">
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-box">
+                    <div class="hero-content">
+                        <h1 class="hero-title">INSTITUTIONAL RIGOR.<br>RAPID EXECUTION.</h1>
+                        <p class="hero-subtitle">Deploying GCC grade talent in 72 hours.</p>
 
-
-                    <h1 class="hero-title">INSTITUTIONAL RIGOR.<br>RAPID EXECUTION.</h1>
-                    <p class="hero-subtitle">Deploying GCC grade talent in 72 hours.</p>
-
-                    <div class="hero-helper-text">
-                        Subscribe to niogod's Intelligence Report. <a href="assets/Sample Intelligence Report.pdf"
-                            class="sample-link" target="_blank">Sample</a>
-                    </div>
-                    <div class="hero-cta-group">
-                        <form class="hero-subscribe-bar" id="subscribe-form">
-                            <input type="email" name="email" placeholder="name@company.com" required>
-                            <button type="submit">Subscribe</button>
-                        </form>
-                        <a href="contact.html" class="btn btn-primary btn-pill">
-                            Let's Talk <span class="arrow-icon">→</span>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="hero-image">
-                    <img src="assets/hero-man.png" alt="Niogod Engineering" class="hero-man-img">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Trusted By / Intro -->
-    <section class="intro-section">
-        <div class="container">
-            <h2 class="section-heading-sm">New Integrated Operations. <br> Global On-demand Delivery.</h2>
-            <p class="section-desc">We style our name in lowercase because in this partnership, you are the hero, not
-                us. We are the infrastructure that powers your growth.</p>
-        </div>
-    </section>
-
-    <!-- Bento Grid Ecosystem Section -->
-    <section id="ecosystem" class="container" style="padding-bottom: 80px;">
-        <div class="section-header text-center">
-            <h2 class="section-title">The Engineering Ecosystem.</h2>
-            <p class="section-subtitle">Precision. Rigor. Speed.</p>
-        </div>
-
-        <div class="bento-grid">
-            <!-- Card 1: Precision in Every Hire (Large) -->
-            <div class="bento-card span-8 row-span-2">
-                <div>
-                    <div class="icon-header">🎯</div>
-                    <h3>Precision in Every Hire</h3>
-                    <p>Our 5-stage vetting algorithm filters 50,000+ profiles to find the top 1% of engineering talent.
-                        We analyze tech stack, cultural fit, and timezone alignment to ensure a perfect match.</p>
-                </div>
-                <!-- Mini visual representation could go here -->
-                <div style="margin-top: auto;">
-                    <a href="protocol.html" class="btn btn-white btn-sm">Explore the Protocol &rarr;</a>
-                </div>
-            </div>
-
-            <!-- Card 2: 72-Hour Execution (Small) -->
-            <div class="bento-card span-4">
-                <div>
-                    <div class="icon-header">⚡</div>
-                    <h3>72-Hour Execution</h3>
-                    <p>From intake to repository access in just 3 days. No bureaucratic delays.</p>
-                </div>
-            </div>
-
-            <!-- Card 3: Institutional Rigor (Medium/Tall) -->
-            <div class="bento-card span-4">
-                <div>
-                    <div class="icon-header">🛡️</div>
-                    <h3>Institutional Rigor</h3>
-                    <p>GDPR-compliant, AWS Frankfurt hosting, and EU-standard IP protection. Enterprise-grade security
-                        by default.</p>
-                </div>
-                <a href="security.html" class="sample-link" style="margin-top: 10px; display: inline-block;">View
-                    Compliance Shield &rarr;</a>
-            </div>
-
-            <!-- Card 4: Regional Advantage (Medium) -->
-            <div class="bento-card span-6">
-                <div>
-                    <div class="icon-header">🌏</div>
-                    <h3>Regional Advantage: India</h3>
-                    <p>Access a pool of 5M+ developers. GCC-grade talent ready for complex architectural challenges.</p>
-                </div>
-                <div style="margin-top: 20px;">
-                    <a href="regional-advantage.html" class="btn btn-white btn-sm">Explore Talent Pool</a>
-                </div>
-            </div>
-
-            <!-- ROI Calculator Section -->
-            <div class="bento-card span-12" id="roi-calculator">
-                <div class="roi-calculator-container"
-                    style="margin-top: 0; border: none; background: transparent; padding: 0;">
-                    <div class="roi-header">
-                        <div class="icon-header" style="justify-content: center; display: flex;">💰</div>
-                        <h2>Quantify Your Institutional Rigor</h2>
-                        <p class="section-subtitle">Real-Time EOR Savings Calculator</p>
+                        <div class="hero-helper-text">
+                            Subscribe to niogod's Intelligence Report. <a href="assets/Sample Intelligence Report.pdf"
+                                class="sample-link" target="_blank">Sample</a>
+                        </div>
+                        <div class="hero-cta-group">
+                            <form class="hero-subscribe-bar" id="subscribe-form">
+                                <input type="email" name="email" placeholder="name@company.com" required>
+                                <button type="submit">Subscribe</button>
+                            </form>
+                            <a href="contact.html" class="btn btn-primary btn-pill">
+                                Let's Talk <span class="arrow-icon">→</span>
+                            </a>
+                        </div>
                     </div>
 
-                    <div class="roi-grid">
-                        <!-- Inputs -->
-                        <div class="roi-inputs">
-                            <div class="input-group">
-                                <label>Role Type</label>
-                                <div class="slider-container">
-                                    <input type="range" min="0" max="4" value="2" class="roi-range" id="role-slider">
-                                    <div class="range-value" id="role-display">Backend Engineer (Java/Go)</div>
+                    <div class="hero-image">
+                        <!-- Image Levitation: Picture Tag -->
+                        <picture>
+                            <source srcset="assets/hero-man.webp" type="image/webp">
+                            <source srcset="assets/hero-man.png" type="image/png">
+                            <img src="assets/hero-man.png" alt="Niogod Engineering" class="hero-man-img" width="800" height="auto">
+                        </picture>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Use original content for the rest of the body (Shortened here for brevity, but I should output the FULL file to be safe) 
+             Wait, I must output the full file. I cannot truncate. -->
+        <!-- Trusted By / Intro -->
+        <section class="intro-section">
+            <div class="container">
+                <h2 class="section-heading-sm">New Integrated Operations. <br> Global On-demand Delivery.</h2>
+                <p class="section-desc">We style our name in lowercase because in this partnership, you are the hero, not
+                    us. We are the infrastructure that powers your growth.</p>
+            </div>
+        </section>
+
+        <!-- Bento Grid Ecosystem Section -->
+        <section id="ecosystem" class="container" style="padding-bottom: 80px;">
+            <div class="section-header text-center">
+                <h2 class="section-title">The Engineering Ecosystem.</h2>
+                <p class="section-subtitle">Precision. Rigor. Speed.</p>
+            </div>
+
+            <div class="bento-grid">
+                <!-- Card 1: Precision in Every Hire (Large) -->
+                <article class="bento-card span-8 row-span-2">
+                    <div>
+                        <div class="icon-header">🎯</div>
+                        <h3>Precision in Every Hire</h3>
+                        <p>Our 5-stage vetting algorithm filters 50,000+ profiles to find the top 1% of engineering talent.
+                            We analyze tech stack, cultural fit, and timezone alignment to ensure a perfect match.</p>
+                    </div>
+                    <div style="margin-top: auto;">
+                        <a href="protocol.html" class="btn btn-white btn-sm">Explore the Protocol &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- Card 2: 72-Hour Execution (Small) -->
+                <article class="bento-card span-4">
+                    <div>
+                        <div class="icon-header">⚡</div>
+                        <h3>72-Hour Execution</h3>
+                        <p>From intake to repository access in just 3 days. No bureaucratic delays.</p>
+                    </div>
+                </article>
+
+                <!-- Card 3: Institutional Rigor (Medium/Tall) -->
+                <article class="bento-card span-4">
+                    <div>
+                        <div class="icon-header">🛡️</div>
+                        <h3>Institutional Rigor</h3>
+                        <p>GDPR-compliant, AWS Frankfurt hosting, and EU-standard IP protection. Enterprise-grade security
+                            by default.</p>
+                    </div>
+                    <a href="security.html" class="sample-link" style="margin-top: 10px; display: inline-block;">View
+                        Compliance Shield &rarr;</a>
+                </article>
+
+                <!-- Card 4: Regional Advantage (Medium) -->
+                <article class="bento-card span-6">
+                    <div>
+                        <div class="icon-header">🌏</div>
+                        <h3>Regional Advantage: India</h3>
+                        <p>Access a pool of 5M+ developers. GCC-grade talent ready for complex architectural challenges.</p>
+                    </div>
+                    <div style="margin-top: 20px;">
+                        <a href="regional-advantage.html" class="btn btn-white btn-sm">Explore Talent Pool</a>
+                    </div>
+                </article>
+
+                <!-- ROI Calculator Section -->
+                <div class="bento-card span-12" id="roi-calculator">
+                    <div class="roi-calculator-container"
+                        style="margin-top: 0; border: none; background: transparent; padding: 0;">
+                        <div class="roi-header">
+                            <div class="icon-header" style="justify-content: center; display: flex;">💰</div>
+                            <h2>Quantify Your Institutional Rigor</h2>
+                            <p class="section-subtitle">Real-Time EOR Savings Calculator</p>
+                        </div>
+
+                        <div class="roi-grid">
+                            <!-- Inputs -->
+                            <div class="roi-inputs">
+                                <div class="input-group">
+                                    <label>Role Type</label>
+                                    <div class="slider-container">
+                                        <input type="range" min="0" max="4" value="2" class="roi-range" id="role-slider">
+                                        <div class="range-value" id="role-display">Backend Engineer (Java/Go)</div>
+                                    </div>
+                                </div>
+
+                                <div class="input-group">
+                                    <label>Experience Level</label>
+                                    <div class="slider-container">
+                                        <input type="range" min="0" max="4" value="2" class="roi-range" id="level-slider">
+                                        <div class="range-value" id="level-display">Senior (5-8 Years)</div>
+                                    </div>
+                                </div>
+
+                                <div style="margin-top: 10px;">
+                                    <div class="compliance-badge">
+                                        <span>🛡️</span> GDPR Safe (AWS Frankfurt)
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="input-group">
-                                <label>Experience Level</label>
-                                <div class="slider-container">
-                                    <input type="range" min="0" max="4" value="2" class="roi-range" id="level-slider">
-                                    <div class="range-value" id="level-display">Senior (5-8 Years)</div>
-                                </div>
-                            </div>
+                            <!-- Results -->
+                            <div class="roi-results">
+                                <div class="chart-container">
+                                    <!-- Local Chart Row -->
+                                    <div class="chart-row">
+                                        <div class="chart-label">Local Hire</div>
+                                        <div class="chart-bar-container">
+                                            <div class="chart-bar bar-local" id="bar-local" style="width: 80%;"></div>
+                                        </div>
+                                        <div class="chart-value" id="val-local">€95k</div>
+                                    </div>
 
-                            <div style="margin-top: 10px;">
-                                <div class="compliance-badge">
-                                    <span>🛡️</span> GDPR Safe (AWS Frankfurt)
+                                    <!-- Niogod Chart Row -->
+                                    <div class="chart-row">
+                                        <div class="chart-label" style="color: var(--primary-color);">Niogod EOR</div>
+                                        <div class="chart-bar-container">
+                                            <div class="chart-bar bar-niogod" id="bar-niogod" style="width: 45%;"></div>
+                                        </div>
+                                        <div class="chart-value" style="color: var(--primary-color);" id="val-niogod">€52k
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="savings-display">
+                                    <div class="savings-label">Projected Annual Savings</div>
+                                    <div class="savings-amount" id="savings-amount">€43,000</div>
+                                    <div class="savings-sub" id="savings-percent">45% reduction in TCO</div>
+                                    <div class="hidden-costs-toggle" id="toggle-details">View Hidden Costs Breakdown</div>
+                                    <div id="hidden-costs-details"
+                                        style="display: none; margin-top: 15px; font-size: 0.8rem; color: var(--text-secondary); text-align: left; background: rgba(0,0,0,0.03); padding: 10px; border-radius: 8px;">
+                                        <p><strong>Local Overhead Eliminated:</strong></p>
+                                        <ul style="list-style: disc; padding-left: 20px;">
+                                            <li>Social Security (20%): ~€16k</li>
+                                            <li>Office/Equipment (15%): ~€12k</li>
+                                            <li>Recruitment Fees: ~€10k</li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Results -->
-                        <div class="roi-results">
-                            <div class="chart-container">
-                                <!-- Local Chart Row -->
-                                <div class="chart-row">
-                                    <div class="chart-label">Local Hire</div>
-                                    <div class="chart-bar-container">
-                                        <div class="chart-bar bar-local" id="bar-local" style="width: 80%;"></div>
-                                    </div>
-                                    <div class="chart-value" id="val-local">€95k</div>
-                                </div>
-
-                                <!-- Niogod Chart Row -->
-                                <div class="chart-row">
-                                    <div class="chart-label" style="color: var(--primary-color);">Niogod EOR</div>
-                                    <div class="chart-bar-container">
-                                        <div class="chart-bar bar-niogod" id="bar-niogod" style="width: 45%;"></div>
-                                    </div>
-                                    <div class="chart-value" style="color: var(--primary-color);" id="val-niogod">€52k
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="savings-display">
-                                <div class="savings-label">Projected Annual Savings</div>
-                                <div class="savings-amount" id="savings-amount">€43,000</div>
-                                <div class="savings-sub" id="savings-percent">45% reduction in TCO</div>
-                                <div class="hidden-costs-toggle" id="toggle-details">View Hidden Costs Breakdown</div>
-                                <div id="hidden-costs-details"
-                                    style="display: none; margin-top: 15px; font-size: 0.8rem; color: var(--text-secondary); text-align: left; background: rgba(0,0,0,0.03); padding: 10px; border-radius: 8px;">
-                                    <p><strong>Local Overhead Eliminated:</strong></p>
-                                    <ul style="list-style: disc; padding-left: 20px;">
-                                        <li>Social Security (20%): ~€16k</li>
-                                        <li>Office/Equipment (15%): ~€12k</li>
-                                        <li>Recruitment Fees: ~€10k</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Call to Action -->
-    <section id="contact" class="cta-section">
-        <div class="container cta-container">
-            <h2 class="cta-title">Ready to scale your team?</h2>
-            <p class="cta-text">Start your 72-hour sprint today and onboard world-class engineers.</p>
-            <a href="mailto:hello@niogod.com" class="btn btn-white btn-lg">Contact Us</a>
-        </div>
-    </section>
+        <!-- Call to Action -->
+        <section id="contact" class="cta-section">
+            <div class="container cta-container">
+                <h2 class="cta-title">Ready to scale your team?</h2>
+                <p class="cta-text">Start your 72-hour sprint today and onboard world-class engineers.</p>
+                <a href="mailto:hello@niogod.com" class="btn btn-white btn-lg">Contact Us</a>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
@@ -281,7 +383,6 @@
             <source src="assets/andrew-wilson.mp4" type="video/mp4">
         </video>
         <button id="sound-toggle" class="sound-toggle-btn" aria-label="Toggle Sound">
-            <!-- Muted Icon (hidden by default since we try to play unmuted) -->
             <svg id="mute-icon" style="display:none;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -290,7 +391,6 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
             </svg>
-            <!-- Unmuted Icon (visible by default) -->
             <svg id="unmute-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -312,7 +412,7 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 
 </html>
