@@ -291,10 +291,10 @@ document.addEventListener('DOMContentLoaded', () => {
             { name: "Lead / Architect (8+ Years)", multiplier: 1.6 },
             { name: "Principal (10+ Years)", multiplier: 2.0 }
         ],
-        // Niogod's efficiency model: Remote talent cost is significantly lower due to geo-arbitrage
+        // niogod™'s efficiency model: Remote talent cost is significantly lower due to geo-arbitrage
         // Generally ~40-50% of the local equivalent
         geoArbitrageIndex: 0.45,
-        niogodFixedFee: 6000 // Annual Fee/Overhead for Niogod
+        niogodFixedFee: 6000 // Annual Fee/Overhead for niogod™
     };
 
     const roleSlider = document.getElementById('role-slider');
@@ -342,7 +342,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const localOverhead = localBase * 0.15;
         const totalLocal = localBase + localSSC + localOverhead;
 
-        // 2. Calculate Niogod Cost
+        // 2. Calculate niogod™ Cost
         // Remote Salary roughly 45% of local base
         const remoteSalary = localBase * roiData.geoArbitrageIndex;
         const totalNiogod = remoteSalary + roiData.niogodFixedFee;
