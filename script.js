@@ -254,11 +254,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const cookieBanner = document.getElementById('cookie-banner');
     const acceptCookiesBtn = document.getElementById('accept-cookies');
 
+    // GA4 Loading Function
+    function loadAnalytics() {
+        console.log("Consent granted. Loading Google Analytics...");
+
+        // Create script tag
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-BRX2TD2KGX';
+        document.head.appendChild(script);
+
+        // Initialize dataLayer
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-BRX2TD2KGX');
+    }
+
     if (cookieBanner && acceptCookiesBtn) {
         // Check if user has already accepted
         const hasAccepted = localStorage.getItem('cookieConsent');
 
-        if (!hasAccepted) {
+        if (hasAccepted) {
+            // Load immediately if already accepted
+            loadAnalytics();
+        } else {
             // Show banner
             cookieBanner.style.display = 'block';
         }
@@ -266,6 +286,10 @@ document.addEventListener('DOMContentLoaded', () => {
         acceptCookiesBtn.addEventListener('click', () => {
             // Save preference
             localStorage.setItem('cookieConsent', 'true');
+
+            // Load Analytics dynamically
+            loadAnalytics();
+
             // Hide banner with animation
             cookieBanner.style.opacity = '0';
             cookieBanner.style.transform = 'translateY(20px)';
