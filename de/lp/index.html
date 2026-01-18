@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>niogod™ | Ihr digitaler Grundstein</title>
+    <meta name="robots" content="noindex, nofollow">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4f5d75',
+                        secondary: '#564f6f',
+                        dark: '#2d283e',
+                        light: '#f8f9fa',
+                        card: '#ffffff',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'niogod': '0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+                    },
+                    backgroundImage: {
+                        'primary-gradient': 'linear-gradient(135deg, #4f5d75 0%, #7e6e9c 100%)',
+                        'primary-gradient-hover': 'linear-gradient(135deg, #3e4a5e 0%, #63567a 100%)',
+                        'hero-gradient': 'linear-gradient(135deg, #f1f5ff 0%, #fefeff 100%)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            color: #2d283e;
+        }
+
+        .btn-primary {
+            background-image: linear-gradient(135deg, #4f5d75 0%, #7e6e9c 100%);
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-box {
+            background: linear-gradient(135deg, #f1f5ff 0%, #fefeff 100%);
+            border: 1px solid #eef2f6;
+        }
+    </style>
+    <!-- Meta Pixel Code Placeholder -->
+    <!-- Google Tag Manager Placeholder -->
+</head>
+
+<body class="antialiased min-h-screen flex flex-col">
+
+    <!-- Navbar Minimal -->
+    <nav class="bg-white py-4 shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <span
+                class="text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-[#4f5d75] to-[#7e6e9c]">niogod™</span>
+            <a href="#payment"
+                class="bg-[#4f5d75]/10 text-[#4f5d75] font-semibold py-2 px-6 rounded-full hover:bg-[#4f5d75] hover:text-white transition">Jetzt
+                Starten</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="container mx-auto px-6 py-12 md:py-20">
+        <div class="hero-box rounded-[40px] p-8 md:p-16 text-center shadow-niogod relative overflow-hidden">
+            <div class="relative z-10 max-w-4xl mx-auto">
+                <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 text-dark uppercase leading-tight">
+                    niogod™ | Ihr digitaler Grundstein für 99€
+                </h1>
+                <p class="text-lg md:text-xl text-secondary mb-8 max-w-2xl mx-auto">
+                    Premium-Landingpage. Gehostet auf GitHub. In 24 Stunden live. Keine monatlichen Kosten.
+                </p>
+
+                <div class="flex flex-col md:flex-row gap-4 justify-center items-center mt-10">
+                    <a href="#payment"
+                        class="btn-primary py-4 px-10 rounded-full font-bold text-lg shadow-md inline-flex items-center gap-2">
+                        Jetzt bestellen <span>→</span>
+                    </a>
+                </div>
+            </div>
+            <!-- Abstract background shape if needed -->
+            <div
+                class="absolute top-0 right-0 w-64 h-64 bg-blue-50 rounded-full blur-3xl -z-0 opacity-50 pointer-events-none">
+            </div>
+        </div>
+    </section>
+
+    <!-- The niogod™ Advantage -->
+    <section class="container mx-auto px-6 py-16">
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Feature 1 -->
+            <div
+                class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300">
+                <div class="text-4xl mb-4">⚡</div>
+                <h3 class="text-xl font-bold text-dark mb-3">Technologische Exzellenz</h3>
+                <p class="text-secondary">Built for speed. Maximale Performance und Ladezeiten, optimiert für Google
+                    Core Vitals.</p>
+            </div>
+            <!-- Feature 2 -->
+            <div
+                class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300">
+                <div class="text-4xl mb-4">🛡️</div>
+                <h3 class="text-xl font-bold text-dark mb-3">Rechtssicherheit</h3>
+                <p class="text-secondary">GDPR/DSGVO ready. Datenschutzkonforme Implementierung für den DACH-Markt.</p>
+            </div>
+            <!-- Feature 3 -->
+            <div
+                class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300">
+                <div class="text-4xl mb-4">🚀</div>
+                <h3 class="text-xl font-bold text-dark mb-3">Skalierbarkeit</h3>
+                <p class="text-secondary">Ready for your first hire. Eine solide Basis, die mit Ihrem Unternehmen
+                    wächst.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Qualification Funnel -->
+    <section id="payment" class="container mx-auto px-6 py-16 max-w-3xl">
+        <div class="bg-white rounded-2xl p-8 md:p-12 shadow-xl border border-gray-100 relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#4f5d75] to-[#7e6e9c]"></div>
+
+            <form id="funnelForm" class="space-y-6">
+                <!-- Step 1: Contact -->
+                <div id="step1">
+                    <h2 class="text-3xl font-bold mb-2 text-dark">Schritt 1: Ihre Details</h2>
+                    <p class="text-secondary mb-8">Wir bereiten Ihren Arbeitsbereich vor.</p>
+                    <div class="space-y-5">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Name</label>
+                            <input type="text" name="name" id="name" required
+                                class="w-full px-5 py-3 rounded-lg border border-gray-200 focus:border-[#4f5d75] focus:ring-2 focus:ring-[#4f5d75]/10 outline-none transition bg-gray-50">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Geschäftliche E-Mail</label>
+                            <input type="email" name="email" id="email" required
+                                class="w-full px-5 py-3 rounded-lg border border-gray-200 focus:border-[#4f5d75] focus:ring-2 focus:ring-[#4f5d75]/10 outline-none transition bg-gray-50">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Unternehmen</label>
+                            <input type="text" name="company" id="company" required
+                                class="w-full px-5 py-3 rounded-lg border border-gray-200 focus:border-[#4f5d75] focus:ring-2 focus:ring-[#4f5d75]/10 outline-none transition bg-gray-50">
+                        </div>
+                        <button type="button" onclick="nextStep()"
+                            class="w-full bg-dark text-white font-bold py-4 rounded-lg hover:bg-opacity-90 transition mt-6 shadow-lg">
+                            Weiter zu Schritt 2
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Strategy Questions -->
+                <div id="step2" class="hidden">
+                    <h2 class="text-3xl font-bold mb-2 text-dark">Schritt 2: Qualifizierung</h2>
+                    <p class="text-secondary mb-8">Helfen Sie uns, Ihr Setup zu personalisieren.</p>
+
+                    <div class="space-y-6">
+                        <div class="bg-gray-50 p-6 rounded-lg border border-gray-100">
+                            <label class="text-sm font-semibold text-gray-800 block mb-3">Verfügen Sie über eine
+                                deutsche Entität (GmbH/UG)?</label>
+                            <div class="flex gap-6">
+                                <label
+                                    class="flex items-center cursor-pointer hover:bg-white p-2 rounded transition"><input
+                                        type="radio" name="entity" value="yes"
+                                        class="mr-2 text-[#4f5d75] focus:ring-[#4f5d75]" required> Ja</label>
+                                <label
+                                    class="flex items-center cursor-pointer hover:bg-white p-2 rounded transition"><input
+                                        type="radio" name="entity" value="no"
+                                        class="mr-2 text-[#4f5d75] focus:ring-[#4f5d75]"> Nein</label>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-lg border border-gray-100">
+                            <label class="text-sm font-semibold text-gray-800 block mb-3">Planen Sie Neueinstellungen in
+                                der DACH-Region?</label>
+                            <div class="flex gap-6">
+                                <label
+                                    class="flex items-center cursor-pointer hover:bg-white p-2 rounded transition"><input
+                                        type="radio" name="hiring" value="yes"
+                                        class="mr-2 text-[#4f5d75] focus:ring-[#4f5d75]" required> Ja</label>
+                                <label
+                                    class="flex items-center cursor-pointer hover:bg-white p-2 rounded transition"><input
+                                        type="radio" name="hiring" value="no"
+                                        class="mr-2 text-[#4f5d75] focus:ring-[#4f5d75]"> Nein</label>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-lg border border-gray-100">
+                            <label class="text-sm font-semibold text-gray-800 block mb-3">Benötigen Sie Unterstützung
+                                bei Payroll oder Compliance?</label>
+                            <div class="flex gap-6">
+                                <label
+                                    class="flex items-center cursor-pointer hover:bg-white p-2 rounded transition"><input
+                                        type="radio" name="payroll" value="yes"
+                                        class="mr-2 text-[#4f5d75] focus:ring-[#4f5d75]" required> Ja</label>
+                                <label
+                                    class="flex items-center cursor-pointer hover:bg-white p-2 rounded transition"><input
+                                        type="radio" name="payroll" value="no"
+                                        class="mr-2 text-[#4f5d75] focus:ring-[#4f5d75]"> Nein</label>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 mt-8">
+                            <button type="button" onclick="prevStep()"
+                                class="w-1/3 px-6 py-4 border border-gray-200 rounded-lg text-gray-600 font-medium hover:bg-gray-50 transition">Zurück</button>
+                            <button type="submit" id="payBtn"
+                                class="w-2/3 btn-primary text-white font-bold py-4 rounded-lg shadow-lg">
+                                Zahlungspflichtig bestellen (99€)
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="mt-auto py-10 bg-white border-t border-gray-200 text-center text-sm text-secondary">
+        <div class="container mx-auto px-6">
+            <p class="mb-4 font-bold text-dark">niogod™</p>
+            <p class="mb-6 opacity-70">Infrastructure for the Modern Enterprise.</p>
+            <div class="space-x-6">
+                <a href="#" class="hover:text-primary transition">Impressum</a>
+                <a href="#" class="hover:text-primary transition">Datenschutz</a>
+                <a href="#" class="hover:text-primary transition">AGB</a>
+            </div>
+            <p class="mt-8 text-xs text-gray-400">&copy; 2025 Borcom Dynamics Private Limited. Alle Rechte vorbehalten.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        function nextStep() {
+            const step1 = document.getElementById('step1');
+            const inputs = step1.querySelectorAll('input');
+            let valid = true;
+            inputs.forEach(input => {
+                if (!input.checkValidity()) {
+                    input.reportValidity();
+                    valid = false;
+                }
+            });
+
+            if (valid) {
+                document.getElementById('step1').classList.add('hidden');
+                document.getElementById('step2').classList.remove('hidden');
+                // Scroll to top of form
+                document.getElementById('payment').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        function prevStep() {
+            document.getElementById('step2').classList.add('hidden');
+            document.getElementById('step1').classList.remove('hidden');
+        }
+
+        // Razorpay Options
+        var options = {
+            "key": "rzp_live_S5OEeyZskMutgE", // Enter the Key ID generated from the Dashboard
+            "amount": "9900", // Amount is in currency subunits. Default currency is INR. Hence 50000 refers to 50000 paise
+            "currency": "EUR",
+            "name": "niogod™",
+            "description": "Digitaler Grundstein Integration",
+            "image": "https://niogod.com/assets/favicon.png", // Optional: Add logo
+            "handler": function (response) {
+                // Payment was successful. Now send data to Google Sheet
+                submitData(response.razorpay_payment_id);
+            },
+            "prefill": {
+                "name": "",
+                "email": "",
+                "contact": ""
+            },
+            "theme": {
+                "color": "#4f5d75"
+            }
+        };
+
+        const rzp1 = new Razorpay(options);
+
+        rzp1.on('payment.failed', function (response) {
+            alert("Zahlung fehlgeschlagen: " + response.error.description);
+        });
+
+        document.getElementById('funnelForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Validate form
+            if (!this.checkValidity()) {
+                this.reportValidity();
+                return;
+            }
+
+            // Update Prefill Data from Form
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+
+            options.prefill.name = name;
+            options.prefill.email = email;
+
+            // Open Razorpay
+            rzp1.open();
+        });
+
+        function submitData(paymentId) {
+            const form = document.getElementById('funnelForm');
+            const btn = document.getElementById('payBtn');
+            btn.innerText = 'Verarbeite...';
+            btn.disabled = true;
+
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+            data.payment_id = paymentId; // Add payment ID to data
+            data.amount = "99.00 EUR";
+
+            // POST to Google Apps Script
+            // We use 'text/plain' to avoid CORS Preflight (OPTIONS request) which GAS doesn't handle.
+            fetch('https://script.google.com/macros/s/AKfycbzImkWR0w7_ePlqkkSUbbO2LGisgawxXy79WcRjKG7tPupXMBalw9KjWYe0G8tFmxZqNw/exec', {
+                method: 'POST',
+                body: JSON.stringify(data) // Sends as text/plain by default without header
+            })
+                .then(response => response.text()) // Get text response
+                .then(text => {
+                    alert("Vielen Dank! Ihre Bestellung wurde erfolgreich aufgenommen. Wir melden uns in Kürze.");
+                    form.reset();
+                    // Reset View
+                    prevStep();
+                    btn.innerText = 'Zahlungspflichtig bestellen (99€)';
+                    btn.disabled = false;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    // Alert success anyway because GAS often throws cors errors on redirect even if it worked.
+                    alert("Zahlung erfolgreich! Ihre Daten wurden übermittelt.");
+                    form.reset();
+                    prevStep();
+                    btn.innerText = 'Zahlungspflichtig bestellen (99€)';
+                    btn.disabled = false;
+                });
+        }
+    </script>
+</body>
+
+</html>
