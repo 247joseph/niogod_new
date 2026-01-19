@@ -421,9 +421,16 @@
 
             const formData = new FormData(form);
             const data = Object.fromEntries(formData.entries());
+
+            // Explicitly ensure whatsapp is there (redundant but safe)
+            data.whatsapp = document.getElementById('whatsapp').value;
+
             data.payment_id = paymentId;
             data.amount = "99.00 EUR";
-            data.status = status; // Add status to track if it's an attempt or success
+            data.status = status;
+
+            // Debug Log
+            console.log('Detailed Payload:', JSON.stringify(data, null, 2));
 
             // POST to Google Apps Script
             // using no-cors to prevent CORS errors and keepalive to ensure delivery
