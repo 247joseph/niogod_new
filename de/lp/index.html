@@ -276,8 +276,8 @@
             "description": "Digitaler Grundstein Integration",
             "image": "https://niogod.com/assets/favicon.png", // Optional: Add logo
             "handler": function (response) {
-                // Payment was successful. Now send data to Google Sheet
-                submitData(response.razorpay_payment_id);
+                // Payment was successful. Now send data to Google Sheet with PAID status
+                submitData(response.razorpay_payment_id, 'PAID');
             },
             "prefill": {
                 "name": "",
@@ -311,44 +311,61 @@
             options.prefill.name = name;
             options.prefill.email = email;
 
-            // Open Razorpay
+            // 1. Record 'INITIATED' entry immediately
+            submitData('PENDING', 'INITIATED');
+
+            // 2. Open Razorpay
             rzp1.open();
         });
 
-        function submitData(paymentId) {
+        function submitData(paymentId, status) {
             const form = document.getElementById('funnelForm');
             const btn = document.getElementById('payBtn');
-            btn.innerText = 'Verarbeite...';
-            btn.disabled = true;
+
+            // Only disable button if we are in the final PAID stage to prevent double clicks,
+            // or if needed for INITIATED too. For INITIATED, we can keep it clickable or momentarily disable.
+            // Let's momentarily disable to indicate processing if it was a sync wait, 
+            // but here we fire and forget for INITIATED so the UI stays responsive for Razorpay.
+
+            if (status === 'PAID') {
+                btn.innerText = 'Verarbeite...';
+                btn.disabled = true;
+            }
 
             const formData = new FormData(form);
             const data = Object.fromEntries(formData.entries());
-            data.payment_id = paymentId; // Add payment ID to data
+            data.payment_id = paymentId;
             data.amount = "99.00 EUR";
+            data.status = status; // Add status to track if it's an attempt or success
 
             // POST to Google Apps Script
-            // We use 'text/plain' to avoid CORS Preflight (OPTIONS request) which GAS doesn't handle.
             fetch('https://script.google.com/macros/s/AKfycbzImkWR0w7_ePlqkkSUbbO2LGisgawxXy79WcRjKG7tPupXMBalw9KjWYe0G8tFmxZqNw/exec', {
                 method: 'POST',
-                body: JSON.stringify(data) // Sends as text/plain by default without header
+                body: JSON.stringify(data)
             })
-                .then(response => response.text()) // Get text response
+                .then(response => response.text())
                 .then(text => {
-                    alert("Vielen Dank! Ihre Bestellung wurde erfolgreich aufgenommen. Wir melden uns in Kürze.");
-                    form.reset();
-                    // Reset View
-                    prevStep();
-                    btn.innerText = 'Zahlungspflichtig bestellen (99€)';
-                    btn.disabled = false;
+                    if (status === 'PAID') {
+                        alert("Vielen Dank! Ihre Bestellung wurde erfolgreich aufgenommen. Wir melden uns in Kürze.");
+                        form.reset();
+                        // Reset View
+                        prevStep();
+                        btn.innerText = 'Zahlungspflichtig bestellen (99€)';
+                        btn.disabled = false;
+                    }
+                    // If INITIATED, do nothing visible, just log internally
+                    console.log('Initiated data recorded');
                 })
                 .catch(error => {
                     console.error('Error:', error);
-                    // Alert success anyway because GAS often throws cors errors on redirect even if it worked.
-                    alert("Zahlung erfolgreich! Ihre Daten wurden übermittelt.");
-                    form.reset();
-                    prevStep();
-                    btn.innerText = 'Zahlungspflichtig bestellen (99€)';
-                    btn.disabled = false;
+                    if (status === 'PAID') {
+                        // Alert success anyway because GAS often throws cors errors on redirect even if it worked.
+                        alert("Zahlung erfolgreich! Ihre Daten wurden übermittelt.");
+                        form.reset();
+                        prevStep();
+                        btn.innerText = 'Zahlungspflichtig bestellen (99€)';
+                        btn.disabled = false;
+                    }
                 });
         }
     </script>
