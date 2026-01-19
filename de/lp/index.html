@@ -339,30 +339,32 @@
             data.status = status; // Add status to track if it's an attempt or success
 
             // POST to Google Apps Script
+            // using no-cors to prevent CORS errors and keepalive to ensure delivery
             fetch('https://script.google.com/macros/s/AKfycbzImkWR0w7_ePlqkkSUbbO2LGisgawxXy79WcRjKG7tPupXMBalw9KjWYe0G8tFmxZqNw/exec', {
                 method: 'POST',
+                mode: 'no-cors',
+                keepalive: true,
+                headers: {
+                    'Content-Type': 'text/plain'
+                },
                 body: JSON.stringify(data)
             })
-                .then(response => response.text())
-                .then(text => {
+                .then(() => {
+                    // With no-cors, we get an opaque response. We assume it went through.
                     if (status === 'PAID') {
                         alert("Vielen Dank! Ihre Bestellung wurde erfolgreich aufgenommen. Wir melden uns in Kürze.");
                         form.reset();
-                        // Reset View
                         prevStep();
                         btn.innerText = 'Zahlungspflichtig bestellen (99€)';
                         btn.disabled = false;
                     }
-                    // If INITIATED, do nothing visible, just log internally
-                    console.log('Initiated data recorded');
+                    console.log('Data submission attempted for status:', status);
                 })
                 .catch(error => {
                     console.error('Error:', error);
+                    // Network error (e.g. offline)
                     if (status === 'PAID') {
-                        // Alert success anyway because GAS often throws cors errors on redirect even if it worked.
-                        alert("Zahlung erfolgreich! Ihre Daten wurden übermittelt.");
-                        form.reset();
-                        prevStep();
+                        alert("Es gab ein Problem bei der Übermittlung. Bitte kontaktieren Sie uns.");
                         btn.innerText = 'Zahlungspflichtig bestellen (99€)';
                         btn.disabled = false;
                     }
