@@ -423,7 +423,7 @@
         !function (f, b, e, v, n, t, s) {
             if (f.fbq) return; n = f.fbq = function () {
                 n.callMethod ?
-                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
             };
             if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
             n.queue = []; t = b.createElement(e); t.async = !0;
@@ -487,6 +487,54 @@
             <div class="container">
                 <h1 class="page-title">Global Reach. Local Presence.</h1>
                 <p class="page-subtitle">Ready to scale your team? Start your 72-hour sprint today.</p>
+            </div>
+        </section>
+
+        <!-- Calendly Section -->
+        <section class="calendly-section" style="padding: 40px 0; background-color: #f8f9fa;">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 30px; font-size: 1.8rem;">Schedule a Consultation</h2>
+                <!-- Calendly inline widget begin -->
+                <!-- Calendly inline widget begin -->
+                <div class="calendly-inline-widget" id="calendly-embed"
+                    data-url="https://calendly.com/247josephjose/30min?hide_gdpr_banner=1"
+                    style="min-width:320px;height:700px; position: relative;">
+                    <div id="calendly-loader"
+                        style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
+                        <div
+                            style="border: 4px solid #f3f3f3; border-top: 4px solid #4f5d75; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin: 0 auto 20px;">
+                        </div>
+                        <p style="color: #666; font-family: var(--font-sans);">Loading calendar...</p>
+                    </div>
+                </div>
+
+                <style>
+                    @keyframes spin {
+                        0% {
+                            transform: rotate(0deg);
+                        }
+
+                        100% {
+                            transform: rotate(360deg);
+                        }
+                    }
+                </style>
+
+                <script type="text/javascript">
+                    setTimeout(function () {
+                        var head = document.getElementsByTagName('head')[0];
+                        var script = document.createElement('script');
+                        script.type = 'text/javascript';
+                        script.src = 'https://assets.calendly.com/assets/external/widget.js';
+                        script.async = true;
+                        head.appendChild(script);
+
+                        // Hide loader when script loads (approximate, since widget.js doesn't emit a clear 'ready' event easily accessible cross-origin, 
+                        // but the iframe will cover the loader due to z-index or background)
+                    }, 3000);
+                </script>
+                <!-- Calendly inline widget end -->
+                <!-- Calendly inline widget end -->
             </div>
         </section>
 
@@ -559,7 +607,8 @@
             <div class="footer-grid">
                 <div class="footer-col">
                     <h3 class="footer-logo">niogod™</h3>
-                    <p>Infrastructure for the Modern Enterprise.</p>
+                    <p>Institutionalized Remote Engineering for the DACH Market. Deployed under strict German Legal
+                        Frameworks.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Company</h4>
@@ -582,6 +631,8 @@
                 <div class="footer-col">
                     <h4>Contact</h4>
                     <p><a href="mailto:hello@niogod.com">hello@niogod.com</a></p>
+                    <h4 style="margin-top: 20px;">DACH Liaison</h4>
+                    <p>Pfaffenwaldring 50,<br>Stuttgart, Deutschland 70569</p>
                 </div>
             </div>
             <div class="footer-bottom">

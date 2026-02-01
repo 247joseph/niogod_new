@@ -18,22 +18,22 @@
     <!-- Open Graph / Social Media Meta Tags -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://niogod.com/">
-    <meta property="og:title" content="niogod™ | Institutional Rigor. Rapid Execution.">
+    <meta property="og:title" content="niogod™ | Institutionalized Remote Engineering for the DACH Market.">
     <meta property="og:description"
-        content="Deploying GCC grade talent in 72 hours. Institutional Rigor. Rapid Execution.">
+        content="Deploying GCC grade talent in 72 hours. Institutionalized Remote Engineering for the DACH Market.">
     <meta property="og:image" content="https://niogod.com/assets/niogod-share-preview.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://niogod.com/">
-    <meta property="twitter:title" content="niogod™ | Institutional Rigor. Rapid Execution.">
+    <meta property="twitter:title" content="niogod™ | Institutionalized Remote Engineering for the DACH Market.">
     <meta property="twitter:description"
-        content="Deploying GCC grade talent in 72 hours. Institutional Rigor. Rapid Execution.">
+        content="Deploying GCC grade talent in 72 hours. Institutionalized Remote Engineering for the DACH Market.">
     <meta property="twitter:image" content="https://niogod.com/assets/niogod-share-preview.png">
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>niogod™ | Institutional Rigor. Rapid Execution.</title>
+    <title>niogod™ | Institutionalized Remote Engineering for the DACH Market.</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -241,78 +241,41 @@
         }
 
         .hero-title {
-            font-size: 3.5rem;
+            font-size: clamp(1.15rem, 5vw, 3.5rem);
+            /* Fluid sizing: safely fits 320px+ */
             font-weight: 800;
             line-height: 1.1;
             margin-bottom: 20px;
             color: var(--text-dark);
             text-transform: uppercase;
+            white-space: nowrap;
+            /* Prevent wrapping beyond <br> tags */
+        }
+
+        /* Responsive override if needed, though clamp handles most */
+        @media (max-width: 1200px) {
+            .hero-title {
+                font-size: clamp(1.4rem, 5.5vw, 3rem);
+            }
         }
 
         .hero-subtitle {
-            font-size: 1.25rem;
+            font-size: 1rem;
             color: var(--text-secondary);
-            line-height: 1.6;
-            margin-bottom: 25px;
+            line-height: 1.5;
+            margin-bottom: 20px;
             max-width: 90%;
-        }
-
-        .hero-helper-text {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            background: var(--bg-light);
-            border: 1px solid var(--border-color);
-            padding: 6px 14px;
-            border-radius: 20px;
-            margin-bottom: 12px;
-            font-weight: 500;
-            display: inline-block;
-            width: fit-content;
-            max-width: 100%;
         }
 
         .hero-cta-group {
             display: flex;
             flex-direction: row;
-            gap: 20px;
+            gap: 15px;
             align-items: center;
             width: 100%;
             margin-top: 10px;
-        }
-
-        .hero-subscribe-bar {
-            display: flex;
-            align-items: center;
-            background: #fff;
-            border: 1px solid #eee;
-            border-radius: 50px;
-            padding: 3px 3px 3px 20px;
-            width: 100%;
-            max-width: 380px;
-            transition: box-shadow 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        .hero-subscribe-bar input {
-            background: transparent;
-            border: none;
-            outline: none;
-            color: #333;
-            flex-grow: 1;
-            font-size: 0.95rem;
-            min-width: 0;
-        }
-
-        .hero-subscribe-bar button {
-            background: var(--primary-gradient);
-            color: white;
-            border: none;
-            border-radius: 30px;
-            padding: 8px 20px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            cursor: pointer;
-            white-space: nowrap;
+            flex-wrap: wrap;
+            /* Allow wrapping on small screens */
         }
 
         .btn-pill {
@@ -320,15 +283,13 @@
             min-width: 0;
             justify-content: center;
             border-radius: 50px;
-            padding: 10px 24px;
-            font-size: 0.95rem;
+            padding: 8px 20px;
+            font-size: 0.9rem;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             white-space: nowrap;
-            height: 44px;
-            color: white;
-            border: none;
+            height: 40px;
         }
 
         .hero-image {
@@ -344,7 +305,7 @@
             width: auto;
             max-width: 130%;
             height: auto;
-            max-height: 580px;
+            max-height: 520px;
             object-fit: contain;
             object-position: bottom right;
             display: block;
@@ -355,25 +316,74 @@
 
         @media (max-width: 992px) {
             .hero-box {
-                padding: 3rem 1.5rem 0 1.5rem;
+                padding: 2rem 1.5rem 0rem 1.5rem;
+                /* Reduced bottom padding */
                 display: block;
-                align-items: center;
-                gap: 0;
-                max-height: 600px;
-                height: auto;
+                position: relative;
+                overflow: hidden;
+                /* height: auto;  - allowed to grow slightly but kept compact */
+                min-height: 480px;
+                /* Ensure content fits */
             }
 
             .hero-title {
-                font-size: 2rem;
+                /* font-size handled by clamp */
+                margin-bottom: 15px;
+                /* Tighter spacing */
+            }
+
+            .hero-subtitle {
+                font-size: 0.95rem;
+                /* Slightly smaller */
+                margin-bottom: 15px;
             }
 
             .mobile-menu-toggle {
                 display: flex;
-                /* Simplified override */
             }
 
+            /* Enable image on mobile */
             .hero-image {
-                display: none;
+                display: block;
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                width: 100%;
+                height: auto;
+                pointer-events: none;
+                /* Let clicks pass through to background if needed */
+                z-index: 1;
+            }
+
+            .hero-content {
+                position: relative;
+                z-index: 2;
+                /* Text above image */
+                padding-bottom: 180px;
+                /* Space for image at bottom */
+            }
+
+            .hero-man-img {
+                position: absolute;
+                bottom: -20px;
+                /* Fine tune position */
+                right: -40px;
+                max-height: 280px;
+                /* Smaller image for mobile */
+                max-width: 80%;
+                opacity: 1;
+            }
+
+            /* Ultra small adjustments */
+            @media (max-width: 400px) {
+                .hero-man-img {
+                    max-height: 220px;
+                    right: -30px;
+                }
+
+                .hero-content {
+                    padding-bottom: 150px;
+                }
             }
         }
 
@@ -407,7 +417,7 @@
       "name": "niogod™",
       "url": "https://niogod.com",
       "logo": "https://niogod.com/assets/favicon.png",
-      "description": "Deploying GCC grade talent in 72 hours. Institutional Rigor. Rapid Execution.",
+      "description": "Deploying GCC grade talent in 72 hours. Institutionalized Remote Engineering for the DACH Market.",
       "contactPoint": {
           "@type": "ContactPoint",
           "email": "hello@niogod.com",
@@ -484,20 +494,16 @@
             <div class="container">
                 <div class="hero-box">
                     <div class="hero-content">
-                        <h1 class="hero-title">INSTITUTIONAL RIGOR.<br>RAPID EXECUTION.</h1>
-                        <p class="hero-subtitle">Deploying GCC grade talent in 72 hours.</p>
+                        <h1 class="hero-title">INSTITUTIONALIZED<br>REMOTE ENGINEERING<br>FOR THE DACH MARKET.</h1>
+                        <p class="hero-subtitle">Deploy managed engineering squads under German Legal Frameworks.
+                            Optimize R&D expenditure by 60% via institutionalized remote protocols.</p>
 
-                        <div class="hero-helper-text">
-                            Subscribe to niogod's Intelligence Report. <a href="assets/Sample Intelligence Report.pdf"
-                                class="sample-link" target="_blank">Sample</a>
-                        </div>
                         <div class="hero-cta-group">
-                            <form class="hero-subscribe-bar" id="subscribe-form">
-                                <input type="email" name="email" placeholder="name@company.com" required>
-                                <button type="submit">Subscribe</button>
-                            </form>
+                            <a href="newsletter.html" class="btn btn-outline btn-pill">
+                                Get Intelligence Report
+                            </a>
                             <a href="contact.html" class="btn btn-primary btn-pill">
-                                Let's Talk <span class="arrow-icon">→</span>
+                                Book Consultation <span class="arrow-icon">→</span>
                             </a>
                         </div>
                     </div>
@@ -668,12 +674,76 @@
             </div>
         </section>
 
+        <!-- Risk Mitigation Section -->
+        <section id="risk-mitigation" style="padding: 80px 0; background-color: #f9f9ff;">
+            <div class="container">
+                <div class="section-header text-center" style="margin-bottom: 50px;">
+                    <h2 class="section-title">Risk Mitigation</h2>
+                    <h3 style="font-size: 1.5rem; color: var(--text-secondary); margin-top: 10px;">The Compliance
+                        Shield.
+                    </h3>
+                    <div
+                        style="display: inline-block; background: #eef2ff; color: var(--primary-color); padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: 600; margin-top: 15px;">
+                        German Labor Law Alignment
+                    </div>
+                    <p style="max-width: 800px; margin: 20px auto 0; color: var(--text-secondary);">
+                        We operate under a strict legal framework that indemnifies your entity from misclassification
+                        risks.
+                        Our "Compliance Shield" architecture ensures full data sovereignty and IP protection.
+                    </p>
+                </div>
+
+                <div class="process-grid">
+                    <!-- Feature 1 -->
+                    <div class="method-card" style="text-align: center;">
+                        <span style="font-size: 2.5rem; display: block; margin-bottom: 15px;">🔒</span>
+                        <h4>100% IP Protection</h4>
+                        <p style="margin-top: 10px; font-size: 0.95rem; color: var(--text-secondary);">
+                            All intellectual property is contractually assigned to your GmbH/UG immediately upon
+                            creation.
+                        </p>
+                    </div>
+                    <!-- Feature 2 -->
+                    <div class="method-card" style="text-align: center;">
+                        <span style="font-size: 2.5rem; display: block; margin-bottom: 15px;">🇪🇺</span>
+                        <h4>GDPR Data Sovereignty</h4>
+                        <p style="margin-top: 10px; font-size: 0.95rem; color: var(--text-secondary);">
+                            Strict adherence to EU data processing addendums. No sensitive user data leaves encrypted
+                            channels.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Trust Badges -->
+                <div
+                    style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 50px; text-align: center;">
+                    <div
+                        style="background: white; border: 1px solid #eee; padding: 15px 25px; border-radius: 8px; font-weight: 600; color: var(--text-dark); box-shadow: var(--shadow-sm); display: flex; align-items: center; gap: 10px;">
+                        <span style="color: var(--primary-color);">✓</span> ISO 27001 Certified
+                    </div>
+                    <div
+                        style="background: white; border: 1px solid #eee; padding: 15px 25px; border-radius: 8px; font-weight: 600; color: var(--text-dark); box-shadow: var(--shadow-sm); display: flex; align-items: center; gap: 10px;">
+                        <span style="color: var(--primary-color);">✓</span> GDPR Compliant
+                    </div>
+                    <div
+                        style="background: white; border: 1px solid #eee; padding: 15px 25px; border-radius: 8px; font-weight: 600; color: var(--text-dark); box-shadow: var(--shadow-sm); display: flex; align-items: center; gap: 10px;">
+                        <span style="color: var(--primary-color);">✓</span> NDA Enforceable in DE
+                    </div>
+                    <div
+                        style="background: white; border: 1px solid #eee; padding: 15px 25px; border-radius: 8px; font-weight: 600; color: var(--text-dark); box-shadow: var(--shadow-sm); display: flex; align-items: center; gap: 10px;">
+                        <span style="color: var(--primary-color);">✓</span> EOR Liability Shield
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Call to Action -->
         <section id="contact" class="cta-section">
             <div class="container cta-container">
-                <h2 class="cta-title">Ready to scale your team?</h2>
-                <p class="cta-text">Start your 72-hour sprint today and onboard world-class engineers.</p>
-                <a href="mailto:hello@niogod.com" class="btn btn-white btn-lg">Contact Us</a>
+                <h2 class="cta-title">Optimizing R&D expenditure starts here.</h2>
+                <p class="cta-text">Get a custom R&D Intelligence Report tailored to your tech stack and roadmap
+                    requirements.</p>
+                <a href="contact.html" class="btn btn-white btn-lg">Book Consultation</a>
             </div>
         </section>
     </main>
@@ -684,7 +754,8 @@
             <div class="footer-grid">
                 <div class="footer-col">
                     <h3 class="footer-logo">niogod™</h3>
-                    <p>Infrastructure for the Modern Enterprise.</p>
+                    <p>Institutionalized Remote Engineering for the DACH Market. Deployed under strict German Legal
+                        Frameworks.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Company</h4>
@@ -708,6 +779,8 @@
                 <div class="footer-col">
                     <h4>Contact</h4>
                     <p><a href="mailto:hello@niogod.com">hello@niogod.com</a></p>
+                    <h4 style="margin-top: 20px;">DACH Liaison</h4>
+                    <p>Pfaffenwaldring 50,<br>Stuttgart, Deutschland 70569</p>
                 </div>
             </div>
             <div class="footer-bottom">

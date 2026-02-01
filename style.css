@@ -345,8 +345,8 @@ ul {
 }
 
 .hero-title {
-    font-size: 3.5rem;
-    /* Larger, bolder title */
+    font-size: clamp(1.15rem, 5vw, 3.5rem);
+    /* Fluid sizing: safely fits 320px+ */
     font-weight: 800;
     line-height: 1.1;
     margin-bottom: 20px;
@@ -483,8 +483,6 @@ ul {
     height: 44px;
     /* Fix height to match subscribe bar approx */
     /* background: removed to inherit from btn-primary */
-    color: white;
-    border: none;
 }
 
 .arrow-icon {
@@ -584,8 +582,7 @@ ul {
     }
 
     .hero-title {
-        font-size: 2rem;
-        /* Reduce to prevent excessive wrapping */
+        /* font-size handled by clamp */
     }
 
     .hero-subtitle {
@@ -670,10 +667,7 @@ ul {
     }
 
     .hero-title {
-        font-size: 2rem;
-        /* Larger for impact */
-        line-height: 1.1;
-        margin-bottom: 15px;
+        /* font-size handled by clamp */
     }
 
     .hero-subtitle {
@@ -785,18 +779,7 @@ ul {
         align-items: flex-start;
     }
 
-    .hero-title {
-        font-size: 10vw;
-        line-height: 1.0;
-        /* Tightened */
-        margin-bottom: 4vw;
-        max-width: 100%;
-        word-wrap: normal;
-        word-break: normal;
-        -webkit-hyphens: none;
-        -ms-hyphens: none;
-        hyphens: none;
-    }
+
 
     .hero-subtitle {
         font-size: 3.8vw;
@@ -1295,18 +1278,24 @@ ul {
 }
 
 @media (max-width: 576px) {
-    .hero-title {
-        font-size: 2rem;
-    }
+
 
     .hero-cta-group {
         flex-direction: column;
         width: 100%;
+        gap: 15px;
     }
 
     .btn-pill {
         width: 100%;
         justify-content: center;
+    }
+
+    /* Force outline style on mobile */
+    .btn-pill.btn-outline {
+        background: transparent !important;
+        border: 2px solid var(--primary-color) !important;
+        color: var(--primary-color) !important;
     }
 }
 

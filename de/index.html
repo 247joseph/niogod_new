@@ -3,35 +3,42 @@
 
 <head>
 
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-KRJSPDZ3');</script>
-<!-- End Google Tag Manager -->
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-KRJSPDZ3');</script>
+    <!-- End Google Tag Manager -->
 
-    
+
     <!-- Open Graph / Social Media Meta Tags -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://niogod.com/">
-    <meta property="og:title" content="niogod™ | Institutional Rigor. Rapid Execution.">
-    <meta property="og:description" content="Deploying GCC grade talent in 72 hours. Institutional Rigor. Rapid Execution.">
+    <meta property="og:title" content="niogod™ | Institutionalized Remote Engineering for the DACH Market.">
+    <meta property="og:description"
+        content="Deploying GCC grade talent in 72 hours. Institutionalized Remote Engineering for the DACH Market.">
     <meta property="og:image" content="https://niogod.com/assets/niogod-share-preview.png">
-    
+
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://niogod.com/">
-    <meta property="twitter:title" content="niogod™ | Institutional Rigor. Rapid Execution.">
-    <meta property="twitter:description" content="Deploying GCC grade talent in 72 hours. Institutional Rigor. Rapid Execution.">
+    <meta property="twitter:title" content="niogod™ | Institutionalized Remote Engineering for the DACH Market.">
+    <meta property="twitter:description"
+        content="Deploying GCC grade talent in 72 hours. Institutionalized Remote Engineering for the DACH Market.">
     <meta property="twitter:image" content="https://niogod.com/assets/niogod-share-preview.png">
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>niogod™ | Institutional Rigor. Rapid Execution.</title>
+    <title>niogod™ | Institutionalized Remote Engineering for the DACH Market.</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
     <link rel="icon" href="../assets/favicon.png" type="image/png">
 
     <!-- Critical CSS Inlined for <500ms Render -->
@@ -208,8 +215,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         .hero-box {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
+            grid-template-columns: 60% 40%;
+            gap: 20px;
             background: linear-gradient(135deg, #f1f5ff 0%, #fefeff 100%);
             border-radius: 40px;
             padding: 2rem 3rem 0 3rem;
@@ -232,78 +239,39 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
 
         .hero-title {
-            font-size: 3.5rem;
+            font-size: clamp(0.8rem, 3.2vw, 2.8rem);
             font-weight: 800;
             line-height: 1.1;
             margin-bottom: 20px;
             color: var(--text-dark);
-            text-transform: uppercase
+            text-transform: uppercase;
+            white-space: nowrap;
+            overflow-wrap: normal;
+            hyphens: none;
+        }
+
+        @media (max-width: 1200px) {
+            .hero-title {
+                font-size: clamp(1rem, 3.5vw, 2.2rem);
+            }
         }
 
         .hero-subtitle {
-            font-size: 1.25rem;
+            font-size: 1rem;
             color: var(--text-secondary);
-            line-height: 1.6;
-            margin-bottom: 25px;
-            max-width: 90%
-        }
-
-        .hero-helper-text {
-            font-size: .85rem;
-            color: var(--text-secondary);
-            background: var(--bg-light);
-            border: 1px solid var(--border-color);
-            padding: 6px 14px;
-            border-radius: 20px;
-            margin-bottom: 12px;
-            font-weight: 500;
-            display: inline-block;
-            width: fit-content;
-            max-width: 100%
+            line-height: 1.5;
+            margin-bottom: 20px;
+            max-width: 90%;
         }
 
         .hero-cta-group {
             display: flex;
             flex-direction: row;
-            gap: 20px;
+            gap: 15px;
             align-items: center;
             width: 100%;
-            margin-top: 10px
-        }
-
-        .hero-subscribe-bar {
-            display: flex;
-            align-items: center;
-            background: #fff;
-            border: 1px solid #eee;
-            border-radius: 50px;
-            padding: 3px 3px 3px 20px;
-            width: 100%;
-            max-width: 380px;
-            transition: box-shadow .3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05)
-        }
-
-        .hero-subscribe-bar input {
-            background: 0 0;
-            border: none;
-            outline: none;
-            color: #333;
-            flex-grow: 1;
-            font-size: .95rem;
-            min-width: 0
-        }
-
-        .hero-subscribe-bar button {
-            background: var(--primary-gradient);
-            color: #fff;
-            border: none;
-            border-radius: 30px;
-            padding: 8px 20px;
-            font-size: .9rem;
-            font-weight: 500;
-            cursor: pointer;
-            white-space: nowrap
+            margin-top: 10px;
+            flex-wrap: wrap;
         }
 
         .btn-pill {
@@ -311,15 +279,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             min-width: 0;
             justify-content: center;
             border-radius: 50px;
-            padding: 10px 24px;
-            font-size: .95rem;
+            padding: 8px 20px;
+            font-size: 0.9rem;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             white-space: nowrap;
-            height: 44px;
-            color: #fff;
-            border: none
+            height: 40px;
         }
 
         .hero-image {
@@ -328,46 +294,86 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             justify-content: flex-end;
             align-items: flex-end;
             position: relative;
-            height: 100%
+            height: 100%;
         }
 
         .hero-man-img {
             width: auto;
             max-width: 130%;
             height: auto;
-            max-height: 580px;
+            max-height: 520px;
             object-fit: contain;
             object-position: bottom right;
             display: block;
             position: absolute;
             bottom: -70px;
-            right: -20px
+            right: -20px;
         }
 
-        @media (max-width:992px) {
+        @media (max-width: 768px) {
             .hero-box {
-                padding: 3rem 1.5rem 0 1.5rem;
+                padding: 2rem 1.5rem 0rem 1.5rem;
                 display: block;
-                align-items: center;
-                gap: 0;
-                max-height: 600px;
-                height: auto
+                position: relative;
+                overflow: hidden;
+                min-height: auto;
+                height: auto;
             }
 
             .hero-title {
-                font-size: 2rem
+                /* font-size handled by clamp */
+                margin-bottom: 15px;
+            }
+
+            .hero-subtitle {
+                font-size: 0.95rem;
+                margin-bottom: 15px;
             }
 
             .mobile-menu-toggle {
-                display: flex
+                display: flex;
             }
 
             .hero-image {
-                display: none
+                display: block;
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                width: 100%;
+                height: auto;
+                pointer-events: none;
+                z-index: 1;
+            }
+
+            .hero-content {
+                position: relative;
+                z-index: 2;
+                padding-bottom: 180px;
+            }
+
+            .hero-man-img {
+                position: absolute;
+                bottom: -20px;
+                right: -40px;
+                max-height: 280px;
+                max-width: 80%;
+                opacity: 1;
+            }
+
+            @media (max-width: 400px) {
+                .hero-man-img {
+                    max-height: 50% !important;
+                    right: -20px;
+                    bottom: -10px;
+                }
+
+                .hero-content {
+                    padding-bottom: 120px;
+                }
             }
         }
 
-        @media (max-width:768px) {
+        @media (max-width: 768px) {
             .nav-center {
                 display: none
             }
@@ -375,7 +381,26 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             .hero-box {
                 padding: 8vw 6vw 0 6vw;
                 display: block;
-                height: auto
+                height: auto;
+            }
+
+            .hero-image {
+                height: 300px;
+                position: relative;
+                width: 100%;
+                margin-top: -20px;
+            }
+
+            .hero-man-img {
+                position: relative;
+                right: -20px;
+                bottom: 0px;
+                max-height: 100%;
+                max-width: 90%;
+            }
+
+            .hero-content {
+                padding-bottom: 20px;
             }
         }
 
@@ -400,7 +425,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       "name": "niogod™",
       "url": "https://niogod.com",
       "logo": "https://niogod.com/assets/favicon.png",
-      "description": "Deploying GCC grade talent in 72 hours. Institutional Rigor. Rapid Execution.",
+      "description": "Deploying GCC grade talent in 72 hours. Institutionalized Remote Engineering for the DACH Market.",
       "contactPoint": {
           "@type": "ContactPoint",
           "email": "hello@niogod.com",
@@ -408,33 +433,35 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       }
     }
     </script>
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '904615942020063');
-fbq('track', 'PageView');
-</script>
-<!-- End Meta Pixel Code -->
+    <!-- Meta Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '904615942020063');
+        fbq('track', 'PageView');
+    </script>
+    <!-- End Meta Pixel Code -->
 </head>
 
 <body>
-<!-- Meta Pixel Code (noscript) -->
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=904615942020063&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code (noscript) -->
+    <!-- Meta Pixel Code (noscript) -->
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=904615942020063&ev=PageView&noscript=1" /></noscript>
+    <!-- End Meta Pixel Code (noscript) -->
 
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KRJSPDZ3"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KRJSPDZ3" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
 
     <!-- Header -->
@@ -475,34 +502,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="container">
                 <div class="hero-box">
                     <div class="hero-content">
+                        <h1 class="hero-title">INSTITUTIONALISIERTES<br>REMOTE-ENGINEERING<br>FÜR DEN DACH-MARKT.</h1>
+                        <p class="hero-subtitle">Setzen Sie verwaltete Engineering-Squads unter deutschen Rechtsrahmen
+                            ein.
+                            Optimieren Sie Ihre F&E-Ausgaben um 60 % durch institutionalisierte Remote-Protokolle.</p>
 
-
-                        <h1 class="hero-title">INSTITUTIONELLE STRENGE.<br>SCHNELLE UMSETZUNG.</h1>
-                        <p class="hero-subtitle">Bereitstellung von GCC-Grade-Talenten in 72 Stunden.</p>
-
-                        <div class="hero-helper-text">
-                            Abonnieren Sie den niogod™ Intelligence Report. <a
-                                href="../assets/Sample Intelligence Report.pdf" class="sample-link"
-                                target="_blank">Beispiel</a>
-                        </div>
                         <div class="hero-cta-group">
-                            <form class="hero-subscribe-bar" id="subscribe-form">
-                                <input type="email" name="email" placeholder="name@company.com" required>
-                                <button type="submit">Abonnieren</button>
-                            </form>
+                            <a href="newsletter.html" class="btn btn-outline btn-pill">
+                                Intelligence Report erhalten
+                            </a>
                             <a href="contact.html" class="btn btn-primary btn-pill">
-                                Kontakt <span class="arrow-icon">→</span>
+                                Beratung buchen <span class="arrow-icon">→</span>
                             </a>
                         </div>
                     </div>
 
                     <div class="hero-image">
-
+                        <!-- Image Levitation: Picture Tag -->
                         <picture>
-                            <source srcset="../assets/hero-man.webp" type="image/webp">
-                            <source srcset="../assets/hero-man.png" type="image/png">
-                            <img src="../assets/hero-man.png" alt="niogod™ Engineering" class="hero-man-img" width="800"
-                                height="auto">
+                            <source srcset="../assets/hero-image.webp" type="image/webp">
+                            <img src="../assets/hero-image.png" alt="niogod™ Engineering" class="hero-man-img"
+                                width="800" height="auto">
                         </picture>
                     </div>
                 </div>
@@ -719,7 +739,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="footer-grid">
                 <div class="footer-col">
                     <h3 class="footer-logo">niogod™</h3>
-                    <p>Infrastruktur für das moderne Unternehmen.</p>
+                    <p>Institutionalisiertes Remote-Engineering für den DACH-Markt. Eingesetzt unter strengen deutschen
+                        Rechtsrahmen.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Unternehmen</h4>
@@ -744,6 +765,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <div class="footer-col">
                     <h4>Kontakt</h4>
                     <p><a href="mailto:hello@niogod.com">hello@niogod.com</a></p>
+                    <h4 style="margin-top: 20px;">DACH Liaison</h4>
+                    <p>Pfaffenwaldring 50,<br>Stuttgart, Deutschland 70569</p>
                 </div>
             </div>
             <div class="footer-bottom">
