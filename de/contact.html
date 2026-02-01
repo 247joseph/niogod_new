@@ -496,40 +496,12 @@
                 <h2 style="text-align: center; margin-bottom: 30px; font-size: 1.8rem;">Beratungstermin vereinbaren</h2>
                 <!-- Calendly inline widget begin -->
                 <!-- Calendly inline widget begin -->
-                <div class="calendly-inline-widget" id="calendly-embed"
+                <div class="calendly-inline-widget"
                     data-url="https://calendly.com/247josephjose/30min?hide_gdpr_banner=1"
-                    style="min-width:320px;height:700px; position: relative;">
-                    <div id="calendly-loader"
-                        style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
-                        <div
-                            style="border: 4px solid #f3f3f3; border-top: 4px solid #4f5d75; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin: 0 auto 20px;">
-                        </div>
-                        <p style="color: #666; font-family: var(--font-sans);">Kalender wird geladen...</p>
-                    </div>
-                </div>
-
-                <style>
-                    @keyframes spin {
-                        0% {
-                            transform: rotate(0deg);
-                        }
-
-                        100% {
-                            transform: rotate(360deg);
-                        }
-                    }
-                </style>
-
-                <script type="text/javascript">
-                    setTimeout(function () {
-                        var head = document.getElementsByTagName('head')[0];
-                        var script = document.createElement('script');
-                        script.type = 'text/javascript';
-                        script.src = 'https://assets.calendly.com/assets/external/widget.js';
-                        script.async = true;
-                        head.appendChild(script);
-                    }, 3000);
-                </script>
+                    style="min-width:320px;height:700px;"></div>
+                <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"
+                    async></script>
+                <!-- Calendly inline widget end -->
                 <!-- Calendly inline widget end -->
                 <!-- Calendly inline widget end -->
             </div>
