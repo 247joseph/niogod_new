@@ -1658,8 +1658,8 @@ ul {
     top: 10px;
     left: 10px;
     /* Left side for close, usually convenient if controls are right */
-    width: 28px;
-    height: 28px;
+    width: 32px;
+    height: 32px;
     background: rgba(0, 0, 0, 0.6);
     border: none;
     border-radius: 50%;
@@ -1685,8 +1685,8 @@ ul {
     background: rgba(0, 0, 0, 0.6);
     border: none;
     border-radius: 50%;
-    width: 36px;
-    height: 36px;
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
