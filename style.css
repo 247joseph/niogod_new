@@ -39,6 +39,43 @@
     --radius-lg: 20px;
 }
 
+/* --- Custom Icons --- */
+.custom-icon {
+    width: 24px;
+    height: 24px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.custom-icon-sm {
+    width: 18px;
+    height: 18px;
+}
+
+.custom-icon-lg {
+    width: 48px;
+    height: 48px;
+    stroke-width: 1.5;
+}
+
+/* Specific Overrides */
+.bento-card .icon-header .custom-icon {
+    width: 40px;
+    height: 40px;
+    stroke: var(--primary-color);
+}
+
+.feature-icon .custom-icon {
+    width: 48px;
+    height: 48px;
+    stroke: var(--primary-color);
+}
+
 * {
     margin: 0;
     padding: 0;

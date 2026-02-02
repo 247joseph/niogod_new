@@ -423,7 +423,7 @@
         !function (f, b, e, v, n, t, s) {
             if (f.fbq) return; n = f.fbq = function () {
                 n.callMethod ?
-                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
             };
             if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
             n.queue = []; t = b.createElement(e); t.async = !0;
@@ -501,21 +501,36 @@
 
                     <!-- Stat Card 1 -->
                     <div class="bento-card span-4">
-                        <div class="icon-header">📈</div>
+                        <div class="icon-header"><svg class="custom-icon" viewBox="0 0 24 24">
+                                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                                <polyline points="17 6 23 6 23 12" />
+                            </svg></div>
                         <h3>5 Million+ Engineers</h3>
                         <p>The world's largest pool of STEM talent, growing by 1.5 million graduates annually.</p>
                     </div>
 
                     <!-- Stat Card 2 -->
                     <div class="bento-card span-4">
-                        <div class="icon-header">🏢</div>
+                        <div class="icon-header"><svg class="custom-icon" viewBox="0 0 24 24">
+                                <rect x="4" y="2" width="16" height="20" rx="2" ry="2" />
+                                <line x1="9" y1="22" x2="9" y2="22" />
+                                <line x1="15" y1="22" x2="15" y2="22" />
+                                <line x1="12" y1="22" x2="12" y2="22" />
+                                <line x1="12" y1="2" x2="12" y2="2" />
+                                <line x1="9" y1="2" x2="9" y2="2" />
+                                <line x1="15" y1="2" x2="15" y2="2" />
+                            </svg></div>
                         <h3>GCC Maturity</h3>
                         <p>Home to over 1,500 Global Capability Centers (GCCs) for Fortune 500 companies.</p>
                     </div>
 
                     <!-- Stat Card 3 -->
                     <div class="bento-card span-4">
-                        <div class="icon-header">🧠</div>
+                        <div class="icon-header"><svg class="custom-icon" viewBox="0 0 24 24">
+                                <path d="M12 2a5 5 0 0 0-5 5v2a5 5 0 0 0 10 0V7a5 5 0 0 0-5-5z" />
+                                <path
+                                    d="M19 14a5 5 0 0 0-4.08-2.61L12 10.3l-2.92 1.09A5 5 0 0 0 5 14v1a5 5 0 0 0 5 5h4a5 5 0 0 0 5-5v-1z" />
+                            </svg></div>
                         <h3>AI-Ready Talent</h3>
                         <p>Leading the world in AI/ML concentration. Proficient in LLMs, Vector DBs, and modern stacks.
                         </p>
@@ -545,7 +560,12 @@
                     <!-- Cultural Alignment -->
                     <div class="bento-card span-4 row-span-2">
                         <div>
-                            <div class="icon-header">🤝</div>
+                            <div class="icon-header"><svg class="custom-icon" viewBox="0 0 24 24">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                    <circle cx="9" cy="7" r="4" />
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                                </svg></div>
                             <h3>Cultural Bridge</h3>
                             <p>We solve the "Cultural Latency" often faced in outsourcing.</p>
                             <ul
