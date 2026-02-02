@@ -2440,3 +2440,51 @@ h6 {
     font-weight: 600;
     margin-top: 10px;
 }
+/* =========================================
+   Mobile Icon Optimization
+   ========================================= */
+
+@media (max-width: 992px) {
+    /* Slightly smaller icons for tablets */
+    .feature-icon .custom-icon {
+        width: 42px;
+        height: 42px;
+    }
+    
+    .bento-card .icon-header .custom-icon {
+        width: 36px;
+        height: 36px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Optimized sizes for mobile screens */
+    .custom-icon-lg {
+        width: 40px;
+        height: 40px;
+    }
+
+    .feature-icon .custom-icon {
+        width: 36px;
+        height: 36px;
+        stroke-width: 1.5; /* Lighter stroke for smaller size */
+    }
+
+    .bento-card .icon-header .custom-icon {
+        width: 32px;
+        height: 32px;
+        stroke-width: 1.5;
+    }
+    
+    .section-title svg.custom-icon {
+        width: 28px;
+        height: 28px;
+    }
+    
+    /* Ensure inline icons in lists don't break flow */
+    li .custom-icon-sm {
+        width: 16px;
+        height: 16px;
+        margin-top: -2px; /* Fine-tune vertical alignment */
+    }
+}
