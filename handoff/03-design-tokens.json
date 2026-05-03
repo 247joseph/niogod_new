@@ -1,0 +1,163 @@
+{
+  "$schema": "https://design-tokens.org/schema.json",
+  "name": "niogod-design-tokens",
+  "version": "1.0.0",
+  "color": {
+    "ink": {
+      "$value": "#0A0A0A",
+      "$type": "color",
+      "$description": "Near-black. Body text on paper. Background on inverted sections."
+    },
+    "paper": {
+      "$value": "#F5F4EE",
+      "$type": "color",
+      "$description": "Paper-warm white. Default page background. Reads more institutional than #FFFFFF."
+    },
+    "paper-shade-1": {
+      "$value": "#EDECE5",
+      "$type": "color",
+      "$description": "First-step shade of paper for section banding. Use sparingly — never on every section."
+    },
+    "rule": {
+      "$value": "#1F1F1D",
+      "$type": "color",
+      "$description": "Hairline rule color on paper. 1px borders, table dividers."
+    },
+    "rule-inverted": {
+      "$value": "#2C2B27",
+      "$type": "color",
+      "$description": "Hairline rule on ink background."
+    },
+    "muted": {
+      "$value": "#5A5A55",
+      "$type": "color",
+      "$description": "Secondary text on paper. Captions, footnotes, metadata strings. Never used for body."
+    },
+    "muted-inverted": {
+      "$value": "#A8A6A0",
+      "$type": "color",
+      "$description": "Secondary text on ink."
+    },
+    "sovereign-red": {
+      "$value": "#B30E1A",
+      "$type": "color",
+      "$description": "Sole accent. Live status indicators, AÜG-status active flags, primary CTAs only. Never decorative."
+    },
+    "amber": {
+      "$value": "#C68A1E",
+      "$type": "color",
+      "$description": "Status: in review / im Verfahren / pending. Used only on status tokens, never on text or CTA."
+    },
+    "evergreen": {
+      "$value": "#2E6B3F",
+      "$type": "color",
+      "$description": "Status: active / valid / certified. Used only on status tokens."
+    },
+    "focus-ring": {
+      "$value": "#0A0A0A",
+      "$type": "color",
+      "$description": "Keyboard focus indicator. 2px solid offset on paper; switches to paper on ink backgrounds."
+    }
+  },
+  "typography": {
+    "family": {
+      "display": {
+        "$value": "'Söhne Breit', 'GT America Condensed', 'Aktiv Grotesk Condensed', system-ui, sans-serif",
+        "$type": "fontFamily",
+        "$description": "Display only. H1, H2, hero numerals. Tracking tight. All-caps default."
+      },
+      "body": {
+        "$value": "'Inter Tight', 'Söhne', system-ui, sans-serif",
+        "$type": "fontFamily",
+        "$description": "Body, UI, navigation, form labels. 400/500/600 weights only."
+      },
+      "mono": {
+        "$value": "'Berkeley Mono', 'JetBrains Mono', ui-monospace, 'SF Mono', monospace",
+        "$type": "fontFamily",
+        "$description": "Every identifier: AÜG-Erlaubnis Nr., HRB, USt-IdNr., CIN, timestamps, file references, status strings, table figures. Used generously — mono is the institutional signal."
+      }
+    },
+    "size": {
+      "xs":   { "$value": "13px",  "$type": "dimension", "$description": "Footnotes, caption-mono, status strip" },
+      "sm":   { "$value": "14px",  "$type": "dimension", "$description": "Captions, metadata" },
+      "base": { "$value": "17px",  "$type": "dimension", "$description": "Body — mobile default" },
+      "base-desktop": { "$value": "18px", "$type": "dimension", "$description": "Body — desktop ≥ 768px" },
+      "lg":   { "$value": "20px",  "$type": "dimension", "$description": "Lede, prose intro paragraphs" },
+      "xl":   { "$value": "24px",  "$type": "dimension", "$description": "H4 / pod role title" },
+      "2xl":  { "$value": "32px",  "$type": "dimension", "$description": "H3" },
+      "3xl":  { "$value": "44px",  "$type": "dimension", "$description": "H2 — section openers" },
+      "4xl":  { "$value": "64px",  "$type": "dimension", "$description": "H1 — interior page" },
+      "5xl":  { "$value": "88px",  "$type": "dimension", "$description": "H1 — homepage hero, desktop" }
+    },
+    "lineHeight": {
+      "tight":   { "$value": "1.05", "$type": "number", "$description": "Display headings only" },
+      "snug":    { "$value": "1.2",  "$type": "number", "$description": "H3, H4" },
+      "normal":  { "$value": "1.55", "$type": "number", "$description": "Body paragraphs" },
+      "relaxed": { "$value": "1.7",  "$type": "number", "$description": "Long-form prose on /insights" }
+    },
+    "tracking": {
+      "tight":  { "$value": "-0.02em", "$type": "string", "$description": "Display all-caps" },
+      "normal": { "$value": "0",        "$type": "string", "$description": "Body" },
+      "wide":   { "$value": "0.08em",   "$type": "string", "$description": "Mono labels, status strip tokens" }
+    }
+  },
+  "spacing": {
+    "0":    { "$value": "0px",    "$type": "dimension" },
+    "1":    { "$value": "4px",    "$type": "dimension" },
+    "2":    { "$value": "8px",    "$type": "dimension" },
+    "3":    { "$value": "12px",   "$type": "dimension" },
+    "4":    { "$value": "16px",   "$type": "dimension" },
+    "5":    { "$value": "24px",   "$type": "dimension" },
+    "6":    { "$value": "32px",   "$type": "dimension" },
+    "7":    { "$value": "48px",   "$type": "dimension" },
+    "8":    { "$value": "64px",   "$type": "dimension" },
+    "9":    { "$value": "96px",   "$type": "dimension" },
+    "10":   { "$value": "128px",  "$type": "dimension" },
+    "section-mobile":  { "$value": "96px",  "$type": "dimension", "$description": "Vertical rhythm between page sections, mobile" },
+    "section-desktop": { "$value": "160px", "$type": "dimension", "$description": "Vertical rhythm between page sections, desktop" }
+  },
+  "layout": {
+    "content-max":  { "$value": "1280px", "$type": "dimension", "$description": "Max content width on desktop. Hard cap." },
+    "prose-max":    { "$value": "680px",  "$type": "dimension", "$description": "Max prose column width on /insights and /dossiers." },
+    "gutter-mobile": { "$value": "20px",  "$type": "dimension" },
+    "gutter-tablet": { "$value": "32px",  "$type": "dimension" },
+    "gutter-desktop": { "$value": "48px", "$type": "dimension" },
+    "columns": { "$value": "12", "$type": "number" }
+  },
+  "border": {
+    "width": {
+      "hairline": { "$value": "1px", "$type": "dimension" },
+      "rule":     { "$value": "2px", "$type": "dimension", "$description": "Underline on table headers, strong dividers" }
+    },
+    "radius": {
+      "none": { "$value": "0px", "$type": "dimension" },
+      "sm":   { "$value": "2px", "$type": "dimension", "$description": "Status tokens. Maximum radius on the site." }
+    }
+  },
+  "shadow": {
+    "$description": "No shadows. No elevation. The brand does not stack layers visually. Prop intentionally empty."
+  },
+  "motion": {
+    "$description": "Per §6.6: no motion on first paint. Subtle prefers-reduced-motion respect. CTAs do not animate.",
+    "duration": {
+      "instant": { "$value": "0ms",   "$type": "duration" },
+      "fast":    { "$value": "120ms", "$type": "duration", "$description": "Status token fade-in only" }
+    },
+    "easing": {
+      "linear": { "$value": "linear", "$type": "string" }
+    }
+  },
+  "breakpoint": {
+    "sm": { "$value": "640px",  "$type": "dimension" },
+    "md": { "$value": "768px",  "$type": "dimension" },
+    "lg": { "$value": "1024px", "$type": "dimension" },
+    "xl": { "$value": "1280px", "$type": "dimension" }
+  },
+  "z": {
+    "base":         { "$value": "0",   "$type": "number" },
+    "raised":       { "$value": "10",  "$type": "number" },
+    "status-strip": { "$value": "40",  "$type": "number" },
+    "nav":          { "$value": "50",  "$type": "number" },
+    "consent":      { "$value": "100", "$type": "number" }
+  }
+}
