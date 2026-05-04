@@ -501,6 +501,18 @@
         </section>
 
         <!-- Anatomy of the Pod -->
+        <style>
+            /* Mobile: make role cards readable on narrow viewports */
+            @media (max-width: 768px) {
+                .pod-role-card {
+                    padding: 24px !important;
+                }
+                .pod-role-grid {
+                    grid-template-columns: 1fr !important;
+                    gap: 20px !important;
+                }
+            }
+        </style>
         <section class="intro-section">
             <div class="container">
                 <div class="section-header text-center" style="margin-bottom: 50px;">
@@ -509,11 +521,11 @@
                 </div>
 
                 <!-- Projektleiter -->
-                <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 40px; margin-bottom: 24px;">
+                <div class="pod-role-card" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 40px; margin-bottom: 24px;">
                     <div style="font-family: var(--font-mono); color: var(--primary-color); font-size: 0.9rem; margin-bottom: 8px;">// Projektleiter &mdash; DACH Liaison</div>
                     <h3 style="font-size: 1.6rem; margin-bottom: 16px;">The single point of contact.</h3>
                     <p style="color: var(--text-secondary); line-height: 1.75; margin-bottom: 20px;">First and only interface to the Geschäftsführung des Mandanten. C1 German native or near-native. Owns sprint planning, risk reporting, escalation paths, and the legal interface between niogod&trade; and the Mandanten-Gesellschaft. Absorbs the operational complexity of the offshore layer.</p>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                    <div class="pod-role-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
                         <div>
                             <p style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 8px;">// Qualifications</p>
                             <ul style="list-style-type: disc; padding-left: 20px; color: var(--text-secondary); line-height: 1.8;">
@@ -534,11 +546,11 @@
                 </div>
 
                 <!-- Senior Consultant -->
-                <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 40px; margin-bottom: 24px;">
+                <div class="pod-role-card" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 40px; margin-bottom: 24px;">
                     <div style="font-family: var(--font-mono); color: var(--primary-color); font-size: 0.9rem; margin-bottom: 8px;">// Senior Consultant &mdash; Architecture layer</div>
                     <h3 style="font-size: 1.6rem; margin-bottom: 16px;">10+ years of vertical seniority.</h3>
                     <p style="color: var(--text-secondary); line-height: 1.75; margin-bottom: 20px;">Architecture, technical reviews, and the bridge between the Mandant CTO and the Pilot Engineer. Selected per vertical: Robotics, ML/AI, AUTOSAR, SAP S/4HANA, IEC 62304-grade medtech, dual-use defense stacks.</p>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                    <div class="pod-role-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
                         <div>
                             <p style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 8px;">// Qualifications</p>
                             <ul style="list-style-type: disc; padding-left: 20px; color: var(--text-secondary); line-height: 1.8;">
@@ -559,11 +571,11 @@
                 </div>
 
                 <!-- Pilot Engineer -->
-                <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 40px;">
+                <div class="pod-role-card" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 40px;">
                     <div style="font-family: var(--font-mono); color: var(--primary-color); font-size: 0.9rem; margin-bottom: 8px;">// Pilot Engineer &mdash; Execution layer</div>
                     <h3 style="font-size: 1.6rem; margin-bottom: 16px;">The execution layer.</h3>
                     <p style="color: var(--text-secondary); line-height: 1.75; margin-bottom: 20px;">Highly specialized engineer drawn from India's Tier-1 institutional alumni network &mdash; IIT, BITS, IIIT, NIT, ISI, IISc. Pre-filtered through the five-stage niogod&trade; vetting funnel. Operates exclusively under direction of the Senior Consultant, under Werkvertragsmandate of the Projektleiter.</p>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                    <div class="pod-role-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
                         <div>
                             <p style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 8px;">// Qualifications</p>
                             <ul style="list-style-type: disc; padding-left: 20px; color: var(--text-secondary); line-height: 1.8;">

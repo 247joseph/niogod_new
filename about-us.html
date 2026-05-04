@@ -539,13 +539,33 @@
         </section>
 
         <!-- Founder -->
+        <style>
+            /* Mobile: collapse founder portrait + bio into a single column */
+            @media (max-width: 768px) {
+                .founder-grid {
+                    grid-template-columns: 1fr !important;
+                    gap: 24px !important;
+                    max-width: 100% !important;
+                }
+                .founder-grid img {
+                    width: 100% !important;
+                    max-width: 280px;
+                    height: auto !important;
+                    aspect-ratio: 1 / 1;
+                    margin: 0 auto;
+                }
+                .founder-grid > div:first-child {
+                    text-align: center;
+                }
+            }
+        </style>
         <section style="padding: 80px 0; background-color: #f9f9ff;">
             <div class="container">
                 <div class="section-header text-center" style="margin-bottom: 40px;">
                     <h2 class="section-title">Founder.</h2>
                     <p class="section-subtitle" style="font-family: var(--font-mono);">// Joseph Jose &middot; Chief Executive</p>
                 </div>
-                <div style="display: grid; grid-template-columns: 200px 1fr; gap: 40px; max-width: 900px; margin: 0 auto; align-items: start;">
+                <div class="founder-grid" style="display: grid; grid-template-columns: 200px 1fr; gap: 40px; max-width: 900px; margin: 0 auto; align-items: start;">
                     <div>
                         <img src="assets/team-joseph.jpg" alt="Joseph Jose, Chief Executive" style="width: 200px; height: 200px; border-radius: 8px; object-fit: cover; display: block; filter: grayscale(15%);" loading="lazy" width="200" height="200">
                         <p style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); margin-top: 12px;">// Joseph Jose<br>// Chief Executive<br>// Stuttgart &middot; Kochi</p>
