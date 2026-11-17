@@ -2488,3 +2488,7 @@ h6 {
         margin-top: -2px; /* Fine-tune vertical alignment */
     }
 }
+
+/* Keep header CTA on one line (long German label) */
+.nav-cta{white-space:nowrap}
+@media (min-width:993px){.nav-list{gap:28px}.nav-center{padding-right:20px}}
