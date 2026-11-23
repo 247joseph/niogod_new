@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KRJSPDZ3');</script>
+<!-- End Google Tag Manager -->
+
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://niogod.com/de/insights/delivery-technical-debt-budget-sprint-based-external-delivery.html">
+    <meta property="og:title" content="Technische Schulden budgetieren in sprintbasierter externer Lieferung | niogod™ Intelligence">
+    <meta property="og:description" content="Wie Sie Sprintkapazität für technische Schulden reservieren, wenn ein externes Pod nach Leistungsbeschreibung liefert: Schuldenregister, Regeln und Kennzahlen.">
+    <meta property="og:image" content="https://niogod.com/assets/niogod-share-preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://niogod.com/de/insights/delivery-technical-debt-budget-sprint-based-external-delivery.html">
+    <meta property="twitter:title" content="Technische Schulden budgetieren in sprintbasierter externer Lieferung | niogod™ Intelligence">
+    <meta property="twitter:description" content="Wie Sie Sprintkapazität für technische Schulden reservieren, wenn ein externes Pod nach Leistungsbeschreibung liefert: Schuldenregister, Regeln und Kennzahlen.">
+    <meta property="twitter:image" content="https://niogod.com/assets/niogod-share-preview.png">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technische Schulden budgetieren in sprintbasierter externer Lieferung | niogod™ Intelligence</title>
+    <link rel="canonical" href="https://niogod.com/de/insights/delivery-technical-debt-budget-sprint-based-external-delivery.html">
+    <link rel="alternate" hreflang="en" href="https://niogod.com/insights/delivery-technical-debt-budget-sprint-based-external-delivery.html">
+    <link rel="alternate" hreflang="de" href="https://niogod.com/de/insights/delivery-technical-debt-budget-sprint-based-external-delivery.html">
+    <meta name="description" content="Wie Sie Sprintkapazität für technische Schulden reservieren, wenn ein externes Pod nach Leistungsbeschreibung liefert: Schuldenregister, Regeln und Kennzahlen.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="icon" href="../../assets/favicon.png" type="image/png">
+    
+    <!-- Critical CSS Inlined for <500ms Render -->
+    <style>
+:root{--bg-color:#ffffff;--bg-light:#f3f4f6;--bg-card:#ffffff;--text-primary:#2d283e;--text-secondary:#564f6f;--text-light:#7e6e9c;--text-dark:#1e1b29;--text-accent:#4f5d75;--text-white:#ffffff;--primary-color:#4f5d75;--primary-light:#77859d;--primary-dark:#2d3748;--primary-gradient:linear-gradient(135deg,#4f5d75 0%,#7e6e9c 100%);--primary-gradient-hover:linear-gradient(135deg,#3e4a5e 0%,#63567a 100%);--border-color:#e5e7eb;--font-sans:'Inter',system-ui,-apple-system,sans-serif;--font-mono:'JetBrains Mono','Fira Code',monospace;--shadow-sm:0 1px 2px 0 rgba(0,0,0,0.05);--shadow-md:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);--shadow-lg:0 10px 15px -3px rgba(0,0,0,0.1),0 4px 6px -2px rgba(0,0,0,0.05);--radius-sm:8px;--radius-md:12px;--radius-lg:20px}*{margin:0;padding:0;box-sizing:border-box}body{font-family:var(--font-sans);color:var(--text-primary);line-height:1.6;background-color:var(--bg-color);overflow-x:hidden;-webkit-font-smoothing:antialiased}a{text-decoration:none;color:inherit;transition:all .3s ease}ul{list-style:none}.container{width:90%;max-width:1200px;margin:0 auto;padding:0 20px}.btn{display:inline-block;padding:12px 30px;border-radius:50px;font-weight:600;cursor:pointer;text-align:center;border:2px solid transparent}.btn-primary{background:var(--primary-gradient);color:var(--text-white);box-shadow:var(--shadow-md)}.btn-primary:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg);background:var(--primary-gradient-hover)}.btn-outline{border-color:var(--primary-color);color:var(--primary-color);background:0 0}.btn-white{background:var(--text-white);color:var(--primary-color)}.header{position:fixed;top:0;left:0;width:100%;z-index:1000;background:#fff;padding:15px 0;box-shadow:0 1px 0 rgba(0,0,0,0.05)}.header-container{display:flex;justify-content:space-between;align-items:center}.logo{font-size:1.8rem;font-weight:800;background:var(--primary-gradient);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;letter-spacing:-1px;z-index:1001}.nav-center{flex:1;display:flex;justify-content:flex-end;padding-right:40px}.nav-list{display:flex;align-items:center;gap:40px}.nav-link{font-weight:500;color:var(--text-dark);font-size:.95rem}.nav-link:hover,.nav-link.active{color:var(--primary-color)}.header-right{display:flex;align-items:center;gap:15px}.nav-cta{padding:10px 24px;font-size:.9rem;white-space:nowrap}.mobile-only-li{display:none}.mobile-menu-toggle{display:none}.hero{padding-top:100px;padding-bottom:60px;background:#f8f9fa;overflow:hidden}.hero-box{display:grid;grid-template-columns:1fr 1fr;gap:40px;background:linear-gradient(135deg,#f1f5ff 0%,#fefeff 100%);border-radius:40px;padding:2rem 3rem 0 3rem;position:relative;box-shadow:0 4px 6px -1px rgba(0,0,0,0.05);border:1px solid #eef2f6;align-items:end;max-height:550px;overflow:hidden}.hero-content{display:flex;flex-direction:column;justify-content:center;padding-bottom:3rem;padding-top:2rem;z-index:2;height:100%}.hero-title{font-size:3.5rem;font-weight:800;line-height:1.1;margin-bottom:20px;color:var(--text-dark);text-transform:uppercase}.hero-subtitle{font-size:1.25rem;color:var(--text-secondary);line-height:1.6;margin-bottom:25px;max-width:90%}.hero-helper-text{font-size:.85rem;color:var(--text-secondary);background:var(--bg-light);border:1px solid var(--border-color);padding:6px 14px;border-radius:20px;margin-bottom:12px;font-weight:500;display:inline-block;width:fit-content;max-width:100%}.hero-cta-group{display:flex;flex-direction:row;gap:20px;align-items:center;width:100%;margin-top:10px}.hero-subscribe-bar{display:flex;align-items:center;background:#fff;border:1px solid #eee;border-radius:50px;padding:3px 3px 3px 20px;width:100%;max-width:380px;transition:box-shadow .3s ease;box-shadow:0 4px 15px rgba(0,0,0,0.05)}.hero-subscribe-bar input{background:0 0;border:none;outline:none;color:#333;flex-grow:1;font-size:.95rem;min-width:0}.hero-subscribe-bar button{background:var(--primary-gradient);color:#fff;border:none;border-radius:30px;padding:8px 20px;font-size:.9rem;font-weight:500;cursor:pointer;white-space:nowrap}.btn-pill{width:auto;min-width:0;justify-content:center;border-radius:50px;padding:10px 24px;font-size:.95rem;display:inline-flex;align-items:center;gap:8px;white-space:nowrap;height:44px;color:#fff;border:none}.hero-image{display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-end;position:relative;height:100%}.hero-man-img{width:auto;max-width:130%;height:auto;max-height:580px;object-fit:contain;object-position:bottom right;display:block;position:absolute;bottom:-70px;right:-20px}@media (max-width:992px){.hero-box{padding:3rem 1.5rem 0 1.5rem;grid-template-columns:60% 40%;align-items:center;gap:20px;max-height:600px;height:auto}.hero-title{font-size:2rem}.mobile-menu-toggle{display:flex}.hero-man-img{position:static;max-height:480px;width:160%;max-width:160%;margin-right:-40px;margin-bottom:0}}@media (max-width:768px){.nav-center{display:none}.hero-box{padding:8vw 6vw 0 6vw;display:block;height:auto}.hero-image{display:none}}
+</style>
+
+    <!-- Async Main CSS -->
+    <link rel="preload" href="../../style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="../../style.css"></noscript>
+        
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "niogod™",
+      "url": "https://niogod.com",
+      "logo": "https://niogod.com/assets/favicon.png",
+      "description": "Managed Engineering Pods for DACH Deep Tech. AÜG-konform, Werkvertrag-led, three-person pods deployed in 72 hours.",
+      "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "hello@niogod.com",
+          "contactType": "customer service"
+      }
+    }
+    </script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Technische Schulden budgetieren in sprintbasierter externer Lieferung", "description": "Wie Sie Sprintkapazität für technische Schulden reservieren, wenn ein externes Pod nach Leistungsbeschreibung liefert: Schuldenregister, Regeln und Kennzahlen.", "datePublished": "2026-11-23", "inLanguage": "de", "author": {"@type": "Person", "name": "Joseph Jose"}, "publisher": {"@type": "Organization", "name": "niogod™", "url": "https://niogod.com"}, "mainEntityOfPage": "https://niogod.com/de/insights/delivery-technical-debt-budget-sprint-based-external-delivery.html"}</script>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '904615942020063');
+fbq('track', 'PageView');
+</script>
+<!-- End Meta Pixel Code -->
+</head>
+
+<body>
+<!-- Meta Pixel Code (noscript) -->
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=904615942020063&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code (noscript) -->
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KRJSPDZ3"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="../index.html" class="logo">niogod™</a>
+
+            <!-- Centered Nav Links -->
+            <nav class="nav-center">
+                <ul class="nav-list">
+                    <li><a href="../index.html" class="nav-link">Startseite</a></li>
+                    <li><a href="../regional-advantage.html" class="nav-link">Der Pod</a></li>
+                    <li><a href="../security.html" class="nav-link">Compliance Shield</a></li>
+                    <li><a href="../protocol.html" class="nav-link">Protokoll</a></li>
+                    <li><a href="../case-studies.html" class="nav-link">Einsätze</a></li>
+                    <li><a href="../blog.html" class="nav-link active">Intelligence</a></li>
+                    <li><a href="../about-us.html" class="nav-link">Über uns</a></li>
+                    <li class="mobile-only-li"><a href="../contact.html" class="nav-link">Konsultation</a></li>
+                </ul>
+            </nav>
+
+            <!-- Right Side CTA & Mobile Toggle -->
+            <div class="header-right">
+                <div class="lang-switcher"><a href="../../insights/delivery-technical-debt-budget-sprint-based-external-delivery.html" class="lang-link" data-lang="en">EN</a><span>|</span><a href="#" class="active">DE</a></div>
+                <a href="../contact.html" class="btn btn-primary nav-cta">Konsultation vereinbaren</a>
+                <div class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+
+    <!-- Article Header -->
+    <section class="page-header" style="background: linear-gradient(180deg, #fdfbfd 0%, #eee8 100%); padding-bottom: 40px;">
+        <div class="container" style="max-width: 800px;">
+            <div class="blog-meta" style="justify-content: center; display: flex; gap: 10px; margin-bottom: 20px;">
+                <span style="font-family: var(--font-mono);">// Analyse</span> &middot; <span>Qualität</span> &middot; <span>2026-11-23</span>
+            </div>
+            <h1 class="page-title" style="font-size: 2.5rem;">Technische Schulden budgetieren in sprintbasierter externer Lieferung</h1>
+            <div style="margin-top: 30px; display: flex; align-items: center; justify-content: center; gap: 15px;">
+                <div class="team-avatar" style="width: 50px; height: 50px; margin: 0; font-size: 1rem; display:flex; align-items:center; justify-content:center; background:#e0d4fc;">JJ</div>
+                <div style="text-align: left;">
+                    <div style="font-weight: 700;">Joseph Jose</div>
+                    <div style="font-size: 0.8rem; color: #666;">Gr&uuml;nder &amp; CEO, niogod&trade;</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article Body -->
+    <section class="text-content-section">
+        <div class="container text-content" style="max-width: 700px; margin: 0 auto; font-size: 1.1rem; line-height: 1.8;">
+<p>Interne Teams handeln Zeit für Refactoring informell aus. Bei einem externen Pod, das nach sprintbasiertem Leistungsumfang arbeitet, gibt es diesen informellen Kanal nicht. Jeder Sprint wird nach den Prioritäten des Kunden geplant, und Arbeit, die kein Stakeholder angefordert hat, verschwindet tendenziell. Das Ergebnis ist eine Codebasis, die jedes Quartal etwas langsamer wird, bis der Kunde zu dem Schluss kommt, das externe Team sei weniger produktiv geworden. Die Antwort ist ein Budget für technische Schulden: ein fester, vereinbarter Anteil der Sprintkapazität, gesteuert über ein sichtbares Schuldenregister und berichtet wie jedes andere Lieferergebnis.</p>
+<h2>Die Größenordnung des Problems</h2>
+<p>Technische Schulden sind auf jeder Ebene teuer. McKinsey berichtet, dass CIOs technische Schulden auf 20 bis 40 Prozent des Werts ihres gesamten Technologiebestands vor Abschreibungen schätzen, dass Unternehmen zusätzlich 10 bis 20 Prozent auf Projektkosten zahlen, um sie zu adressieren, und dass 30 Prozent der befragten CIOs glauben, mehr als 20 Prozent ihres Budgets für neue Produkte fließe in die Behebung technischer Schulden. Auf Teamebene schätzte die Studie Developer Coefficient von Stripe aus dem Jahr 2018, dass Entwickler mehr als 17 Stunden pro Woche mit Wartungs- und Infrastrukturthemen verbringen.</p>
+<p>Mit KI-gestütztem Programmieren verschiebt sich das Risiko. Der DORA-Bericht 2024 von Google brachte eine höhere KI-Nutzung mit einem geschätzten Rückgang der Lieferstabilität um 7,2 Prozent in Verbindung. Mehr und schneller erzeugter Code kann mehr zu wartenden Code bedeuten, wenn Review und Refactoring nicht Schritt halten. Bemerkenswert: Der State of Developer Experience Report 2025 von Atlassian stellte fest, dass technische Schulden aus den fünf größten Reibungspunkten der Entwickler herausgefallen sind, verdrängt von organisatorischen Themen. Das heißt nicht, dass die Schulden verschwunden sind. Es heißt, dass sie leichter übersehen werden.</p>
+<h2>Warum externe Lieferung ein ausdrückliches Budget braucht</h2>
+<p>Drei strukturelle Gründe erschweren das Schuldenmanagement mit einem externen Team:</p>
+<ul>
+<li><strong>Der Umfang wird vom Kunden definiert.</strong> Ein Pod, das nach Leistungsbeschreibung arbeitet, baut, was spezifiziert ist. Nicht beauftragtes Refactoring kann wie Ausweitung des Umfangs oder Polsterung wirken.</li>
+<li><strong>Anreize zielen auf sichtbare Ergebnisse.</strong> Sprint Reviews belohnen vorführbare Funktionen. Refactoring lässt sich selten gut vorführen.</li>
+<li><strong>Langfristige Verantwortung liegt nur auf einer Seite.</strong> Der Kunde lebt jahrelang mit dem Code. Ohne ausdrücklichen Mechanismus ist auf Seiten des Dienstleisters niemand über das aktuelle Inkrement hinaus für dessen Zustand verantwortlich.</li>
+</ul>
+<p>Ein ausdrückliches Budget löst alle drei Punkte. Es ist Teil des vereinbarten Umfangs, wird wie Funktionen berichtet und macht das langfristige Interesse des Kunden zu einem festen Punkt in jedem Sprint.</p>
+<h2>Das Schuldenregister</h2>
+<p>Beginnen Sie mit einem Register im Ticketsystem des Kunden, gekennzeichnet durch ein eigenes Label. Jeder Eintrag enthält:</p>
+<table>
+<thead><tr><th>Feld</th><th>Zweck</th></tr></thead>
+<tbody>
+<tr><td>Beschreibung und Ort</td><td>Worin die Schuld besteht und wo sie in der Codebasis liegt</td></tr>
+<tr><td>Herkunft</td><td>Bewusste Abkürzung, veraltete Abhängigkeit, fehlende Tests, nicht mehr passendes Design, übernommener Code</td></tr>
+<tr><td>Zinsen</td><td>Wie sie heute schadet: langsamere Änderungen, Incidents, Sicherheitsrisiko, Einarbeitungsaufwand</td></tr>
+<tr><td>Tilgung</td><td>Geschätzter Aufwand zur Behebung in Story Points oder Personentagen</td></tr>
+<tr><td>Risiko bei Untätigkeit</td><td>Niedrig, mittel, hoch, mit einer Zeile Begründung</td></tr>
+<tr><td>Entscheidung</td><td>Sofort beheben, einplanen, akzeptieren und beobachten oder mit der Komponente stilllegen</td></tr>
+</tbody>
+</table>
+<p>Jeder Engineer auf beiden Seiten darf Einträge anlegen. Über die Priorität entscheiden nur Product Owner und Architekt des Kunden, beraten vom Senior Consultant des Pods.</p>
+<h2>Übernommene Schulden zu Beginn des Einsatzes</h2>
+<p>Ein Pod, das eine bestehende Codebasis übernimmt, übernimmt auch deren Schulden. Machen Sie das in den ersten beiden Sprints mit einer kurzen Ausgangsbewertung sichtbar: Alter der Abhängigkeiten, Testabdeckung je Modul, Build- und Deployment-Zeiten, bekannte Incident-Schwerpunkte. Die Ergebnisse bilden den Grundstock des Registers und geben beiden Seiten einen Bezugspunkt. Ohne Ausgangsbewertung läuft jede spätere Verlangsamung Gefahr, dem neuen Team zugeschrieben zu werden, und jede Verbesserung ist schwer nachzuweisen.</p>
+<h2>Regeln für die Zuteilung</h2>
+<p>Wir empfehlen, zu Beginn des Einsatzes einen Standardanteil der Sprintkapazität zu vereinbaren, typischerweise im Bereich von 10 bis 20 Prozent, angepasst an Alter und Zustand der Codebasis. Das ist eine Planungskonvention, kein Benchmark. Vier Regeln sorgen für Disziplin:</p>
+<ol>
+<li><strong>Das Budget wird geplant, nicht geliehen.</strong> Schuldenpositionen werden im Sprint Planning aus dem Register ausgewählt, mit derselben Definition of Ready wie Funktionen.</li>
+<li><strong>Ungenutztes Budget verfällt nicht stillschweigend.</strong> Wird in einem Sprint weniger genutzt, wird der Grund dokumentiert. Wird das Budget für ein Release gekürzt, ist die Kürzung eine dokumentierte Entscheidung des Kunden.</li>
+<li><strong>Neue bewusste Abkürzungen werden sofort erfasst.</strong> Akzeptiert der Kunde unter Termindruck eine schnellere Lösung, trägt das Pod die entstehende Schuld noch am selben Tag ins Register ein.</li>
+<li><strong>Hochrisiko-Positionen umgehen das Budget.</strong> Sicherheitslücken oberhalb eines vereinbarten Schweregrads werden als Mängel behandelt, nicht als Schulden.</li>
+</ol>
+<h2>Schuldenabbau abnahmefähig machen</h2>
+<p>Bei einem Werkvertrag mit sprintweiser Abnahme brauchen Schuldenpositionen ebenso Akzeptanzkriterien wie Funktionen. Das ist einfacher, als es klingt. Typische Kriterien sind messbar: eine Abhängigkeit auf eine unterstützte Version aktualisiert und alle Tests grün, Testabdeckung eines Moduls auf ein vereinbartes Niveau angehoben, eine veraltete Schnittstelle ohne verbleibende Aufrufer entfernt, Build-Zeit unter einen Schwellenwert gesenkt. So formuliert wird Schuldenabbau zu einem prüfbaren Lieferergebnis statt zu einer Glaubensfrage.</p>
+<h2>Kennzahlen für das Quartalsreporting</h2>
+<ul>
+<li>Zahl der offenen Registereinträge nach Risikostufe und deren Entwicklung im Quartal.</li>
+<li>Anteil der Sprintkapazität für Schuldenabbau im Vergleich zum vereinbarten Budget.</li>
+<li>Alter des ältesten Hochrisiko-Eintrags.</li>
+<li>Stabilitätskennzahlen wie Change Failure Rate und Wiederherstellungszeit, um zu zeigen, ob sich der Schuldenabbau auszahlt.</li>
+<li>Zahl unterstützter gegenüber nicht mehr gepflegten Abhängigkeiten.</li>
+</ul>
+<p>Diese Zahlen geben dem CTO eine Entscheidungsgrundlage und machen das Gespräch mit der Finanzabteilung konkret: Schulden haben eine Tilgung, Zinsen und einen Rückzahlungsplan.</p>
+<h2>Warnsignale</h2>
+<ul>
+<li>Das Budget wird in drei aufeinanderfolgenden Sprints „nur für dieses Release“ gekürzt.</li>
+<li>Das Register wächst, während keine Hochrisiko-Positionen geschlossen werden.</li>
+<li>Die Geschwindigkeit bei vergleichbaren Funktionen sinkt von Quartal zu Quartal.</li>
+<li>Das Pod schätzt einfache Änderungen höher und verweist auf „Komplexität“.</li>
+</ul>
+<p>Die Hinweise zu Vertrag und Abnahme in diesem Beitrag sind allgemeine Informationen und keine Rechtsberatung.</p>
+<p>Technische Schulden sind kein Zeichen eines schwachen Teams. Unverwaltete Schulden sind ein Zeichen eines fehlenden Mechanismus. In einem Pod von niogod&trade; pflegt der Senior Consultant das Schuldenregister gemeinsam mit Ihrem Architekten, und Schuldenpositionen werden innerhalb der Sprintstruktur wie jeder andere Teil der Leistungsbeschreibung geplant, abgenommen und berichtet. Wenn Ihre Codebasis das Geschäft über Jahre tragen soll, gehört dieses Budget von Anfang an in den Vertrag.</p>
+            <div style="background: #f9f9ff; padding: 25px; border-left: 4px solid var(--primary-color); margin: 30px 0; border-radius: 4px;">
+                <h4 style="margin-top:0;">Sprechen Sie mit niogod&trade;</h4>
+                <p>Sie planen Engineering-Kapazit&auml;t in DACH? Vereinbaren Sie eine 30-min&uuml;tige Konsultation mit dem niogod&trade;-Team.</p>
+                <a href="../contact.html" class="btn btn-primary">Konsultation vereinbaren</a>
+            </div>
+            <div style="margin-top: 50px; padding-top: 30px; border-top: 1px solid #eee;">
+                <a href="index.html" class="btn btn-outline">&larr; Alle Insights</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+        </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3 class="footer-logo">niogod™</h3>
+                    <p>Managed Engineering Pods für DACH Deep Tech. Werkvertrag-geführt, AÜG-konform, in Stuttgart verankert.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Doktrin</h4>
+                    <ul>
+                        <li><a href="../regional-advantage.html">Der Pod</a></li>
+                        <li><a href="../security.html">Compliance Shield</a></li>
+                        <li><a href="../protocol.html">Protokoll</a></li>
+                        <li><a href="../case-studies.html">Einsätze</a></li>
+                        <li><a href="../blog.html">Intelligence</a></li>
+                        <li><a href="../about-us.html">Über uns</a></li>
+                        <li><a href="../careers.html">Karriere</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal (DACH)</h4>
+                    <ul>
+                        <li><a href="../legal.html">Impressum</a></li>
+                        <li><a href="../legal.html">Privacy Policy</a></li>
+                        <li><a href="../legal.html">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Kontakt</h4>
+                    <p><a href="mailto:hello@niogod.com">hello@niogod.com</a></p>
+                    <h4 style="margin-top: 20px;">DACH Liaison</h4>
+                    <p>Pfaffenwaldring 50,<br>Stuttgart, Deutschland 70569</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 niogod™. Alle Rechte vorbehalten.</p>
+                <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 5px;">Borcom Dynamics Private Limited |
+                    U82990KL2023PTC084978</p>
+            </div>
+        </div>
+    </footer>
+    <script src="../../script.js"></script>
+</body>
+
+</html>

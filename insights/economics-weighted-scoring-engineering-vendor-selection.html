@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KRJSPDZ3');</script>
+<!-- End Google Tag Manager -->
+
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://niogod.com/insights/economics-weighted-scoring-engineering-vendor-selection.html">
+    <meta property="og:title" content="Weighted Scoring for Engineering Vendor Selection: Price vs Quality | niogod™ Intelligence">
+    <meta property="og:description" content="How CTOs and Einkauf can run a Nutzwertanalyse for engineering vendors: knock-out criteria, weights, price formulas and an illustrative scoring example.">
+    <meta property="og:image" content="https://niogod.com/assets/niogod-share-preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://niogod.com/insights/economics-weighted-scoring-engineering-vendor-selection.html">
+    <meta property="twitter:title" content="Weighted Scoring for Engineering Vendor Selection: Price vs Quality | niogod™ Intelligence">
+    <meta property="twitter:description" content="How CTOs and Einkauf can run a Nutzwertanalyse for engineering vendors: knock-out criteria, weights, price formulas and an illustrative scoring example.">
+    <meta property="twitter:image" content="https://niogod.com/assets/niogod-share-preview.png">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weighted Scoring for Engineering Vendor Selection: Price vs Quality | niogod™ Intelligence</title>
+    <link rel="canonical" href="https://niogod.com/insights/economics-weighted-scoring-engineering-vendor-selection.html">
+    <link rel="alternate" hreflang="en" href="https://niogod.com/insights/economics-weighted-scoring-engineering-vendor-selection.html">
+    <link rel="alternate" hreflang="de" href="https://niogod.com/de/insights/economics-weighted-scoring-engineering-vendor-selection.html">
+    <meta name="description" content="How CTOs and Einkauf can run a Nutzwertanalyse for engineering vendors: knock-out criteria, weights, price formulas and an illustrative scoring example.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="icon" href="../assets/favicon.png" type="image/png">
+    
+    <!-- Critical CSS Inlined for <500ms Render -->
+    <style>
+:root{--bg-color:#ffffff;--bg-light:#f3f4f6;--bg-card:#ffffff;--text-primary:#2d283e;--text-secondary:#564f6f;--text-light:#7e6e9c;--text-dark:#1e1b29;--text-accent:#4f5d75;--text-white:#ffffff;--primary-color:#4f5d75;--primary-light:#77859d;--primary-dark:#2d3748;--primary-gradient:linear-gradient(135deg,#4f5d75 0%,#7e6e9c 100%);--primary-gradient-hover:linear-gradient(135deg,#3e4a5e 0%,#63567a 100%);--border-color:#e5e7eb;--font-sans:'Inter',system-ui,-apple-system,sans-serif;--font-mono:'JetBrains Mono','Fira Code',monospace;--shadow-sm:0 1px 2px 0 rgba(0,0,0,0.05);--shadow-md:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);--shadow-lg:0 10px 15px -3px rgba(0,0,0,0.1),0 4px 6px -2px rgba(0,0,0,0.05);--radius-sm:8px;--radius-md:12px;--radius-lg:20px}*{margin:0;padding:0;box-sizing:border-box}body{font-family:var(--font-sans);color:var(--text-primary);line-height:1.6;background-color:var(--bg-color);overflow-x:hidden;-webkit-font-smoothing:antialiased}a{text-decoration:none;color:inherit;transition:all .3s ease}ul{list-style:none}.container{width:90%;max-width:1200px;margin:0 auto;padding:0 20px}.btn{display:inline-block;padding:12px 30px;border-radius:50px;font-weight:600;cursor:pointer;text-align:center;border:2px solid transparent}.btn-primary{background:var(--primary-gradient);color:var(--text-white);box-shadow:var(--shadow-md)}.btn-primary:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg);background:var(--primary-gradient-hover)}.btn-outline{border-color:var(--primary-color);color:var(--primary-color);background:0 0}.btn-white{background:var(--text-white);color:var(--primary-color)}.header{position:fixed;top:0;left:0;width:100%;z-index:1000;background:#fff;padding:15px 0;box-shadow:0 1px 0 rgba(0,0,0,0.05)}.header-container{display:flex;justify-content:space-between;align-items:center}.logo{font-size:1.8rem;font-weight:800;background:var(--primary-gradient);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;letter-spacing:-1px;z-index:1001}.nav-center{flex:1;display:flex;justify-content:flex-end;padding-right:40px}.nav-list{display:flex;align-items:center;gap:40px}.nav-link{font-weight:500;color:var(--text-dark);font-size:.95rem}.nav-link:hover,.nav-link.active{color:var(--primary-color)}.header-right{display:flex;align-items:center;gap:15px}.nav-cta{padding:10px 24px;font-size:.9rem;white-space:nowrap}.mobile-only-li{display:none}.mobile-menu-toggle{display:none}.hero{padding-top:100px;padding-bottom:60px;background:#f8f9fa;overflow:hidden}.hero-box{display:grid;grid-template-columns:1fr 1fr;gap:40px;background:linear-gradient(135deg,#f1f5ff 0%,#fefeff 100%);border-radius:40px;padding:2rem 3rem 0 3rem;position:relative;box-shadow:0 4px 6px -1px rgba(0,0,0,0.05);border:1px solid #eef2f6;align-items:end;max-height:550px;overflow:hidden}.hero-content{display:flex;flex-direction:column;justify-content:center;padding-bottom:3rem;padding-top:2rem;z-index:2;height:100%}.hero-title{font-size:3.5rem;font-weight:800;line-height:1.1;margin-bottom:20px;color:var(--text-dark);text-transform:uppercase}.hero-subtitle{font-size:1.25rem;color:var(--text-secondary);line-height:1.6;margin-bottom:25px;max-width:90%}.hero-helper-text{font-size:.85rem;color:var(--text-secondary);background:var(--bg-light);border:1px solid var(--border-color);padding:6px 14px;border-radius:20px;margin-bottom:12px;font-weight:500;display:inline-block;width:fit-content;max-width:100%}.hero-cta-group{display:flex;flex-direction:row;gap:20px;align-items:center;width:100%;margin-top:10px}.hero-subscribe-bar{display:flex;align-items:center;background:#fff;border:1px solid #eee;border-radius:50px;padding:3px 3px 3px 20px;width:100%;max-width:380px;transition:box-shadow .3s ease;box-shadow:0 4px 15px rgba(0,0,0,0.05)}.hero-subscribe-bar input{background:0 0;border:none;outline:none;color:#333;flex-grow:1;font-size:.95rem;min-width:0}.hero-subscribe-bar button{background:var(--primary-gradient);color:#fff;border:none;border-radius:30px;padding:8px 20px;font-size:.9rem;font-weight:500;cursor:pointer;white-space:nowrap}.btn-pill{width:auto;min-width:0;justify-content:center;border-radius:50px;padding:10px 24px;font-size:.95rem;display:inline-flex;align-items:center;gap:8px;white-space:nowrap;height:44px;color:#fff;border:none}.hero-image{display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-end;position:relative;height:100%}.hero-man-img{width:auto;max-width:130%;height:auto;max-height:580px;object-fit:contain;object-position:bottom right;display:block;position:absolute;bottom:-70px;right:-20px}@media (max-width:992px){.hero-box{padding:3rem 1.5rem 0 1.5rem;grid-template-columns:60% 40%;align-items:center;gap:20px;max-height:600px;height:auto}.hero-title{font-size:2rem}.mobile-menu-toggle{display:flex}.hero-man-img{position:static;max-height:480px;width:160%;max-width:160%;margin-right:-40px;margin-bottom:0}}@media (max-width:768px){.nav-center{display:none}.hero-box{padding:8vw 6vw 0 6vw;display:block;height:auto}.hero-image{display:none}}
+</style>
+
+    <!-- Async Main CSS -->
+    <link rel="preload" href="../style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="../style.css"></noscript>
+        
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "niogod™",
+      "url": "https://niogod.com",
+      "logo": "https://niogod.com/assets/favicon.png",
+      "description": "Managed Engineering Pods for DACH Deep Tech. AÜG-konform, Werkvertrag-led, three-person pods deployed in 72 hours.",
+      "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "hello@niogod.com",
+          "contactType": "customer service"
+      }
+    }
+    </script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Weighted Scoring for Engineering Vendor Selection: Price vs Quality", "description": "How CTOs and Einkauf can run a Nutzwertanalyse for engineering vendors: knock-out criteria, weights, price formulas and an illustrative scoring example.", "datePublished": "2026-11-23", "inLanguage": "en", "author": {"@type": "Person", "name": "Joseph Jose"}, "publisher": {"@type": "Organization", "name": "niogod™", "url": "https://niogod.com"}, "mainEntityOfPage": "https://niogod.com/insights/economics-weighted-scoring-engineering-vendor-selection.html"}</script>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '904615942020063');
+fbq('track', 'PageView');
+</script>
+<!-- End Meta Pixel Code -->
+</head>
+
+<body>
+<!-- Meta Pixel Code (noscript) -->
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=904615942020063&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code (noscript) -->
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KRJSPDZ3"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="../index.html" class="logo">niogod™</a>
+
+            <!-- Centered Nav Links -->
+            <nav class="nav-center">
+                <ul class="nav-list">
+                    <li><a href="../index.html" class="nav-link">Home</a></li>
+                    <li><a href="../regional-advantage.html" class="nav-link">The Pod</a></li>
+                    <li><a href="../security.html" class="nav-link">Compliance Shield</a></li>
+                    <li><a href="../protocol.html" class="nav-link">Protocol</a></li>
+                    <li><a href="../case-studies.html" class="nav-link">Engagements</a></li>
+                    <li><a href="../blog.html" class="nav-link active">Intelligence</a></li>
+                    <li><a href="../about-us.html" class="nav-link">About</a></li>
+                    <li class="mobile-only-li"><a href="../contact.html" class="nav-link">Konsultation</a></li>
+                </ul>
+            </nav>
+
+            <!-- Right Side CTA & Mobile Toggle -->
+            <div class="header-right">
+                <div class="lang-switcher"><a href="#" class="active">EN</a><span>|</span><a href="../de/insights/economics-weighted-scoring-engineering-vendor-selection.html" class="lang-link" data-lang="de">DE</a></div>
+                <a href="../contact.html" class="btn btn-primary nav-cta">Book Consultation</a>
+                <div class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+
+    <!-- Article Header -->
+    <section class="page-header" style="background: linear-gradient(180deg, #fdfbfd 0%, #eee8 100%); padding-bottom: 40px;">
+        <div class="container" style="max-width: 800px;">
+            <div class="blog-meta" style="justify-content: center; display: flex; gap: 10px; margin-bottom: 20px;">
+                <span style="font-family: var(--font-mono);">// Guide</span> &middot; <span>Procurement</span> &middot; <span>2026-11-23</span>
+            </div>
+            <h1 class="page-title" style="font-size: 2.5rem;">Weighted Scoring for Engineering Vendor Selection: Price vs Quality</h1>
+            <div style="margin-top: 30px; display: flex; align-items: center; justify-content: center; gap: 15px;">
+                <div class="team-avatar" style="width: 50px; height: 50px; margin: 0; font-size: 1rem; display:flex; align-items:center; justify-content:center; background:#e0d4fc;">JJ</div>
+                <div style="text-align: left;">
+                    <div style="font-weight: 700;">Joseph Jose</div>
+                    <div style="font-size: 0.8rem; color: #666;">Founder &amp; CEO, niogod&trade;</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article Body -->
+    <section class="text-content-section">
+        <div class="container text-content" style="max-width: 700px; margin: 0 auto; font-size: 1.1rem; line-height: 1.8;">
+
+<p>When an engineering vendor is selected by procurement, the decision often comes down to the lowest daily rate, because price is the only criterion that is easy to compare. For engineering services that is a poor proxy for value: the cheapest offer can be the most expensive once rework, coordination effort and delays are counted. The answer is a weighted scoring model, known in German procurement as Nutzwertanalyse, agreed between the CTO and Einkauf before offers are opened, with knock-out criteria, explicit weights and a price formula that does not drown out quality.</p>
+
+<h2>Why a structured method is worth the effort</h2>
+<p>The market for software and engineering services is large and diverse. Bitkom forecast in July 2026 that the German software market will grow 9.9 percent to EUR 58.1 billion in 2026, while IT services grow 3.1 percent. A buyer faces many offers with very different delivery models, and a comparison by rate alone hides those differences.</p>
+<p>Procurement teams also see the gap. In the BME benchmark "Top-Kennzahlen im Einkauf 2026", 93 percent of companies saw high or very high potential for AI in the analysis and evaluation of offers. That points to the same problem: evaluating offers well is hard, and most companies feel they are not yet doing it systematically. A clear scoring model is the foundation any tool would need anyway.</p>
+<p>For some buyers the method is mandatory. Public-sector and sector contracting entities, such as municipal utilities, must follow procurement law. From 1 January 2026 the EU thresholds for supplies and services are EUR 216,000 for most contracting authorities, EUR 140,000 for federal authorities and EUR 432,000 for sector contracting entities, as summarised by CMS. Above them, transparent award criteria and weightings are required in any case.</p>
+
+<h2>Step 1: define knock-out criteria</h2>
+<p>Knock-out criteria are minimum conditions. An offer that fails one is excluded, regardless of price. Typical examples for an engineering vendor:</p>
+<ul>
+<li>Willingness to sign an Auftragsverarbeitungsvertrag under Art. 28 DSGVO with Standardvertragsklauseln.</li>
+<li>Acceptance of a contract structure without Arbeitnehmerüberlassung, with a Leistungsbeschreibung and Abnahme.</li>
+<li>Source code and credentials held in the buyer's own accounts.</li>
+<li>A named contact person who can communicate with the buyer's team in the required language.</li>
+<li>No unresolved export control issue for the intended work.</li>
+</ul>
+
+<h2>Step 2: set weights before opening offers</h2>
+<p>Weights express what matters. They must be fixed before anyone sees prices, otherwise they drift towards justifying a preferred result. A reasonable starting point for an engineering services contract:</p>
+<table>
+<thead><tr><th>Criterion</th><th>Weight</th><th>What is assessed</th></tr></thead>
+<tbody>
+<tr><td>Price</td><td>30 %</td><td>Total cost for the defined scope over the contract term</td></tr>
+<tr><td>Delivery approach</td><td>25 %</td><td>Sprint structure, acceptance criteria, quality gates, risk handling</td></tr>
+<tr><td>Team and communication</td><td>20 %</td><td>Seniority, continuity, language, single point of contact</td></tr>
+<tr><td>Security and compliance</td><td>15 %</td><td>Information security, data protection, contract model</td></tr>
+<tr><td>Exit and transition</td><td>10 %</td><td>Documentation, handover obligations, notice periods</td></tr>
+</tbody>
+</table>
+<p>Each non-price criterion is scored on a defined scale, for example 0 to 10, with written anchor descriptions for what a 2, a 5 and an 8 look like. Anchors make the scores of different reviewers comparable.</p>
+
+<h2>Step 3: choose a price formula carefully</h2>
+<p>The price formula has a large and often overlooked effect. The common ratio formula (lowest price divided by offered price, times 10) gives a reasonable spread. Formulas that award zero points at a fixed distance from the lowest price can make price dominate even at a 30 percent weight. Whatever formula you use, test it with plausible numbers before publishing it.</p>
+
+<h2>Illustrative example</h2>
+<p>This is an illustrative calculation with invented offers. Three vendors quote a monthly fee for the same scope: A at EUR 30,000, B at EUR 26,000, C at EUR 36,000. With the ratio formula, price scores are A 8.7, B 10.0 and C 7.2.</p>
+<table>
+<thead><tr><th>Criterion (weight)</th><th>Vendor A</th><th>Vendor B</th><th>Vendor C</th></tr></thead>
+<tbody>
+<tr><td>Price (30 %)</td><td>8.7</td><td>10.0</td><td>7.2</td></tr>
+<tr><td>Delivery approach (25 %)</td><td>8</td><td>6</td><td>9</td></tr>
+<tr><td>Team and communication (20 %)</td><td>8</td><td>5</td><td>9</td></tr>
+<tr><td>Security and compliance (15 %)</td><td>7</td><td>6</td><td>9</td></tr>
+<tr><td>Exit and transition (10 %)</td><td>8</td><td>4</td><td>8</td></tr>
+<tr><td><strong>Weighted score</strong></td><td><strong>8.05</strong></td><td><strong>6.80</strong></td><td><strong>8.37</strong></td></tr>
+</tbody>
+</table>
+<p>The cheapest offer ranks last. The most expensive offer ranks first, narrowly ahead of A. The result is not that price does not matter, but that it matters in proportion to the weight the company agreed it should have.</p>
+
+<h2>Common mistakes</h2>
+<ul>
+<li><strong>Scoring the sales presentation instead of the team.</strong> Ask who will actually work on the engagement and score them.</li>
+<li><strong>Comparing day rates for different scopes.</strong> Price must refer to the same defined scope and term, otherwise the comparison is meaningless.</li>
+<li><strong>Too many criteria.</strong> More than six or seven main criteria dilute the weights until no single one decides anything.</li>
+</ul>
+<h2>Step 4: document and sense-check</h2>
+<ol>
+<li>Record each reviewer's scores and a one-line rationale per criterion.</li>
+<li>Run a sensitivity check: would the ranking change if the price weight moved by ten points? If yes, discuss that explicitly before deciding.</li>
+<li>Verify the top-ranked offer in a structured conversation with the proposed team, not only the sales contact.</li>
+<li>Keep the scoring file. It is the documentation Einkauf, auditors and, for public entities, review bodies will ask for.</li>
+</ol>
+<p>For public and sector contracting entities, procurement law sets additional requirements for award criteria and their publication. This article is general information and not legal or tax advice.</p>
+<p>A transparent scoring model rewards vendors that can show how they deliver, not only what they charge. niogod&trade; answers the delivery, team and exit criteria with a defined pod, a German-speaking Projektleiter as single point of contact and a Werkvertrag with Abnahme, and we welcome being evaluated that way. If a vendor selection for engineering capacity is on your agenda, agreeing the weights first is the step to start with.</p>
+
+            <div style="background: #f9f9ff; padding: 25px; border-left: 4px solid var(--primary-color); margin: 30px 0; border-radius: 4px;">
+                <h4 style="margin-top:0;">Talk to niogod&trade;</h4>
+                <p>Planning engineering capacity in DACH? Book a 30-minute consultation with the niogod&trade; team.</p>
+                <a href="../contact.html" class="btn btn-primary">Book consultation</a>
+            </div>
+            <div style="margin-top: 50px; padding-top: 30px; border-top: 1px solid #eee;">
+                <a href="index.html" class="btn btn-outline">&larr; All insights</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+        </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3 class="footer-logo">niogod™</h3>
+                    <p>Managed Engineering Pods for DACH Deep Tech. Werkvertrag-led, AÜG-konform, Stuttgart-anchored.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Doctrine</h4>
+                    <ul>
+                        <li><a href="../regional-advantage.html">The Pod</a></li>
+                        <li><a href="../security.html">Compliance Shield</a></li>
+                        <li><a href="../protocol.html">Protocol</a></li>
+                        <li><a href="../case-studies.html">Engagements</a></li>
+                        <li><a href="../blog.html">Intelligence</a></li>
+                        <li><a href="../about-us.html">About</a></li>
+                        <li><a href="../careers.html">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal (DACH)</h4>
+                    <ul>
+                        <li><a href="../legal.html">Impressum</a></li>
+                        <li><a href="../legal.html">Privacy Policy</a></li>
+                        <li><a href="../legal.html">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p><a href="mailto:hello@niogod.com">hello@niogod.com</a></p>
+                    <h4 style="margin-top: 20px;">DACH Liaison</h4>
+                    <p>Pfaffenwaldring 50,<br>Stuttgart, Deutschland 70569</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 niogod™. All rights reserved.</p>
+                <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 5px;">Borcom Dynamics Private Limited |
+                    U82990KL2023PTC084978</p>
+            </div>
+        </div>
+    </footer>
+    <script src="../script.js"></script>
+</body>
+
+</html>
