@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KRJSPDZ3');</script>
+<!-- End Google Tag Manager -->
+
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://niogod.com/de/insights/delivery-sbom-dependency-update-routine-external-pod.html">
+    <meta property="og:title" content="SBOM und Abhängigkeitspflege: Eine Pipeline-Routine für externe Pods | niogod™ Intelligence">
+    <meta property="og:description" content="Wie ein externes Pod Abhängigkeiten aktuell und sichtbar hält: SBOM je Release, Schwachstellenscans, Behebungsfristen und Nachweise zur Abnahme.">
+    <meta property="og:image" content="https://niogod.com/assets/niogod-share-preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://niogod.com/de/insights/delivery-sbom-dependency-update-routine-external-pod.html">
+    <meta property="twitter:title" content="SBOM und Abhängigkeitspflege: Eine Pipeline-Routine für externe Pods | niogod™ Intelligence">
+    <meta property="twitter:description" content="Wie ein externes Pod Abhängigkeiten aktuell und sichtbar hält: SBOM je Release, Schwachstellenscans, Behebungsfristen und Nachweise zur Abnahme.">
+    <meta property="twitter:image" content="https://niogod.com/assets/niogod-share-preview.png">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SBOM und Abhängigkeitspflege: Eine Pipeline-Routine für externe Pods | niogod™ Intelligence</title>
+    <link rel="canonical" href="https://niogod.com/de/insights/delivery-sbom-dependency-update-routine-external-pod.html">
+    <link rel="alternate" hreflang="en" href="https://niogod.com/insights/delivery-sbom-dependency-update-routine-external-pod.html">
+    <link rel="alternate" hreflang="de" href="https://niogod.com/de/insights/delivery-sbom-dependency-update-routine-external-pod.html">
+    <meta name="description" content="Wie ein externes Pod Abhängigkeiten aktuell und sichtbar hält: SBOM je Release, Schwachstellenscans, Behebungsfristen und Nachweise zur Abnahme.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="icon" href="../../assets/favicon.png" type="image/png">
+    
+    <!-- Critical CSS Inlined for <500ms Render -->
+    <style>
+:root{--bg-color:#ffffff;--bg-light:#f3f4f6;--bg-card:#ffffff;--text-primary:#2d283e;--text-secondary:#564f6f;--text-light:#7e6e9c;--text-dark:#1e1b29;--text-accent:#4f5d75;--text-white:#ffffff;--primary-color:#4f5d75;--primary-light:#77859d;--primary-dark:#2d3748;--primary-gradient:linear-gradient(135deg,#4f5d75 0%,#7e6e9c 100%);--primary-gradient-hover:linear-gradient(135deg,#3e4a5e 0%,#63567a 100%);--border-color:#e5e7eb;--font-sans:'Inter',system-ui,-apple-system,sans-serif;--font-mono:'JetBrains Mono','Fira Code',monospace;--shadow-sm:0 1px 2px 0 rgba(0,0,0,0.05);--shadow-md:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);--shadow-lg:0 10px 15px -3px rgba(0,0,0,0.1),0 4px 6px -2px rgba(0,0,0,0.05);--radius-sm:8px;--radius-md:12px;--radius-lg:20px}*{margin:0;padding:0;box-sizing:border-box}body{font-family:var(--font-sans);color:var(--text-primary);line-height:1.6;background-color:var(--bg-color);overflow-x:hidden;-webkit-font-smoothing:antialiased}a{text-decoration:none;color:inherit;transition:all .3s ease}ul{list-style:none}.container{width:90%;max-width:1200px;margin:0 auto;padding:0 20px}.btn{display:inline-block;padding:12px 30px;border-radius:50px;font-weight:600;cursor:pointer;text-align:center;border:2px solid transparent}.btn-primary{background:var(--primary-gradient);color:var(--text-white);box-shadow:var(--shadow-md)}.btn-primary:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg);background:var(--primary-gradient-hover)}.btn-outline{border-color:var(--primary-color);color:var(--primary-color);background:0 0}.btn-white{background:var(--text-white);color:var(--primary-color)}.header{position:fixed;top:0;left:0;width:100%;z-index:1000;background:#fff;padding:15px 0;box-shadow:0 1px 0 rgba(0,0,0,0.05)}.header-container{display:flex;justify-content:space-between;align-items:center}.logo{font-size:1.8rem;font-weight:800;background:var(--primary-gradient);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;letter-spacing:-1px;z-index:1001}.nav-center{flex:1;display:flex;justify-content:flex-end;padding-right:40px}.nav-list{display:flex;align-items:center;gap:40px}.nav-link{font-weight:500;color:var(--text-dark);font-size:.95rem}.nav-link:hover,.nav-link.active{color:var(--primary-color)}.header-right{display:flex;align-items:center;gap:15px}.nav-cta{padding:10px 24px;font-size:.9rem;white-space:nowrap}.mobile-only-li{display:none}.mobile-menu-toggle{display:none}.hero{padding-top:100px;padding-bottom:60px;background:#f8f9fa;overflow:hidden}.hero-box{display:grid;grid-template-columns:1fr 1fr;gap:40px;background:linear-gradient(135deg,#f1f5ff 0%,#fefeff 100%);border-radius:40px;padding:2rem 3rem 0 3rem;position:relative;box-shadow:0 4px 6px -1px rgba(0,0,0,0.05);border:1px solid #eef2f6;align-items:end;max-height:550px;overflow:hidden}.hero-content{display:flex;flex-direction:column;justify-content:center;padding-bottom:3rem;padding-top:2rem;z-index:2;height:100%}.hero-title{font-size:3.5rem;font-weight:800;line-height:1.1;margin-bottom:20px;color:var(--text-dark);text-transform:uppercase}.hero-subtitle{font-size:1.25rem;color:var(--text-secondary);line-height:1.6;margin-bottom:25px;max-width:90%}.hero-helper-text{font-size:.85rem;color:var(--text-secondary);background:var(--bg-light);border:1px solid var(--border-color);padding:6px 14px;border-radius:20px;margin-bottom:12px;font-weight:500;display:inline-block;width:fit-content;max-width:100%}.hero-cta-group{display:flex;flex-direction:row;gap:20px;align-items:center;width:100%;margin-top:10px}.hero-subscribe-bar{display:flex;align-items:center;background:#fff;border:1px solid #eee;border-radius:50px;padding:3px 3px 3px 20px;width:100%;max-width:380px;transition:box-shadow .3s ease;box-shadow:0 4px 15px rgba(0,0,0,0.05)}.hero-subscribe-bar input{background:0 0;border:none;outline:none;color:#333;flex-grow:1;font-size:.95rem;min-width:0}.hero-subscribe-bar button{background:var(--primary-gradient);color:#fff;border:none;border-radius:30px;padding:8px 20px;font-size:.9rem;font-weight:500;cursor:pointer;white-space:nowrap}.btn-pill{width:auto;min-width:0;justify-content:center;border-radius:50px;padding:10px 24px;font-size:.95rem;display:inline-flex;align-items:center;gap:8px;white-space:nowrap;height:44px;color:#fff;border:none}.hero-image{display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-end;position:relative;height:100%}.hero-man-img{width:auto;max-width:130%;height:auto;max-height:580px;object-fit:contain;object-position:bottom right;display:block;position:absolute;bottom:-70px;right:-20px}@media (max-width:992px){.hero-box{padding:3rem 1.5rem 0 1.5rem;grid-template-columns:60% 40%;align-items:center;gap:20px;max-height:600px;height:auto}.hero-title{font-size:2rem}.mobile-menu-toggle{display:flex}.hero-man-img{position:static;max-height:480px;width:160%;max-width:160%;margin-right:-40px;margin-bottom:0}}@media (max-width:768px){.nav-center{display:none}.hero-box{padding:8vw 6vw 0 6vw;display:block;height:auto}.hero-image{display:none}}
+</style>
+
+    <!-- Async Main CSS -->
+    <link rel="preload" href="../../style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="../../style.css"></noscript>
+        
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "niogod™",
+      "url": "https://niogod.com",
+      "logo": "https://niogod.com/assets/favicon.png",
+      "description": "Managed Engineering Pods for DACH Deep Tech. AÜG-konform, Werkvertrag-led, three-person pods deployed in 72 hours.",
+      "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "hello@niogod.com",
+          "contactType": "customer service"
+      }
+    }
+    </script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "SBOM und Abhängigkeitspflege: Eine Pipeline-Routine für externe Pods", "description": "Wie ein externes Pod Abhängigkeiten aktuell und sichtbar hält: SBOM je Release, Schwachstellenscans, Behebungsfristen und Nachweise zur Abnahme.", "datePublished": "2026-11-24", "inLanguage": "de", "author": {"@type": "Person", "name": "Joseph Jose"}, "publisher": {"@type": "Organization", "name": "niogod™", "url": "https://niogod.com"}, "mainEntityOfPage": "https://niogod.com/de/insights/delivery-sbom-dependency-update-routine-external-pod.html"}</script>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '904615942020063');
+fbq('track', 'PageView');
+</script>
+<!-- End Meta Pixel Code -->
+</head>
+
+<body>
+<!-- Meta Pixel Code (noscript) -->
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=904615942020063&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code (noscript) -->
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KRJSPDZ3"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="../index.html" class="logo">niogod™</a>
+
+            <!-- Centered Nav Links -->
+            <nav class="nav-center">
+                <ul class="nav-list">
+                    <li><a href="../index.html" class="nav-link">Startseite</a></li>
+                    <li><a href="../regional-advantage.html" class="nav-link">Der Pod</a></li>
+                    <li><a href="../security.html" class="nav-link">Compliance Shield</a></li>
+                    <li><a href="../protocol.html" class="nav-link">Protokoll</a></li>
+                    <li><a href="../case-studies.html" class="nav-link">Einsätze</a></li>
+                    <li><a href="../blog.html" class="nav-link active">Intelligence</a></li>
+                    <li><a href="../about-us.html" class="nav-link">Über uns</a></li>
+                    <li class="mobile-only-li"><a href="../contact.html" class="nav-link">Konsultation</a></li>
+                </ul>
+            </nav>
+
+            <!-- Right Side CTA & Mobile Toggle -->
+            <div class="header-right">
+                <div class="lang-switcher"><a href="../../insights/delivery-sbom-dependency-update-routine-external-pod.html" class="lang-link" data-lang="en">EN</a><span>|</span><a href="#" class="active">DE</a></div>
+                <a href="../contact.html" class="btn btn-primary nav-cta">Konsultation vereinbaren</a>
+                <div class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+
+    <!-- Article Header -->
+    <section class="page-header" style="background: linear-gradient(180deg, #fdfbfd 0%, #eee8 100%); padding-bottom: 40px;">
+        <div class="container" style="max-width: 800px;">
+            <div class="blog-meta" style="justify-content: center; display: flex; gap: 10px; margin-bottom: 20px;">
+                <span style="font-family: var(--font-mono);">// Leitfaden</span> &middot; <span>Software-Lieferkette</span> &middot; <span>2026-11-24</span>
+            </div>
+            <h1 class="page-title" style="font-size: 2.5rem;">SBOM und Abhängigkeitspflege: Eine Pipeline-Routine für externe Pods</h1>
+            <div style="margin-top: 30px; display: flex; align-items: center; justify-content: center; gap: 15px;">
+                <div class="team-avatar" style="width: 50px; height: 50px; margin: 0; font-size: 1rem; display:flex; align-items:center; justify-content:center; background:#e0d4fc;">JJ</div>
+                <div style="text-align: left;">
+                    <div style="font-weight: 700;">Joseph Jose</div>
+                    <div style="font-size: 0.8rem; color: #666;">Gr&uuml;nder &amp; CEO, niogod&trade;</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article Body -->
+    <section class="text-content-section">
+        <div class="container text-content" style="max-width: 700px; margin: 0 auto; font-size: 1.1rem; line-height: 1.8;">
+<p>Jede Bibliothek, die ein externes Pod in Ihre Codebasis aufnimmt, wird zu Ihrer Verpflichtung: Ihre Lizenzbedingungen binden Ihr Produkt, und ihre Schwachstellen werden zu Ihren Schwachstellen. Die meisten Teams bemerken das erst bei einer Due Diligence, einem Kundenaudit oder einem Sicherheitsvorfall, wenn niemand verlässlich sagen kann, was im Produkt steckt. Die Antwort ist, Abhängigkeitspflege als Lieferroutine zu behandeln und nicht als gelegentliche Aufräumaktion: automatisiertes Scanning in der Pipeline, feste Behebungsfristen, ein fester Anteil jedes Sprints für Updates, eine Software-Stückliste (SBOM) mit jedem Release und die Ergebnisse als Teil jeder Sprint-Abnahme.</p>
+
+<h2>Was die Daten über typische Codebasen sagen</h2>
+<p>Der Black Duck Open Source Security and Risk Analysis (OSSRA) Report 2025, basierend auf Audits von 965 kommerziellen Codebasen, ergab, dass 86 Prozent Open-Source-Schwachstellen enthielten und 81 Prozent Schwachstellen mit hohem oder kritischem Risiko. Die Lizenzhygiene war nicht besser: 56 Prozent der geprüften Codebasen wiesen Lizenzkonflikte auf. Und 90 Prozent enthielten Open-Source-Komponenten, die mehr als vier Jahre veraltet waren.</p>
+<p>Das sind keine nachlässigen Teams. Es ist das normale Ergebnis jahrelanger Ergänzungen ohne Prozess, der sie nachverfolgt. Ein externes Pod, das im Tempo arbeitet, fügt Abhängigkeiten ebenso schnell hinzu wie ein internes Team, oft schneller, und das Wissen, warum eine Bibliothek gewählt wurde, geht mit dem Ingenieur, wenn es nicht dokumentiert ist.</p>
+<p>Die Regulierung macht die Lücke nun sichtbar. Nach dem Cyber Resilience Act der EU gelten die Meldepflichten der Hersteller für Schwachstellen und Vorfälle seit dem 11. September 2026: eine Frühwarnung binnen 24 Stunden und eine Meldung binnen 72 Stunden, nachdem eine aktiv ausgenutzte Schwachstelle bekannt wurde. Die meisten übrigen Anforderungen, darunter die Pflicht, Komponenten zu ermitteln und zu dokumentieren, etwa in einer SBOM, gelten ab Dezember 2027. Über eine Schwachstelle in einer Komponente, von der Sie nicht wissen, dass Sie sie ausliefern, können Sie nicht melden.</p>
+
+<h2>Behebungsfristen, mit denen das Pod arbeiten kann</h2>
+<p>Scanner liefern Befunde, erst eine Routine macht daraus Arbeit. Vereinbaren Sie Behebungsfristen je Schweregrad einmal zu Vertragsbeginn, damit das Pod sie ohne jeweilige Verhandlung einplanen kann.</p>
+<table>
+<thead><tr><th>Befund</th><th>Frist</th><th>Regel für das Pod</th></tr></thead>
+<tbody>
+<tr><td>Aktiv ausgenutzte Schwachstelle in ausgeliefertem Code</td><td>Eindämmung binnen 24 bis 72 Stunden</td><td>Behandlung als Incident; Auftraggeber wird sofort informiert, da Meldepflichten greifen können</td></tr>
+<tr><td>Kritisch oder hoch, erreichbar</td><td>Laufender oder nächster Sprint</td><td>Vor anderer Backlog-Arbeit gleicher Priorität behoben</td></tr>
+<tr><td>Mittel oder nicht erreichbar</td><td>Innerhalb des Quartals</td><td>In der regelmäßigen Update-Story gebündelt</td></tr>
+<tr><td>Komponente mehr als zwei Hauptversionen zurück</td><td>Geplantes Upgrade</td><td>Geschätzt und dem Product Owner vorgeschlagen</td></tr>
+</tbody>
+</table>
+<p>Erreichbarkeit ist entscheidend. Eine verwundbare Funktion in einer Bibliothek, die Ihr Code nie aufruft, hat geringere Priorität als derselbe Befund in einem Anfragepfad. Gute Scanner weisen das aus. Wo nicht, bewertet der Senior Engineer die Erreichbarkeit und dokumentiert die Begründung.</p>
+
+<h2>Die Kontrollen in der Pipeline</h2>
+<ol>
+<li><strong>Disziplin bei Abhängigkeitsdateien.</strong> Alle Abhängigkeiten sind in Lock-Dateien deklariert. Kopierter oder eingebetteter Fremdcode wird mit Herkunft und Lizenz in einer eigenen Datei erfasst.</li>
+<li><strong>Lizenzprüfung bei jedem Pull Request.</strong> Neue Abhängigkeiten werden gegen die Lizenzrichtlinie des Auftraggebers geprüft. Was außerhalb liegt, blockiert den Merge bis zur Freigabe.</li>
+<li><strong>Schwachstellenscan bei jedem Pull Request und nächtlich.</strong> Neue kritische Befunde blockieren den Merge, bestehende werden mit einem Behebungsziel je Schweregrad verfolgt.</li>
+<li><strong>SBOM je Release.</strong> Eine maschinenlesbare SBOM in einem Standardformat wie SPDX oder CycloneDX wird für jeden Release Candidate von der Pipeline erzeugt und mit dem Artefakt abgelegt.</li>
+<li><strong>Lizenzhinweise.</strong> Die von den verwendeten Lizenzen geforderten Hinweise werden automatisch erzeugt und mit dem Produkt ausgeliefert.</li>
+<li><strong>Aktualisierungstakt.</strong> Ein fester Anteil jedes Sprints, etwa eine Story, geht in die Aktualisierung von Abhängigkeiten, damit Komponenten nicht über Jahre veralten.</li>
+</ol>
+
+<h2>Nachweise zur Abnahme</h2>
+<p>Fügen Sie jedem Abnahmepaket drei Elemente bei: das Ergebnis des Lizenzscans ohne nicht freigegebene Lizenzen, den Schwachstellenbericht mit offenen Befunden und Behebungsterminen sowie die SBOM-Differenz, die zeigt, welche Komponenten im Sprint hinzukamen, entfernt oder aktualisiert wurden. So wird die Abnahme nach § 640 BGB zur Prüfung gegen definierte Kriterien, und es entsteht die Dokumentation, die eine Konformitätsbewertung nach dem Cyber Resilience Act oder die technische Due Diligence eines Käufers verlangen wird.</p>
+
+<h2>Verantwortungsfragen, die in den Vertrag gehören</h2>
+<ul>
+<li><strong>Wer die Regeln setzt.</strong> Der Auftraggeber legt Lizenzrichtlinie und Schwellenwerte fest, das Pod wendet sie an. Ausnahmen genehmigt eine benannte Rolle beim Auftraggeber schriftlich.</li>
+<li><strong>Wer behebt.</strong> Schwachstellen in Abhängigkeiten, die das Pod eingeführt hat, behebt das Pod in vereinbarten Fristen. Altbefunde werden als Backlog-Einträge geplant.</li>
+<li><strong>Wem die Werkzeuge gehören.</strong> Scanner und SBOM-Ablage laufen in der Umgebung des Auftraggebers, damit die Historie bei Vertragsende beim Auftraggeber bleibt.</li>
+<li><strong>Wer meldet.</strong> Nach dem Cyber Resilience Act liegen die Meldepflichten beim Hersteller, in der Regel also beim Auftraggeber. Die Rolle des Pods ist es, Komponentendaten und Analysen schnell zu liefern.</li>
+</ul>
+
+<h2>Altbestand pragmatisch angehen</h2>
+<p>Übernimmt ein Pod eine bestehende Codebasis, zeigt der erste vollständige Scan oft Hunderte Befunde. Versuchen Sie nicht, alle auf einmal zu beheben. Erstellen Sie zuerst eine Basislinie, setzen Sie die Pipeline so auf, dass nur neue Befunde den Merge blockieren, und planen Sie den Abbau des Altbestands in festen Paketen nach Risiko: zuerst ausnutzbare kritische Schwachstellen in erreichbarem Code, dann nicht freigegebene Lizenzen, dann stark veraltete Komponenten.</p>
+
+<h2>Ein kurzer Selbsttest</h2>
+<ul>
+<li>Können Sie für das aktuelle Produktionsrelease binnen einer Stunde eine SBOM vorlegen?</li>
+<li>Wissen Sie, wie viele Komponenten mehr als zwei Hauptversionen zurückliegen?</li>
+<li>Würde eine neue AGPL-Abhängigkeit vor dem Merge gestoppt oder erst beim nächsten Audit entdeckt?</li>
+<li>Gibt es eine benannte Person, die Lizenzausnahmen freigibt?</li>
+<li>Erwähnt die Definition of Done des Pods Lizenzen überhaupt?</li>
+</ul>
+<p>Sind zwei oder mehr Antworten unsicher, lohnt es sich, die beschriebenen Kontrollen vor dem nächsten Release einzuführen und nicht erst nach dem nächsten Audit.</p>
+
+<p>Dieser Beitrag enthält allgemeine Informationen und stellt keine Rechtsberatung dar; die Lizenzeinordnung für Ihr Vertriebsmodell und die Pflichten nach dem Cyber Resilience Act sollten von qualifizierter Beratung beurteilt werden.</p>
+<p>Transparenz in der Software-Lieferkette entsteht am einfachsten, wenn sie vom ersten Sprint an in die Lieferpipeline eingebaut ist, statt später rekonstruiert zu werden. Im Pod von niogod&trade; gehören Lizenz- und Schwachstellenscans sowie die SBOM zu den Quality Gates, die der Senior Consultant verantwortet, und ihre Ergebnisse fließen in jedes Abnahmepaket ein. Rücken Nachweise zur Software-Lieferkette auf Ihrer Compliance-Agenda nach oben, lohnt sich ein frühes Gespräch.</p>
+            <div style="background: #f9f9ff; padding: 25px; border-left: 4px solid var(--primary-color); margin: 30px 0; border-radius: 4px;">
+                <h4 style="margin-top:0;">Sprechen Sie mit niogod&trade;</h4>
+                <p>Sie planen Engineering-Kapazit&auml;t in DACH? Vereinbaren Sie eine 30-min&uuml;tige Konsultation mit dem niogod&trade;-Team.</p>
+                <a href="../contact.html" class="btn btn-primary">Konsultation vereinbaren</a>
+            </div>
+            <div style="margin-top: 50px; padding-top: 30px; border-top: 1px solid #eee;">
+                <a href="index.html" class="btn btn-outline">&larr; Alle Insights</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+        </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3 class="footer-logo">niogod™</h3>
+                    <p>Managed Engineering Pods für DACH Deep Tech. Werkvertrag-geführt, AÜG-konform, in Stuttgart verankert.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Doktrin</h4>
+                    <ul>
+                        <li><a href="../regional-advantage.html">Der Pod</a></li>
+                        <li><a href="../security.html">Compliance Shield</a></li>
+                        <li><a href="../protocol.html">Protokoll</a></li>
+                        <li><a href="../case-studies.html">Einsätze</a></li>
+                        <li><a href="../blog.html">Intelligence</a></li>
+                        <li><a href="../about-us.html">Über uns</a></li>
+                        <li><a href="../careers.html">Karriere</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal (DACH)</h4>
+                    <ul>
+                        <li><a href="../legal.html">Impressum</a></li>
+                        <li><a href="../legal.html">Privacy Policy</a></li>
+                        <li><a href="../legal.html">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Kontakt</h4>
+                    <p><a href="mailto:hello@niogod.com">hello@niogod.com</a></p>
+                    <h4 style="margin-top: 20px;">DACH Liaison</h4>
+                    <p>Pfaffenwaldring 50,<br>Stuttgart, Deutschland 70569</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 niogod™. Alle Rechte vorbehalten.</p>
+                <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 5px;">Borcom Dynamics Private Limited |
+                    U82990KL2023PTC084978</p>
+            </div>
+        </div>
+    </footer>
+    <script src="../../script.js"></script>
+</body>
+
+</html>
